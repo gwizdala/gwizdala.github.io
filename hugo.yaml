@@ -1,0 +1,33 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Gwiz Blogs
+theme: ["PaperMod"]
+
+taxonomies:
+  tag: tags
+  category: categories
+  type: types
+
+sectionPagesMenu: main
+
+params:
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+
+  homeInfoParams:
+    Title: Hi there!
+    Content: Coding, Coffee, Baking, and Drawing
+
+  socialIcons:
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/davidgwizdala"
+    - name: "github"
+      url: "https://github.com/gwizdala"
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search

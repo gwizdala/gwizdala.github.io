@@ -21,6 +21,7 @@ params:
     Title: Hi there!
     Content: Coding, Coffee, Baking, and Drawing
 
+  social: true
   socialIcons:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/davidgwizdala"

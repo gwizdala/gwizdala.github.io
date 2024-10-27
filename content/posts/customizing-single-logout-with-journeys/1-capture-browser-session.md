@@ -1,6 +1,6 @@
 ---
 weight: 2
-draft: true
+draft: false
 date: '2024-03-15'
 title: 'Customizing Single Logout Using Journeys, Pt. 1: Capturing the User’s Existing Browser Session'
 description: 'Part 1 in 4 of the series Customizing Single Logout Using Journeys'

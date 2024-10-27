@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 date: '2024-02-22'
 title: 'API to API Communication in PingOne Advanced Identity Cloud'
 description: 'Connecting APIs with OAuth while restricting Scope'

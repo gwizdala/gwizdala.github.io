@@ -1,8 +1,7 @@
 ---
 weight: 5
-draft: true
+draft: false
 date: '2024-03-15'
-draft: true
 title: 'Customizing Single Logout Using Journeys, Pt. 4: Redirecting the User to a Custom URL'
 description: 'Part 4 in 4 of the series Customizing Single Logout Using Journeys'
 summary: Learn how to redirect the user to a custom URL both statically and dynamically using a Journey in PingOne Advanced Identity Cloud

@@ -1,8 +1,7 @@
 ---
 weight: 3
-draft: true
+draft: false
 date: '2024-03-15'
-draft: true
 title: 'Customizing Single Logout Using Journeys, Pt. 2: Terminating an External Session via REST'
 description: 'Part 2 in 4 of the series Customizing Single Logout Using Journeys'
 summary: Learn how to terminate an external user session using REST inside a Journey in PingOne Advanced Identity Cloud

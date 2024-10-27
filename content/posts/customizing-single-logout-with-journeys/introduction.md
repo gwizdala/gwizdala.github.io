@@ -1,6 +1,6 @@
 ---
 weight: 1
-draft: true
+draft: false
 date: '2024-03-15'
 title: 'Customizing Single Logout With Journeys: Introduction'
 description: 'Introduction of the 4-part series Customizing Single Logout Using Journeys'

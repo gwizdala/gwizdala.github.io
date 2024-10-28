@@ -1,7 +1,6 @@
 ---
-weight: 6
 draft: false
-date: '2024-03-15'
+date: '2024-03-15T00:00:00+00:00'
 title: 'Customizing Single Logout Using Journeys: Conclusion & Recap'
 description: 'Conclusion of the 4-part series Customizing Single Logout Using Journeys'
 summary: View the completed Journeys and Recap what we've learned from Customizing Single Logout

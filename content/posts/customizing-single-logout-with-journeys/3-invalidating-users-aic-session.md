@@ -1,7 +1,6 @@
 ---
-weight: 4
 draft: false
-date: '2024-03-15'
+date: '2024-03-15T02:00:00+00:00'
 title: 'Customizing Single Logout Using Journeys, Pt. 3: Invalidating the User’s PingOne AIC Session'
 description: 'Part 3 in 4 of the series Customizing Single Logout Using Journeys'
 summary: Learn how to terminate an internal PingOne AIC user session using REST and inside a Journey in PingOne Advanced Identity Cloud

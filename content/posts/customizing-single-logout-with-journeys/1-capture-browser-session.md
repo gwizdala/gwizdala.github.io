@@ -1,7 +1,6 @@
 ---
-weight: 2
 draft: false
-date: '2024-03-15'
+date: '2024-03-15T04:00:00+00:00'
 title: 'Customizing Single Logout Using Journeys, Pt. 1: Capturing the User’s Existing Browser Session'
 description: 'Part 1 in 4 of the series Customizing Single Logout Using Journeys'
 summary: Learn how to capture the user's existing browser session within a Journey inside PingOne Advanced Identity Cloud

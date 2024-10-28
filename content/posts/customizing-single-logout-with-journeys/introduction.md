@@ -1,7 +1,6 @@
 ---
-weight: 1
 draft: false
-date: '2024-03-15'
+date: '2024-03-15T05:00:00+00:00'
 title: 'Customizing Single Logout With Journeys: Introduction'
 description: 'Introduction of the 4-part series Customizing Single Logout Using Journeys'
 summary: Learn how to use PingOne Advanced Identity Cloud to create Single Logout experiences for systems that don't support it out-of-the-box

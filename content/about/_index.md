@@ -3,10 +3,11 @@ title: "About" # in any language you want
 description: "Hi, I'm David!"
 summary: "About Me"
 ---
+![A drawing of me - white male with brown short cut hair and a big smile](images/profile.png)
 
 # I like _wearing many hats_.
 
-While my primary focus for the greater part of a decade has been Sales Engineering, while at startups I've had the opportunity to work in a variety of different departments and spaces.
+While my primary focus for the greater part of a decade has been Sales Engineering, during my time at startups I've had the opportunity to work in a variety of different departments and spaces.
 
 I've held roles in Product, Engineering, Sales, Project Management, and UI/UX design (sometimes all at the same time!). I've managed teams and been an individual contributor for others. At one point, I was the lead editor and secondary author of a successful [FDA 510K Submission](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K220090).
 

@@ -191,7 +191,7 @@ To view the logs using `less`, run the following commands:
 
 ```bash
 # Open in less
-less /tmp/log1.txt
+less /tmp/logs.txt
 
 # Start live navigation
 F
@@ -212,7 +212,7 @@ I mentioned eariler that the `am-everything` log option gives us a broad view of
 
 That's where [library_logger](https://gist.github.com/gwizdala/9ae0ea4a847bf742a1d95009f0fcd504#file-library_logger-js) comes in. It's a library script that spits out a formatted log with an easy-to-search identifier in the sea of data coming in from your tail.
 
-To import with frodo, it's one command (download the file first!):
+To import with FroDo, it's one command (download the file first!):
 
 ```bash
 frodo script import -f library_logger.js -n library_logger

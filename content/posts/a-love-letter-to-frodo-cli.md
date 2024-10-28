@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 date: '2024-10-28'
 title: 'A Love Letter to Frodo-CLI'
 description: 'The one CLI to rule them all'

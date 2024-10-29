@@ -13,6 +13,7 @@ cover:
   caption:
   relative: false
 ShowToc: true
+author: David Gwizdala
 ---
 
 # Invalidating the User’s PingOne AIC Session

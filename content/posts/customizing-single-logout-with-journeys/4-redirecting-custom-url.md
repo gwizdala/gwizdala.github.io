@@ -13,6 +13,7 @@ cover:
   caption:
   relative: false
 ShowToc: true
+author: David Gwizdala
 ---
 
 # Redirecting the User to a Custom URL

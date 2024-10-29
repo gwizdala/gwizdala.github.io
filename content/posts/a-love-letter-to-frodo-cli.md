@@ -13,6 +13,7 @@ cover:
   caption:
   relative: false
 ShowToc: true
+author: David Gwizdala
 ---
 
 # What is Frodo-Cli, and Why Do I Love it So Much?

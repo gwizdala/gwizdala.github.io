@@ -12,4 +12,5 @@ cover:
   alt:
   caption:
   relative: false
+author: David Gwizdala
 ---

@@ -58,7 +58,7 @@ We’ll create a new attribute that we want to have inherited. Select “Add a P
 
 | Name | Label (Optional) | Type | Required |
 | ----- | ----- | ----- | ----- |
-| `inherited_description` | Inherited Description | String | False |
+| `inherited_description` | Inherited Description | Array | False |
 
 Select the newly-created attribute, and under Details → Advanced Options, **disable** *Viewable* and *User Editable* and **enable** *Virtual* and *Return by Default*. You know you’ve done this right when after saving the *Query Configuration* tab appears on the page.
 

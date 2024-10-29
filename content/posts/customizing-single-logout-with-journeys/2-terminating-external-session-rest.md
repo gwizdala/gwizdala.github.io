@@ -61,7 +61,7 @@ Copy/Paste the following Javascript into your Node:
  - Failure
  - Error
  
- Author: se@pingidentity.com
+ Author: @gwizdala
  */
 
 //// CONSTANTS

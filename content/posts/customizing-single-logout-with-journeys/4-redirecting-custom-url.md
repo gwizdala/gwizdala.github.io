@@ -51,7 +51,7 @@ The scripted decision node needs the following outcomes defined:
  - Found
  - Not Found
  
- Author: se@pingidentity.com
+ Author: @gwizdala
  */
 
 //// CONSTANTS

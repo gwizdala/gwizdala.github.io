@@ -60,7 +60,7 @@ Checks if the user has an existing session, and if so, stores it in shared state
  - Session Found
  - No Session Found
  
- Author: se@pingidentity.com
+ Author: @gwizdala
  */
 
 // The tenant cookie. Found in Tenant Settings/Global Settings

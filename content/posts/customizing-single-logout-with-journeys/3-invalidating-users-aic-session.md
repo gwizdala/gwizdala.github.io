@@ -61,7 +61,7 @@ Checks if the user has an existing session, and if so, logs them out.
  - No Session
  - Error
  
- Author: se@pingidentity.com
+ Author: @gwizdala
  */
 
 // Request Params

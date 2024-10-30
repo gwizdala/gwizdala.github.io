@@ -230,7 +230,7 @@ These scripts do the following:
 1. If you add an RDVP with the prefix `inherited_`, it will look for a corresponding attribute with the same name (e.g. `inherited_description` and `description`)  
 2. If the RDVP is populated, and there’s a mismatch between the RDVP’s value and the value stored on the main attribute, update the main attribute to match the value in the RDVP.
 
-The nice part about this approach is that it’s **infinitely extensible** - as long as you add an attribute and a matching inherited_attribute, of any type (other than a relationship) it can be recognized and inherited. Some examples include:
+The nice part about this approach is that it’s **infinitely extensible**[^1] - as long as you add an attribute and a matching inherited_attribute, of any type (other than a relationship) it can be recognized and inherited. Some examples include:
 
 * A list (array) of scopes  
 * A grouping (single-layer object) of functionality/capabilities  
@@ -472,4 +472,11 @@ _All Layers of Children Inheriting from the Root_
 
 Through this workshop we have shown how to inherit attributes from related identities within PingOne Advanced Identity Cloud and PingIDM. We’ve also learned how to enable inheritance overrides to enable flexible down-the-line control.
 
+You now have the tools in your toolbelt to extend data across relationships. With what you know, here are some ideas of how you could take it further:
+
+- RDVPs can be derived from upstream _AND_ downstream relationships. Use the same approach as above to inform the parents of information that has changed on their children - for example, keeping a list of scopes that have been overridden by the child.
+- _Flattening_ RDVPs creates simple arrays of only the properties themselves instead of the entire relationship object. If you'd like to use the `inherited_` values in a Script, Journey, or Access Token, consider using flattened values instead.
+
 As your organization grows, the capabilities needed for your users will continue to expand in complexity. Rather than explode the number of controls that each individual has to manage, simplify through inherited properties.
+
+[^1]: While you can extend your models however you’d like, note that the more Event Hooks, RDVPs, and deeply-nested relationships you create has the potential to cause a massive storm of signals as one update could cascade thousands (if not more!) of actions. Consider how your relationships are going to scale while designing your inherited values, and the model will scale well with you.

@@ -17,6 +17,9 @@ params:
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
 
+  footer:
+    text: "David Gwizdala"
+
   homeInfoParams:
     Title: Hi there!
     Content: Coding, Coffee, Baking, and Drawing

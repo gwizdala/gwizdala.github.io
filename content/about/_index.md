@@ -32,3 +32,7 @@ My favorite place to be is when I don't know the answer - it means I have a fun 
 Nowadays I work for [Ping Identity](https://www.pingidentity.com/en.html) as a Sales Engineer. You can see an example of what I'm doing [here](https://www.brighttalk.com/webcast/9491/621294).
 
 Outside of work you can find me traveling, baking, drawing, and researching the latest coffee gadget.
+
+---
+
+{{< disclaimer >}}

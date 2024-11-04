@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <tr>
+            {{ range .Params }}
+            <th style="text-align: left">
+                {{ . }}
+            </th>
+            {{ end }}
+        </tr>
+    </thead>
+    <tbody>
+        {{ .Inner }}
+    </tbody>
+</table>

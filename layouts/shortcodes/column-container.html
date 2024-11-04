@@ -1,3 +1,9 @@
-<div class="col-container" style="display: flex; flex-direction: row; align-items: center">
+{{ $wrap := .Get "wrap" | default "false" }}
+{{ $inlineStyle := "display: flex; flex-direction: row; align-items: center;" }}
+{{ if eq $wrap "true" }}
+        {{ $inlineStyle = (print $inlineStyle "flex-wrap: wrap; justify-content: space-around;") }}
+{{ end }}
+
+<div class="col-container" {{ printf "style=%q" $inlineStyle | safeHTMLAttr }}>
     {{ .Inner }}
 </div>

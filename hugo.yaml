@@ -1,14 +1,27 @@
 baseURL: https://gwizkid.com
 languageCode: en-us
-title: Gwiz Blogs
+title: Gwiz Kid
 theme: ["PaperMod"]
+
+enableRobotsTXT: true
+enableEmoji: true
 
 taxonomies:
   tag: tags
   category: categories
   type: types
 
-sectionPagesMenu: main
+menu:
+  main:
+    - name: About
+      url: about
+      weight: 5
+    - name: Archive
+      url: archive
+      weight: 10
+    - name: Search
+      url: search
+      weight: 15
 
 params:
   ShowShareButtons: true
@@ -22,7 +35,8 @@ params:
 
   homeInfoParams:
     Title: Hi there!
-    Content: Coding, Coffee, Baking, and Drawing
+    Content: >
+      [Coding](/types/how-to) · [Creating](/types/game-guide)
 
   social: true
   socialIcons:

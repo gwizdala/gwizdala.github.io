@@ -59,7 +59,7 @@ This four-part How-To series will cover:
 3. [Invalidating the user’s PingOne AIC session]({{< ref "3-invalidating-users-aic-session" >}})
 4. [Redirecting the user to a custom URL]({{< ref "4-redirecting-custom-url" >}})
 
-Each section contains a Journey Configuration and/or Script that you can use either standalone or as part of a larger Journey. There’s no one-size-fits-all for Single Logout, so the sections are structured in a way that you can pick and choose which apply to you. If you want to follow along with a working Journey during your reading, or if you’d like a version that consolidates all features into one script, you can jump to The Completed Journey in the [Recap]() section to download a copy for your tenant. Otherwise, follow along with the How-To.
+Each section contains a Journey Configuration and/or Script that you can use either standalone or as part of a larger Journey. There’s no one-size-fits-all for Single Logout, so the sections are structured in a way that you can pick and choose which apply to you. If you want to follow along with a working Journey during your reading, or if you’d like a version that consolidates all features into one script, you can jump to The Completed Journey in the [Recap]({{< ref "conclusion" >}}) section to download a copy for your tenant. Otherwise, follow along with the How-To.
 
 This How-To expects a basic understanding of AIC Journeys, REST APIs, and JavaScript. If you haven’t scripted within Identity Cloud before, it may be wise to review some precursory blogs in the [documentation](https://docs.pingidentity.com).
 

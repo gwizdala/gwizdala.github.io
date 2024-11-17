@@ -30,20 +30,27 @@ params:
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
 
-  footer:
-    text: "David Gwizdala"
-
-  homeInfoParams:
-    Title: Hi there!
-    Content: >
-      [Coding](/types/how-to) · [Creating](/types/game-guide)
-
+  profileMode:
+    enabled: true
+    title: "Hi there!"
+    subtitle: "There's Always Room for a Little Whimsy"
+    imageUrl: "/profile.svg" # optional
+    imageTitle: "Profile Image" # optional
+    buttons:
+      - name: Coding
+        url: "/types/how-to"
+      - name: Creating
+        url: "/types/game-guide"
+  
   social: true
   socialIcons:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/davidgwizdala"
     - name: "github"
       url: "https://github.com/gwizdala"
+
+  footer:
+    text: "David Gwizdala"
 outputs:
   home:
     - HTML

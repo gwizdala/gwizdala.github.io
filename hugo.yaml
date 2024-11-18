@@ -29,7 +29,13 @@ params:
   ShowBreadCrumbs: true
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
-  images: ["/profile.svg"]
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: "Gwiz Kid: Coding + Creativity"
+  description: "David Gwizdala's site: including coding/development how-tos, custom game guides and documentation, and art assets."
+  keywords: [Blog, Developer, Portfolio]
+  author: David Gwizdala
+  images: ["images/banner.png"]
+  defaultTheme: auto # dark, light
 
   profileMode:
     enabled: true

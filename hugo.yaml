@@ -29,6 +29,7 @@ params:
   ShowBreadCrumbs: true
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
+  images: ["/profile.svg"]
 
   profileMode:
     enabled: true

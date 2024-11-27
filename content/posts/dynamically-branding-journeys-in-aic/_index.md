@@ -1,5 +1,5 @@
 ---
-date: '2024-03-15'
+date: '2024-11-16'
 draft: false
 title: 'Dynamically Branding in PingOne Advanced Identity Cloud'
 description: 'A 2-part series on how to dynamically brand User Experience Journeys and Email Templates in PingOne AIC'

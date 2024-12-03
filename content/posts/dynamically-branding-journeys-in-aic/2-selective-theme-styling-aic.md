@@ -6,7 +6,7 @@ description: 'Part 2 of 2 in the series Dynamically Branding in PingOne Advanced
 summary: Learn how to dynamically change granular details on Hosted Pages and Email Templates in a PingOne AIC Journey
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud", "JavaScript", "PingIDM"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

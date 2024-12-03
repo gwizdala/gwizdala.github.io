@@ -6,7 +6,7 @@ description: 'Part 3 in 4 of the series Customizing Single Logout Using Journeys
 summary: Learn how to terminate an internal PingOne AIC user session using REST and inside a Journey in PingOne Advanced Identity Cloud
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud", "JavaScript", "REST"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

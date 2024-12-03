@@ -45,9 +45,9 @@ params:
     imageTitle: "Profile Image" # optional
     buttons:
       - name: Coding
-        url: "/types/how-to"
-      - name: Creating
-        url: "/types/game-guide"
+        url: "/types/coding"
+      - name: Creativity
+        url: "/types/creativity"
   
   social: true
   socialIcons:

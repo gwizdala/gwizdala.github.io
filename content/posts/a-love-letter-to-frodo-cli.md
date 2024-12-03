@@ -6,7 +6,7 @@ description: 'The one CLI to rule them all'
 summary: Learn how to leverage frodo-cli to easily manage your PingOne AIC Tenant
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud", "Bash", "JavaScript"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

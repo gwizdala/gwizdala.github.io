@@ -6,7 +6,7 @@ description: 'Introduction of the 2-part series on how to dynamically brand User
 summary: Learn how to use PingOne Advanced Identity Cloud to create custom-themed experiences for each and every user
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

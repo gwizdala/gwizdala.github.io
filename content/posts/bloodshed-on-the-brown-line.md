@@ -5,8 +5,8 @@ title: 'Bloodshed on The Brown Line'
 description: 'Instructions on how to host a Murder Mystery Party on an actual moving train'
 summary: 'Instructions for how to host a classic murder mystery involving the death of a business mogul with the suspects all present inside an actual moving train car.'
 categories: ["Fun & Games"]
-tags: ["Murder Mystery", "Party Games"]
-types: ["Game Guide"]
+tags: ["Murder Mystery", "Party Games", "Game Guide"]
+types: ["Creativity"]
 cover:
   image: "/posts/images/bloodshed-on-the-brown-line.png"
   alt:

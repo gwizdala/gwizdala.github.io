@@ -6,7 +6,7 @@ description: 'A 4-part series on how to Customize Single Logout using PingOne AI
 summary: Learn how to use PingOne Advanced Identity Cloud to create Single Logout experiences for systems that don't support it out-of-the-box
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

@@ -6,7 +6,7 @@ description: 'Part 1 in 4 of the series Customizing Single Logout Using Journeys
 summary: Learn how to capture the user's existing browser session within a Journey inside PingOne Advanced Identity Cloud
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud", "JavaScript"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

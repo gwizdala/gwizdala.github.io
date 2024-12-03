@@ -6,7 +6,7 @@ description: 'Conclusion of the 4-part series Customizing Single Logout Using Jo
 summary: View the completed Journeys and Recap what we've learned from Customizing Single Logout
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

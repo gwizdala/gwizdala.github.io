@@ -6,7 +6,7 @@ description: 'Part 1 of 2 in the series Dynamically Branding in PingOne Advanced
 summary: Learn how to dynamically swap the Hosted Page and Email Template dynamically inside a PingOne AIC Journey
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud", "JavaScript", "PingIDM"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

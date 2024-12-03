@@ -5,8 +5,8 @@ title: 'Bridezillas v1.0'
 description: 'Instructions for a mini-RPG where you play as a bridal party that may or may not be a group of Kaiju'
 summary: 'Bridezillas is a mini-RPG where you play as a bridal party that may or not be a group of Kaiju, written as a wedding gift for the wonderful couple Nicole and Dan'
 categories: ["Fun & Games"]
-tags: ["Tabletop RPG", "Party Games"]
-types: ["Game Guide"]
+tags: ["Tabletop RPG", "Party Games", "Game Guide"]
+types: ["Creativity"]
 cover:
   image: "/posts/images/bridezillas.png"
   alt: The Bridezillas Logo

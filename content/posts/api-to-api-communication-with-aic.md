@@ -6,7 +6,7 @@ description: 'Connecting APIs with OAuth while restricting Scope'
 summary: Enable systems such as microservices to communicate with one another via standards such as OAuth while restricting scope per relationship between systems
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud", "JavaScript", "OAuth"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

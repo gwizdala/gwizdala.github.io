@@ -6,7 +6,7 @@ description: 'Deploy object-oriented concepts within your IAM strategy'
 summary: Learn how to enable inheritance and inheritance overrides for managed identities within PingOne AIC and PingIDM
 categories: ["Ping Identity"]
 tags: ["PingOne Advanced Identity Cloud", "PingIDM", "JavaScript"]
-types: ["How-To"]
+types: ["Coding"]
 cover:
   image:
   alt:

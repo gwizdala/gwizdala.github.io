@@ -1,3 +1,4 @@
-<td style="text-align: left">
+{{ $colspan := .Get "colspan" | default "1" }}
+<td style="text-align: left" {{ printf "colspan=%q" $colspan | safeHTMLAttr }}>
     {{ .Inner | markdownify }}
 </td>

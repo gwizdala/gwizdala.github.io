@@ -1,11 +1,11 @@
 ---
 draft: false
 date: '2024-12-12'
-title: 'Setting Delegated Administrative Privileges in PingOne Advanced Identity Cloud'
+title: 'Setting Organization IDM Delegated Administrative Privileges in PingOne Advanced Identity Cloud'
 description: 'Define Fine-Grained Self-Service for your Delegated Administration, their Organizations, and their Users'
-summary: Learn how what Delegated Administration means in AIC and how to create your own Delegated Administrative Privileges
+summary: Learn how what Delegated Administration for Organizations means in AIC and how to create your own Organization IDM Delegated Administrative Privileges
 categories: ["Ping Identity"]
-tags: ["PingOne Advanced Identity Cloud"]
+tags: ["PingOne Advanced Identity Cloud", "PingIDM"]
 types: ["Coding"]
 cover:
   image:
@@ -18,7 +18,7 @@ author: David Gwizdala
 
 # Introduction
 
-**Delegated Administration** is a key feature of PingOne Advanced Identity Cloud (AIC)’s Organization structure. It allows end-users to self-manage key aspects of themselves, their users, and the metadata within the group that they’re managing. As a Tenant Administrator, you have control over what capabilities are templatized on every identity type (i.e. Users/Orgs) as well as what level of control each type of delegated user has to those capabilities.
+**Delegated Administration** of Identity and Identity Metadata is a key feature of PingOne Advanced Identity Cloud (AIC)’s Organization structure. It allows end-users to self-manage key aspects of themselves, their users, and the metadata within the group that they’re managing. As a Tenant Administrator, you have control over what capabilities are templatized on every identity type (i.e. Users/Orgs) as well as what level of control each type of delegated user has to those capabilities.
 
 This How-To will teach you what Delegated Administration means in AIC and how to create your own Administrative permissions. It expects an existing understanding of [REST APIs](https://docs.pingidentity.com/pingoneaic/latest/developer-docs/crest/about-crest.html), AIC’s [Organization Model](https://docs.pingidentity.com/pingoneaic/latest/identities/organizations.html), and (optionally) how to use [FroDo CLI](https://gwizkid.com/posts/a-love-letter-to-frodo-cli/).
 
@@ -33,6 +33,8 @@ Users within your tenant can be assigned more than one delegated relationship ac
 * A **Fan** (Member) of multiple Teams in a Franchise 
 
 **Organization membership is** **inherited**, meaning that if you assign a user as an Owner, Admin, or Member of a parent Organization they will also have that permission to the Organization’s children.
+
+> Note that delegated administration in this case is specifically Identity Management (IDM)-focused: meaning that we are managing metadata on Users and Organizations, not delegating Tenant Admin functionality like IGA, Applications, Journeys, etc.
 
 ## Delegated Administration Defaults
 

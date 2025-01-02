@@ -33,11 +33,11 @@ These toolsets should give you the confidence and power to create an endless num
 
 The complete Journey, using the Journeys developed in the previous parts, can be found here:
 
-[Customizing Single Logout Using Journeys, Complete](https://gist.github.com/gwizdala/b2ab2b41949933545f6fff7ba97a723e#file-universalsinglelogout_example-json)
+[Customizing Single Logout Using Journeys, Complete](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/customizing-single-logout-with-journeys/UniversalSingleLogout_Example.json)
 
 A consolidated version of the Journey, without inner trees or testing output, can be found here:
 
-[Customizing Single Logout Using Journeys, Consolidated](https://gist.github.com/gwizdala/b2ab2b41949933545f6fff7ba97a723e#file-universalsinglelogout-json)
+[Customizing Single Logout Using Journeys, Consolidated](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/customizing-single-logout-with-journeys/UniversalSingleLogout.json)
 
 # Enhancements/Next Steps
 

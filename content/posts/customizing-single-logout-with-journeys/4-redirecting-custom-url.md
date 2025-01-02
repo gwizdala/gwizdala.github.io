@@ -294,7 +294,7 @@ With this How-To you have redirected a user to a different failure URL based on 
 
 The full Journey, including the testing output, can be downloaded here:
 
-[Redirect by Custom Attribute Journey](https://gist.github.com/gwizdala/b2ab2b41949933545f6fff7ba97a723e#file-pt-4_failure-redirect-by-attribute-json)
+[Redirect by Custom Attribute Journey](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/customizing-single-logout-with-journeys/Pt%204_Failure%20Redirect%20By%20Attribute.json)
 
 This is part of a 4-part series on Creating Custom Single Logout Using Journeys. To see the completed Journey, combining all aspects of the series, continue on to the [Recap]({{< ref "conclusion" >}}).
 

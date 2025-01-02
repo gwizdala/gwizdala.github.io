@@ -29,14 +29,14 @@ We were able to customize theming in two ways:
 
 The Complete Journeys for each section can be found here:
 
-1. [ChangeThemeByOrg.json](https://gist.github.com/gwizdala/a81ae8ac9fcf2621473404b1307fdc00#file-changethemebyorg-json)
-2. [ChangeThemeCustomizationByOrg.json](https://gist.github.com/gwizdala/a81ae8ac9fcf2621473404b1307fdc00#file-changethemecustomizationbyorg-json)
+1. [ChangeThemeByOrg.json](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/dynamically-branding-journeys-in-aic/ChangeThemeByOrg.json)
+2. [ChangeThemeCustomizationByOrg.json](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/dynamically-branding-journeys-in-aic/ChangeThemeCustomizationByOrg.json)
 
 We have seen them in action separately, but we can combine the two together into a singular Journey as well.
 
 The Combined Journey, using the Journeys developed in the previous parts, can be found here:
 
-[ChangeBrandingByOrg.json](https://gist.github.com/gwizdala/a81ae8ac9fcf2621473404b1307fdc00#file-changethemecustomizationbyorg-json)
+[ChangeBrandingByOrg.json](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/dynamically-branding-journeys-in-aic/ChangeBrandingByOrg.json)
 
 This Journey allows us to **Override** the theme and **Customize** components of that theme. With these building blocks in place, you have all the tools you need to make your experience the best it can be for all users you support.
 

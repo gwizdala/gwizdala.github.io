@@ -26,7 +26,7 @@ Create a new Journey entitled _Terminate Session_. In your Journey, connect your
 
 Now that we’ve captured the session, we can optionally call the logout actions we made in [Terminating an External Session via REST]({{< ref "2-terminating-external-session-rest" >}}) with another Inner Tree Node. Note that if you don’t need to call any external endpoints, you’ll need to add an Identify Existing User Node with the Identifier and Identity Attribute both set to “userName” (as mentioned in [Ensuring the User Has an Active Session]({{< ref "2-terminating-external-session-rest#ensuring-the-user-has-an-active-session" >}})) as we’ll be referencing the user’s `_id` later.
 
-> **Note**: if you’d prefer not use inner trees, you can add the Scripted Decision Nodes you created in previous sections directly into this Journey instead or combine the scripts together (code example [here](https://gist.github.com/gwizdala/b2ab2b41949933545f6fff7ba97a723e#file-getandendusersession-js))
+> **Note**: if you’d prefer not use inner trees, you can add the Scripted Decision Nodes you created in previous sections directly into this Journey instead or combine the scripts together (code example [here](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/customizing-single-logout-with-journeys/getAndEndUserSession.js))
 
 Your journey will either look like this:
 
@@ -172,7 +172,7 @@ With this How-To you have invalidated a user’s sessions both from external app
 
 The full Journey, including the testing output, can be downloaded here:
 
-[Invalid PingOne AIC Sessions Journey](https://gist.github.com/gwizdala/b2ab2b41949933545f6fff7ba97a723e#file-pt-3_terminate-forgerock-session-json)
+[Invalid PingOne AIC Sessions Journey](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/customizing-single-logout-with-journeys/Pt%203_Terminate%20ForgeRock%20Session.json)
 
 This is part of a 4-part series on Creating Custom Single Logout Using Journeys. To continue this series, head to [Part 4: Redirecting the User to a Custom URL]({{< ref "4-redirecting-custom-url" >}}) to learn how to specify where the user goes when they logout.
 

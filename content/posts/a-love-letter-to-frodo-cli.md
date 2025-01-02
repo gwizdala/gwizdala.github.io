@@ -211,7 +211,7 @@ Now let's take live tailing one step further.
 
 I mentioned eariler that the `am-everything` log option gives us a broad view of _Access Related_ events, including Journeys and scripts within Journeys. That being said, with more than one person targeting your tenant it can be difficult to find and parse the error message that you're looking to debug in particular - especially if you're unsure where/when this error is happening.
 
-That's where [library_logger](https://gist.github.com/gwizdala/9ae0ea4a847bf742a1d95009f0fcd504#file-library_logger-js) comes in. It's a library script that spits out a formatted log with an easy-to-search identifier in the sea of data coming in from your tail.
+That's where [library_logger](https://github.com/gwizdala/lib-ping/blob/main/Library%20Scripts/library_logger.js) comes in. It's a library script that spits out a formatted log with an easy-to-search identifier in the sea of data coming in from your tail.
 
 To import with FroDo, it's one command (download the file first!):
 

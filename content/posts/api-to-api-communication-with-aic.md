@@ -63,7 +63,7 @@ Once policy validation is set up, it can be reused across all future Policy Sets
 
 The scripts used in this section are found at the following location: 
 
-[PingOne Advanced Identity Cloud: API to API Policy Evaluation · GitHub](https://gist.github.com/gwizdala/f9db95203fd7c3f435a3fba6b52f2f17) 
+[PingOne Advanced Identity Cloud: API to API Policy Evaluation · GitHub](https://github.com/gwizdala/lib-ping/tree/main/How-Tos/api-to-api-communication-with-aic) 
 
 ### Creating the Policy Evaluator {#creating-the-policy-evaluator}
 

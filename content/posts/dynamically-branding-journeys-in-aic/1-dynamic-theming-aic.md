@@ -455,7 +455,7 @@ _The Email Override in Action_
 
 The completed Journey can be found in the link below. It additionally contains a version of the Set Theming Script that combines both Hosted Page and Email setting into one script.
 
-[ChangeThemeByOrg.json](https://gist.github.com/gwizdala/a81ae8ac9fcf2621473404b1307fdc00#file-changethemebyorg-json)
+[ChangeThemeByOrg.json](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/dynamically-branding-journeys-in-aic/ChangeThemeByOrg.json)
 
 This is a basic approach to dynamically changing the theme and should provide a foundation to managing theming for your users. Some ways that you can extend this concept include:
 

@@ -270,7 +270,7 @@ With this How-To you have:
 
 The full Journey, including the testing output, can be downloaded here:
 
-[Terminate Session with API Call Journey](https://gist.github.com/gwizdala/b2ab2b41949933545f6fff7ba97a723e#file-pt-2_terminate-session-with-api-call-json)
+[Terminate Session with API Call Journey](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/customizing-single-logout-with-journeys/Pt%202_Terminate%20Session%20with%20API%20Call.json)
 
 This is part of a 4-part series on Creating Custom Single Logout Using Journeys. To continue this series, head to [Part 3: Invalidating the User’s PingOne AIC Session]({{< ref "3-invalidating-users-aic-session" >}}) to learn how to terminate a user’s PingOne AIC session while still inside a Journey.
 

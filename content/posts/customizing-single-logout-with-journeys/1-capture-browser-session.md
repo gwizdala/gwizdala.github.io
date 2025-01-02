@@ -190,7 +190,7 @@ With this How-To you have:
 
 The full Journey, including the testing output, can be downloaded here:
 
-[Capture Browser Session](https://gist.github.com/gwizdala/b2ab2b41949933545f6fff7ba97a723e#file-pt-1_capture-browser-session-json)
+[Capture Browser Session](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/customizing-single-logout-with-journeys/Pt%201_Capture%20Browser%20Session.json)
 
 Once you have a user’s session in your Journey you can securely act as the user when calling Ping APIs, for example [Invalidating the User’s PingOne AIC Session]({{< ref "3-invalidating-users-aic-session" >}}) (part 3 of 4 in this series).
 

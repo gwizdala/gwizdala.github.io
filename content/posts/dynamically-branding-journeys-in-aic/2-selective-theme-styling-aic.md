@@ -552,7 +552,7 @@ _The Custom-Styled Email_
 
 The completed Journey can be found in the link below. It additionally contains the Global Theme needed to render the styling.
 
-[ChangeThemeCustomizationByOrg.json](https://gist.github.com/gwizdala/a81ae8ac9fcf2621473404b1307fdc00#file-changethemecustomizationbyorg-json)
+[ChangeThemeCustomizationByOrg.json](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/dynamically-branding-journeys-in-aic/ChangeThemeCustomizationByOrg.json)
 
 There are some “gotchas” you may want to consider when expanding upon this idea:
 

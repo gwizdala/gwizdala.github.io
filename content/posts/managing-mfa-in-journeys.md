@@ -429,6 +429,7 @@ function formatInput(name, id, type, required) {
                         // check if this device is already set in this profile type.
                         var identity = idRepository.getIdentity(uid);
                         var deviceProfiles = identity.getAttributeValues(deviceKey);
+                        var updatedDeviceProfile = {};
                         var foundProfile = false;
                         var profileIndex = 0;
 
@@ -442,8 +443,9 @@ function formatInput(name, id, type, required) {
                             
                             if (deviceProfile[comparator.key] == comparator.value) {
                                 // Index found. Update existing device
-                                deviceProfile.deviceName = newDeviceName;
-                                deviceProfiles[profileIndex] = JSON.stringify(deviceProfile);
+                                updatedDeviceProfile = deviceProfile;
+                                updatedDeviceProfile.deviceName = newDeviceName;
+                                deviceProfiles[profileIndex] = JSON.stringify(updatedDeviceProfile);
                                 foundProfile = true;
                             }
 
@@ -460,6 +462,7 @@ function formatInput(name, id, type, required) {
 
                             // Update shared state to reflect the new name
                             nodeState.putShared(MFA_DEVICE_NAME, newDeviceName);
+                            nodeState.putShared(MFA_DEVICE_PROFILE, updatedDeviceProfile);
                         }
                     }
                     // If you have extra inputs, process them here.

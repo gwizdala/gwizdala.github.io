@@ -35,20 +35,20 @@ But before we get into the details, let’s go over some quick platform definiti
 
 # Definitions {#definitions}
 
-Delegated Administration in PingOne will primarily interact with **Environments**, **Populations**, **Groups**, and **Roles**.
+Delegated Administration in PingOne will primarily interact with **Environments**, **Populations**, **Groups**, and **Admin Roles**.
 
 An [**Environment**](https://docs.pingidentity.com/pingone/settings/p1_environments.html) is a subdivision of your instance of PingOne. It contains the core resources you’ll use to build your IAM services, including your Users, the Applications they’ll single-sign-on (SSO) into, and the Services and Policies you’ll use to secure the access activities of those Users.
 
 A [**Population**](https://docs.pingidentity.com/pingone/directory/p1_populations.html) is a unique administrative set of Users and Groups. Populations contain their own configuration such as their own Password Policies, Branding, default Identity Provider, and/or “alternative identifiers” used to easily look up a Population in things like REST APIs and DaVinci Flows.
 
-A [**Group**](https://docs.pingidentity.com/pingone/directory/p1_groups.html) is a collection of Users. Groups can both be [assigned dynamically and statically](https://docs.pingidentity.com/pingone/directory/p1_groups_vs_populations.html#static-and-dynamic-groups)  and can be [nested inside one another](https://docs.pingidentity.com/pingone/directory/p1_groups_vs_populations.html#nested-groups). Groups are used as a way to assign permissions and membership for Users, including Application access and Roles. 
+A [**Group**](https://docs.pingidentity.com/pingone/directory/p1_groups.html) is a collection of Users. Groups can both be [assigned dynamically and statically](https://docs.pingidentity.com/pingone/directory/p1_groups_vs_populations.html#static-and-dynamic-groups)  and can be [nested inside one another](https://docs.pingidentity.com/pingone/directory/p1_groups_vs_populations.html#nested-groups). Groups are used as a way to assign permissions and membership for Users, including Application access and Admin Roles. 
 
 Groups can be created one of two ways:
 
 1. **External Groups** come from an external connection, either by an Identity Provider (IdP) or LDAP Gateway. They are provisioned either via just-in-time or through synchronization and cannot be modified manually in PingOne.  
 2. **Internal Groups** are created manually within the PingOne portal like a Population and are a construct represented entirely in PingOne.
 
-A [**Role**](https://docs.pingidentity.com/pingone/directory/p1_roles.html#built-in-roles-tab) is a collection of permissions that you can assign to Users and Groups. Roles allow Users (and Users within the Groups) to interact with the PingOne platform at a higher level of privilege, such as managing the Users within a particular Population. **Only Users and static Groups can be assigned Roles.**
+A [**Admin Role**](https://docs.pingidentity.com/pingone/directory/p1_roles.html#built-in-roles-tab) is a collection of permissions that you can assign to Users and Groups. Admin Roles allow Users (and Users within the Groups) to interact with the PingOne platform at a higher level of privilege, such as managing the Users within a particular Population. **Only Users and static Groups can be assigned Admin Roles.**
 
 ## When to Create Multiple Environments
 
@@ -72,14 +72,14 @@ At a first glance, Populations and Groups look kind of similar. However, they di
 1. Users must be part of a Population. Groups do not.  
 2. Users and Groups can be a part of ONLY ONE Population. Users and Groups inside a Population can only be a part of Groups in that Population.  
 3. Users and Groups can be a part of MORE THAN ONE Group.  
-4. Groups can have Roles assigned to them, Populations cannot.  
-5. Roles can be scoped to Populations, but not to Groups.
+4. Groups can have Admin Roles assigned to them, Populations cannot.  
+5. Admin Roles can be scoped to Populations, but not to Groups.
 
 Think of **Populations as a representative set of Users** and **Groups as a categorization of Users**. In the real world:
 
 * A Population could be a Business Partner, while a Group inside that population could be one of their Departments.   
 * If you had a shared Application (let’s call it *Partner Hub*) that all of your Business Partners use, a Group that spans multiple Populations could dynamically contain the Users that need access to that app.  
-* If you had Support personnel that aided your Business Partners, they could be in a group that has Roles tied to the different Populations.
+* If you had Support personnel that aided your Business Partners, they could be in a group that has Admin Roles tied to the different Populations.
 
 ## Universal vs Segmented Identity
 
@@ -250,7 +250,7 @@ Right now, these Administrators are a part of the Administrators Environment but
 Now, let’s give these users some permissions. Starting with the Customer Admin, select the “Roles” tab in their user profile and then “Grant Roles”.
 
 ![A screenshot of the admin portal where the grant roles option has been highlighted for the customerAdmin user](../images/delegated-administration-in-pingone/grant-user-role.png) 
-*Granting Roles to a User*
+*Granting Admin Roles to a User*
 
 From here, you’ll see a wide variety of permissions available to assign. Let’s start at the highest level and work our way down.
 
@@ -269,7 +269,7 @@ You’ll see that your Customer Administrator has access to configuration detail
 ![A screenshot of the admin portal for the Customer environment with the granted roles to the customerAdmin. In this page, the admin can see a Group but can't edit it nor can they see the Users in the Group](../images/delegated-administration-in-pingone/admin-env-view.png) 
 *The Environment Admin’s Capabilities*
 
-Most Roles give us the capability to assign by Organization or Environment (see DaVinci Admin, Application Admin), but let’s get a bit more granular. Back in the Administrators Environment view, update the Customer Admin so that they **don’t** have the Environment Administrator Role and **do** have the Identity Data Admin Role specifically for the “Sample Users” Population. To do that, select the Identity Data Admin Role, 1) click the Filter icon (next to the checkbox) and 2) select the Sample Users Population. When you’re done, you should see “Limited Access” next to the Population and then the specific population after saving in the User summary.
+Most Admin Roles give us the capability to assign by Organization or Environment (see DaVinci Admin, Application Admin), but let’s get a bit more granular. Back in the Administrators Environment view, update the Customer Admin so that they **don’t** have the Environment Administrator Admin Role and **do** have the Identity Data Admin Role specifically for the “Sample Users” Population. To do that, select the Identity Data Admin Role, 1) click the Filter icon (next to the checkbox) and 2) select the Sample Users Population. When you’re done, you should see “Limited Access” next to the Population and then the specific population after saving in the User summary.
 
 ![A screenshot of the admin portal where the identity data admin granted permission is filtered to a specific Population. The steps taken to the filter are highlighted.](../images/delegated-administration-in-pingone/grant-user-role-filter.png)   
 ![A screenshot of the admin portal where the filter has been applied](../images/delegated-administration-in-pingone/grant-user-role-filter-applied.png) 
@@ -282,7 +282,7 @@ Now go back to your customerAdmin’s dashboard. After refreshing the page, you�
 ![A screenshot of the customerAdmin's view into the users under the Sample Users Population](../images/delegated-administration-in-pingone/admin-view-users.png) 
 *Identity Data Admin View*
 
-Using what you just learned, assign the same Role to your Workforce Admin but with their permission pointed to the Sample Users Population in the Workforce Environment. 
+Using what you just learned, assign the same Admin Role to your Workforce Admin but with their permission pointed to the Sample Users Population in the Workforce Environment. 
 
 ## Delegating Administration by Group
 
@@ -300,7 +300,7 @@ This Group is assigned outside of a Population so we can add any Users that are 
 
 On the next screen, select the customerAdmin and the workforceAdmin Users to this Group.
 
-Next, go to the Roles Tab and select Grant Roles. This screen will look very familiar to you: it’s the same screen we used when assigning Roles to Users!
+Next, go to the Roles Tab and select "Grant Roles". This screen will look very familiar to you: it’s the same screen we used when assigning Admin Roles to Users!
 
 This time, let’s give this Group the Identity Data Admin Role across both the Customer Example and Workforce Example Environments.
 
@@ -310,9 +310,9 @@ This time, let’s give this Group the Identity Data Admin Role across both the 
 When you hit Save, and go back to your customerAdmin or workforceAdmin User, you’ll see that their permissions have been “Granted By Group” to the two Environments.
 
 ![A screenshot of the admin portal where the admins assigned to the Group have had updated permissions](../images/delegated-administration-in-pingone/updated-permissions.png) 
-*The User’s Assigned Roles, Direct and Group*
+*The User’s Assigned Admin Roles, Direct and Group*
 
-> You probably also saw an error message pop up - we’ve just tried to assign the same Role twice to our Admin Users. The highest amount of permission will win here: in this case, the Helpdesk Identity Data Admin Role that grants access to all Users in both Environments.
+> You probably also saw an error message pop up - we’ve just tried to assign the same Admin Role twice to our Admin Users. The highest amount of permission will win here: in this case, the Helpdesk Identity Data Admin Role that grants access to all Users in both Environments.
 
 Go ahead and refresh the admin portal for either your customerAdmin or your workforceAdmin. Not only will you see all 40 users in your current Environment, you’ll additionally be able to navigate into and see the other Environment too.
 
@@ -322,7 +322,7 @@ Go ahead and refresh the admin portal for either your customerAdmin or your work
 
 ## Putting it to Practice
 
-So now you know how to assign Roles to a User and to a Group - let’s try some common combinations that will help you and your Users best interact with the platform. If you want a challenge, try to assign the right roles before reading which options you need.
+So now you know how to assign Admin Roles to a User and to a Group - let’s try some common combinations that will help you and your Users best interact with the platform. If you want a challenge, try to assign the right roles before reading which options you need.
 
 {{<details title="Managing Data about Users">}}
 - Identity Data Admin
@@ -353,13 +353,13 @@ Remember when we first looked at the Administrators Environment and said that **
 3. The delegated administrator accesses the same Applications that their users are managing, perhaps with a different authorization policy (e.g. Application manager)  
 4. The delegated administrator Federates from the same IdP as their users (e.g. external helpdesk, business owner)
 
-In these cases (and more!) ensure that your delegated administrators are Grouped in meaningful ways - the more that the Roles are defined at a Group level the easier it will be to track what permissions each of your Users have.
+In these cases (and more!) ensure that your delegated administrators are Grouped in meaningful ways - the more that the Admin Roles are defined at a Group level the easier it will be to track what permissions each of your Users have.
 
-## Custom Roles
+## Custom Admin Roles
 
-While PingOne provides a series of Roles out of the box for you and your administrators to utilize, you can create more catered Role permissions through the use of [Custom Roles](https://docs.pingidentity.com/pingone/directory/p1_custom_role_add.html). These allow you to set CRUD-based permissions on the same set of Administrative Roles we were working with in the other section.
+While PingOne provides a series of Admin Roles out of the box for you and your administrators to utilize, you can create more catered Admin Role permissions through the use of [Custom Admin Roles](https://docs.pingidentity.com/pingone/directory/p1_custom_role_add.html). These allow you to set CRUD-based permissions on the same set of Administrative Roles we were working with in the other section.
 
-Since the Documentation contains [Custom Role Scenarios](https://docs.pingidentity.com/pingone/directory/p1_custom_roles_scenarios_intro.html) for you to look at, I’m not going to provide a walkthrough here. That being said, combining Custom Roles with your Groups and Users gives you the ultimate level of control across your Environments.
+Since the Documentation contains [Custom Admin Role Scenarios](https://docs.pingidentity.com/pingone/directory/p1_custom_roles_scenarios_intro.html) for you to look at, I’m not going to provide a walkthrough here. That being said, combining Custom Admin Roles with your Groups and Users gives you the ultimate level of control across your Environments.
 
 # Conclusion
 
@@ -369,6 +369,6 @@ Through this Guide we have:
 2. Created our own unique example Environments containing these structures  
 3. Delegated administration to external users to manage the different structures.
 
-Additionally, we have looked at ways that Ping extends this capability through the user of assigning Roles within non-Admin Environments (“Partner Admins”) and through the creation of Custom Roles.
+Additionally, we have looked at ways that Ping extends this capability through the user of assigning Admin Roles within non-Admin Environments (“Partner Admins”) and through the creation of Custom Admin Roles.
 
-With what you have learned today you should be able to confidently create and assign complex Role relationships for your internal and external administration.
+With what you have learned today you should be able to confidently create and assign complex Admin Role relationships for your internal and external administration.

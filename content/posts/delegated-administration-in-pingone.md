@@ -52,7 +52,7 @@ A [**Role**](https://docs.pingidentity.com/pingone/directory/p1_roles.html#built
 
 ## When to Create Multiple Environments
 
-**Environments are subdivided from one another in data and configuration** - meaning that while they share the same hosting resources they do not share the same PingOne Service Selection (e.g. one Environment can have PingOne MFA while another can have PingID for multi-factor), Policy Configuration (e.g. password policies, risk policies, mfa policies, DaVinci policies, etc.), Branding (e.g. theming, forms, localization), and user data (e.g. Populations/Groups/Users and their user information). 
+A popular use case of Environments is for building a promotion pipeline (e.g. development/staging/production/etc.), but additionally **Environments are subdivided from one another in data and configuration** - meaning that while they share the same hosting resources they do not share the same PingOne Service Selection (e.g. one Environment can have PingOne MFA while another can have PingID for multi-factor), Policy Configuration (e.g. password policies, risk policies, mfa policies, DaVinci policies, etc.), Branding (e.g. theming, forms, localization), and user data (e.g. Populations/Groups/Users and their user information). 
 
 **Environments are great when you have requirements for Users, Applications, and Policies that strongly differ from one another.** Let’s look at an example of managing Employees vs Customers:
 
@@ -70,7 +70,7 @@ The same can be said with business relationships. Perhaps you have a grouping of
 At a first glance, Populations and Groups look kind of similar. However, they differ in some meaningful ways, namely:
 
 1. Users must be part of a Population. Groups do not.  
-2. Users and Groups can be a part of ONLY ONE Population. Groups inside a Population can only be a part of Groups in that Population.  
+2. Users and Groups can be a part of ONLY ONE Population. Users and Groups inside a Population can only be a part of Groups in that Population.  
 3. Users and Groups can be a part of MORE THAN ONE Group.  
 4. Groups can have Roles assigned to them, Populations cannot.  
 5. Roles can be scoped to Populations, but not to Groups.
@@ -186,7 +186,7 @@ After setup is complete for both your Customer and Workforce Environments, you�
 3. Under Directory → Populations, you’ll have been given two Populations: **Sample Users** and **More Sample Users**. These Populations come pre-loaded with their Users and, in the case of the More Sample Users Population, their own Group.  
 4. Under Applications → Applications, you’ll see that you have some Applications already created:  
    1. The **Getting Started Application**, which is the example application you saw created in the “Getting Started” tab of your Environment and is what is attached to the Solutions Designer you enabled earlier.  
-   2. The **PingOne Admin Console**, which is where your delegated administrators will go to manage configuration and identity data for this Environment.  
+   2. The **PingOne Admin Console**, which is where your administrators **created in this Environment** will go to manage configuration and identity data for this Environment.  
    3. The **PingOne Application Portal**, which is where your Users can go to access their applications (think of this as an Application Dock)  
    4. The **PingOne DaVinci Connection**, which links the Environment to orchestration in PingOne  
    5. The **PingOne Self-Service - MyAccount**, which is where your Users can go to manage their own profile details, passwords, and MFA devices.  
@@ -194,7 +194,7 @@ After setup is complete for both your Customer and Workforce Environments, you�
 
 With this setup, we have a working demonstration of both how Customers and Employees can interact with PingOne. Now let’s delegate some permissions to it.
 
-Since this guide is focused on Delegated Administration, we’re going to specifically use the **PingOne Admin Console** Application. Copy and save the Admin Console URL for both the Customer and Workforce Environments, either from the Applications page, the Environment Properties (Settings → Environment Properties), or Environment Summary tab (on the Environments List page).
+Since this guide is focused on Delegated Administration, we’re going to specifically use the **PingOne Admin Console** Application. Copy and save the Admin Console URL from the **Administrators Environment**, either from the Applications page, the Environment Properties (Settings → Environment Properties), or Environment Summary tab (on the Environments List page).
 
 ![A screenshot of the home page url found for the Environment's admin console](../images/delegated-administration-in-pingone/homepage-url.png)   
 ![A screenshot of the console url found under the Environment properties](../images/delegated-administration-in-pingone/console-url.png)   
@@ -242,7 +242,7 @@ Repeat the above steps for the Workforce Administrator. When you return to your 
 
 ## Delegating Administration by User
 
-Right now, these Administrators are a part of the Administrators Environment but don’t have any specific permissions. Remember the Console URLs we copied earlier? Paste each of them into their own separate browser (or guest account) window and try to log in as either of the admins you just created. You’ll encounter an “Incorrect username or password. Please try again.” message.
+Right now, these Administrators are a part of the Administrators Environment but don’t have any specific permissions. Remember the Console URL we copied earlier?  Paste it into its own separate browser (or guest account) window and try to log in as either of the admins you just created. You’ll encounter an “Incorrect username or password. Please try again.” message.
 
 ![A screenshot of the user flow in which the admin fails a login attempt to an environment they don't have permission to](../images/delegated-administration-in-pingone/admin-failed-login.png)   
 *Trying to Log In without Permissions*

@@ -174,14 +174,19 @@ var areEqual = (objA, objB) => {
             return false;
         }
 
-        for (var i = 0; i < aKeys.length; i++) {
-            var aKey = aKeys[i];
-            if (!bKeys.includes(aKey)) {
-                return false;
+        var isEqual = true;
+        var keyIndex = 0;
+        while (isEqual && keyIndex < aKeys.length) { 
+            var aKey = aKeys[keyIndex];
+            if (!(bKeys.includes(aKey))) {
+                isEqual = false;
             } else {
-                return areEqual(aKeys[aKey], bKeys[aKey]);
+                isEqual = areEqual(objA[aKey], objB[aKey]);
             }
+          
+          keyIndex += 1;
         }
+        return isEqual;
     } else {
         // String, Boolean, Number
         return objA == objB;
@@ -376,14 +381,19 @@ var areEqual = (objA, objB) => {
             return false;
         }
 
-        for (var i = 0; i < aKeys.length; i++) {
-            var aKey = aKeys[i];
-            if (!bKeys.includes(aKey)) {
-                return false;
+        var isEqual = true;
+        var keyIndex = 0;
+        while (isEqual && keyIndex < aKeys.length) { 
+            var aKey = aKeys[keyIndex];
+            if (!(bKeys.includes(aKey))) {
+                isEqual = false;
             } else {
-                return areEqual(aKeys[aKey], bKeys[aKey]);
+                isEqual = areEqual(objA[aKey], objB[aKey]);
             }
+          
+          keyIndex += 1;
         }
+        return isEqual;
     } else {
         // String, Boolean, Number
         return objA == objB;

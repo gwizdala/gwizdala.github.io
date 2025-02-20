@@ -298,6 +298,38 @@ To ensure that inheritance is enabled by default when creating new objects, unde
 
 _The Inheritance Object Attribute's Default Behavior_
 
+Now, this will set the value on newly created Organizations, but doesn’t do anything about the pre-existing ones. By default, those Organizations won’t even have the inheritance object attribute stored on them at all, because that property didn’t exist when they were last updated!
+
+To solve for a managed object not having a new required value, we’re going to define an **onStore** script on the inheritance object attribute that checks if this object is up-to-date with all of the boolean flags it needs and if not it will update the stored object to have them.
+
+Underneath the “Scripts” section within the Inheritance property, add an **onStore** script with the following code snippet:
+
+```javascript
+// INHERITANCE OBJECT ONSTORE
+var DEFAULT_VALUE = false;
+var inheritanceObject = !property ? {} : property;
+
+inheritedOptions.forEach(inheritedOption => {
+  if (inheritanceObject[inheritedOption] == null) {
+    inheritanceObject[inheritedOption] = DEFAULT_VALUE;
+  }
+});
+
+property = inheritanceObject;
+```
+
+You eagle-eyed coders may have noticed that there’s another value in here that’s not in the standard [Script Triggers](https://docs.pingidentity.com/pingidm/7.5/scripting-guide/script-triggers-managedConfig.html): `inheritedOptions`. We are going to use the “Passed Variables” option to tell the script what values are in this object for us to populate.
+
+Within the Script Manager window, select the “Add Variable” button and give it the name `inheritedOptions` with the type of `array`. Add an item to that array with the type `string` and the value `description`. Now, every time you add a new inheritance override, add a variable with the same name so that all of your previously-created organizations can get its value.
+
+When you’re done, your script should look something like this:
+
+![Screenshot of the script manager containing the code snippet and the passed variables](../images/modeling-inheritance-in-aic-or-idm/inheritance-object-onstore.png)
+
+_The Inheritance Object Attribute's Default Behavior_
+
+> As a note here: this same principle could be applied to required boolean values that need to be `true` or `false` (and not null) - just make sure to apply this script to the **onRetrieve** hook as well so that when you read the object you get an appropriate value.
+
 Once this is done, let’s update the **postUpdate** and **postCreate** scripts that we created earlier on the base Organization object to recognize and enforce inheritance based on the override switch.
 
 {{<details title="`postCreate` (Click to View)">}}

@@ -581,6 +581,12 @@ Back on the main Organization screen, Select the `children` attribute and under 
 
 *Notifying the Parent and Admin of Changes on the Child*
 
+Next, underneath the Organization screen as well, select the `admin` attribute and under the relationship editor for `alpha_user` set Notify to `true`. This notifies the Admin user to update its adminOfOrgIDs when the Child IDs have changed on the Organization they’re an Admin of.
+
+![A screenshot of adding the notification on the admin relationship](../images/setting-delegated-admin-privileges-in-aic/notify-admin-relationship.png)
+
+*Notifying the Admin of Changes to Child IDs*
+
 Finally, we’re going to need to create a new RDVP on our Managed User which tracks the Organizations a User is an Administrator of. Head to your Managed Alpha User (Configure → Managed Objects → alpha_user) and select the first Generic Indexed Multivalue attribute you aren’t using (mine is `frIndexedMultivalued1`). Note that you can use a custom attribute, but if an attribute is already there let’s use it!
 
 Just like with the `childIDs`, under advanced options deselect “Viewable”, “Searchable”, and “User Editable” and select “Virtual” and “Return by Default”. I’m also renaming my title to “Admin of Org IDs” so it’s easier for me to find later.

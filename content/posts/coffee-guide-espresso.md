@@ -5,7 +5,7 @@ title: 'Coffee Guide: Espresso'
 description: 'A handy infographic on how to prepare common espresso drinks'
 summary: 'Informative infographics, breakdowns, and recipes for common espresso drinks'
 categories: ["Art & Design"]
-tags: ["Infographic", "Grapic Design", "Posters"]
+tags: ["Infographic", "Graphic Design", "Posters"]
 types: ["Creativity"]
 cover:
   image:

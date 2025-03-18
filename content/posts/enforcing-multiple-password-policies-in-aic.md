@@ -35,9 +35,11 @@ This How-To will teach you how you can create, manage, and enforce multiple pass
 2. [Enforcement of Custom Password Policy within Journeys](#enforcement-of-custom-password-policy-within-journeys)  
 3. [Management of Custom Password Policies within Organizations](#management-of-custom-password-policies-within-organizations)
 
-By the end of this How-To you’ll have a Library Script, a Journey, and a configured Organization object that allows you to dynamically set Password Policy and enforce it per Journey, Application, and Organization. You’ll also have a genericized password policy approach that can be managed, updated, and enforced anywhere else you may need it in AIC, such as on a User, Role, or Group.
+By the end of this How-To you’ll have a **demonstrative** Library Script, a Journey, and a configured Organization object that allows you to dynamically set Password Policy and enforce it per Journey, Application, and Organization. You’ll also have a genericized password policy approach that can be managed, updated, and enforced anywhere else you may need it in AIC, such as on a User, Role, or Group.
 
-> **Disclaimer: The custom password policy we create is validated and enforced at a JOURNEY LEVEL. The password policy is not enforced at an API or IDM level - meaning that a user’s password is still enforced by the default policy defined at the Realm.**
+> ⚠️ **Disclaimer: The custom password policy we create is validated and enforced at a JOURNEY LEVEL. The password policy is not enforced at an API or IDM level - meaning that a user’s password is still enforced by the default policy defined at the Realm.**
+>
+> **Consider the security requirements of your business before implementing a similar method in your tenant. This example hasn’t been validated by any formal security review or audit.**
 
 This How-To expects a level of familiarity with Journeys, Journey Scripting, and Identity Management.
 

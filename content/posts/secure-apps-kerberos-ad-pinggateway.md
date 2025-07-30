@@ -642,6 +642,16 @@ If you’re testing Kerberos on a local machine or with an older version of AD/K
         krb4_convert = true
 ```
 
+> **Note:** If you support older encryption types, in your [libdefaults] section you may need to add the following (underneath the `allow_weak_crypto` line):
+> 
+> ```
+> default_tkt_enctypes = des-cbc-crc rc4-hmac
+> default_tgs_enctypes = des-cbc-crc rc4-hmac
+> ```
+> 
+> You’ll know you need this if you see the error message Identity assertion response error `java.security.PrivilegedActionException: GSSException: Failure unspecified at GSS-API level (Mechanism level: Encryption type RC4 with HMAC is not supported/enabled)`
+
+
 This file is helping us with the following items:
 
 * (`allow_weak_crypto = true` and `krb4_convert = true`) The KerberosIdentityAssertion node expects a stronger level of encryption that comes default with older deployments of Kerberos so we’ll need to let PingGateway know that this older method is valid in our deployment. In a real deployment it may be wise to increase your security stance by updating your encryption method.  

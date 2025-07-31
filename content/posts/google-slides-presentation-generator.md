@@ -68,6 +68,27 @@ If you expect to use the same footer on every page, make it a group so that you 
 
 You can repeat this process for any other variables you’d like to dynamically add - think content that your presenter should know but will be different per presentation (like date presented, presenters, start/end dates, unique URLs). Save these variable names - you’ll want a way for your team to reference what values are available to them when building the slides.
 
+## Defining Dynamic Images
+
+You may have some images that are updated in each presentation - for example: a company logo, an implementation diagram, or a pricing/packaging chart. We’ll use the same variable-oriented approach to dynamically replace images inside a frame whose dimensions you’ve specified on your template slide.
+
+On the same title slide, let’s add a new placeholder image that we’ll dynamically replace with a company logo.
+
+In the top toolbar, select *Insert* → *Image* → *By URL* and place in an image whose dimensions fit the size requirements you’d like for your slide. Feel free to use a default image here, but if you don’t have a default I like using a placeholder image generator, like [placehold.co](http://placehold.co), to get something well-formatted. My example uses the following 600x400px image and displays the variable we’re going to use to replace it, *CompanyLogo*.
+
+`https://placehold.co/600x400/png?font=roboto&text=600x400\n{{CompanyLogo}}`
+
+![A screenshot of the toolbar in Google Slides to add the custom image by URL](../images/google-slides-presentation-generator/add-image-url.png)  
+*Adding an Image By URL*
+
+Once you have your image in place, right click on the image and select *Format Options* to open the Format Options Toolbar. We are going to tag this image using the alt text title: select *Alt Text* → *Advanced Options* and enter a unique image variable for this logo (in this case, `CompanyLogo`).
+
+![A screenshot of the toolbar in Google Slides when right-clicking an image to go to format options](../images/google-slides-presentation-generator/format-image-select.png)
+![A screenshot of adding the alt title "CompanyLogo" to the image in Google Slides](../images/google-slides-presentation-generator/format-image-title.png) 
+*Adding the Alt Title Variable*
+
+> **Note:** When we replace this image our alt text will go away. For best accessibility practices, it’s recommended to capture descriptive image alt text in your form and update the image accordingly.
+
 ## Defining Dynamic Sections
 
 Let’s create some sections. While Google Slides doesn’t natively support sections like PowerPoint, we can use variables to define what is a section so that when generating content we know what to show or hide.
@@ -136,8 +157,37 @@ Next: add the following question, being sure to change the values for your email
 | ----- | ----- | ----- | ----- |
 | Folder ID | Short Answer | The ID of the folder these docs will be generated to, e.g. *https://drive.google.com/drive/folders/***ID  Share EDIT permission to this folder to [add your email] for the file to generate.**  If no folder is provided, generated documents will appear here:  [Add a Link to your Folder]  | No |
 
+To ensure that users don’t accidentally submit a malformatted folder link, select the three dots next to “Required”, enable “Response Validation”, and add in the following validation:
+
+* Regular Expression  
+* Contains  
+* `^[a-zA-Z0-9_-]{28,33}$`  
+* “Must be a valid Google Drive Folder ID.”
+
 ![A screenshot of the folder ID being collected within the form editor](../images/google-slides-presentation-generator/form-folder-id.png) 
 *The Folder ID Variable*
+
+## Getting the Images
+
+Images operate similarly to variables, but we’ll want to add some validation like the folder submission to ensure that people don’t accidentally submit an invalid image URL.
+
+Add the following question into your form:
+
+| Name | Type | Description | Required |
+| ----- | ----- | ----- | ----- |
+| Company Logo | Short Answer | An image URL to the company logo. Must be .png or .jpg format  | No |
+
+Select the three dots next to “Required”, enable “Response Validation”, and add in the following validation:
+
+* Regular Expression  
+* Contains  
+* `^https?:\/\/.*\.(?:png|jpe?g)$`  
+*  “Must be a valid image url (png, jpg, jpeg)”
+
+![A screenshot of the company logo URL being collected within the form editor](../images/google-slides-presentation-generator/form-folder-id.png) 
+*The Company Logo Image URL*
+
+This approach can be repeated for as many images as you need.
 
 ## Getting the Sections to Generate
 
@@ -173,14 +223,14 @@ Once created, you should be redirected to the Google Sheet. Add two extra column
 ![A screenshot of the initial linked sheet when created](../images/google-slides-presentation-generator/sheet-initial.png)  
 *The Initial Spreadsheet*
 
-To make it easier to update in the future, we’re going to use Sheet Tabs (i.e. “Sheets”) to store configuration information like variables and sections. This is what our script will look at to know how to read the form responses and populate default values.
+To make it easier to update in the future, we’re going to use Sheet Tabs (i.e. “Sheets”) to store configuration information like variables, images, and sections. This is what our script will look at to know how to read the form responses and populate default values.
 
-At the bottom of the page click the plus button next to the tab that says “Form Responses 1” and add the following two sheets: **Variables** and **Sections**. Your sheet list should look like this:
+At the bottom of the page click the plus button next to the tab that says “Form Responses 1” and add the following three sheets: **Variables**, **Images**, and **Sections**. Your sheet list should look like this:
 
-![A screenshot of the Sheets (tabs) for Variables and Sections added to the linked spreadsheet](../images/google-slides-presentation-generator/sheet-sections.png)
+![A screenshot of the Sheets (tabs) for Variables, Images, and Sections added to the linked spreadsheet](../images/google-slides-presentation-generator/sheet-sections.png)
 *Adding the Sheets to the Spreadsheet*
 
-**Note: Case and spelling is important here - make sure that *Variables* and *Sections* are written exactly as they appear here.**
+> **Note**: Case and spelling is important here - make sure that *Variables* , *Images*, and *Sections* are written exactly as they appear in this document.
 
 ## The Variables Sheet
 
@@ -193,13 +243,13 @@ In the Variables sheet, add the following data:
 | TimeStamp |  | Timestamp | 0 |
 | PresenterEmail |  | Email Address | 1 |
 | FileName | My Presentation | File Name | 2 |
-| FolderId |  | Folder ID | 3 |
+| FolderId | **Insert your default folder ID here** | Folder ID | 3 |
 | CompanyName | Customer | Company Name | 4 |
-| Sections |  | Sections | 5 |
-| Status |  | Generation Status | 6 |
-| FileLinks |  | File Link(s) | 7 |
+| Sections |  | Sections | 6 |
+| Status |  | Generation Status | 7 |
+| FileLinks |  | File Link(s) | 8 |
 | TemplateTypes | Slides |  | -1 |
-| SlideTemplateId |  |  | -1 |
+| SlideTemplateId | **Insert your Slide Template ID here** |  | -1 |
 | DocumentTemplateId |  |  | -1 |
 | Year |  |  | -1 |
 
@@ -231,6 +281,35 @@ We’re going to need to point our generator to the right template. To do so, co
 If you created a default folder, you’ll want to do the same thing for your `FolderId` variable - the part of the url is bolded in this example:
 
 `https://drive.google.com/drive/folders/`**FolderId**
+
+## The Images Sheet
+
+The Images sheet holds information about what images we are replacing with image URLs in our form. It operates using the same principle as the Variables sheet.
+
+In the Images sheet, add the following data:
+
+| Variable | Default | Form Key | Form Index |
+| :---- | :---- | :---- | ----- |
+| CompanyLogo |  | Company Logo | 5 |
+
+Just like with the Variables sheet, use the following function in your Form Index column to ensure that your index matches the key.
+
+```
+=IFNA(MATCH(C2,'Form Responses 1'!$1:$1,0) - 1,-1)
+```
+
+If you want to add a new image, give it a unique image name and put that name in the Variable column. 
+
+* If you add a question to the form that populates this variable, put in the Form Key and the Form Index will auto-set for you.   
+* If you give the variable a default image URL, and this form value isn’t populated, the default is used instead.   
+* If you have a static image you’d like to make sure everyone has (let’s say if a marketing image or diagram is maintained in a separate CDN), add it with a default value and no Form Key and it’ll be applied automatically.
+
+For example, if I wanted to put a custom diagram for Gizmos into my slides I might:
+
+1. Add a new image input into my form called “Custom Gizmos Diagram URL”  
+2. Add a row with the variable “GizmosDiagram” and the Form Key “Custom Gizmos Diagram URL”
+
+Now, if I have an image with the alt title “GizmosDiagram” it’ll be replaced with the image URL submitted in the form.
 
 ## The Sections Sheet
 
@@ -283,7 +362,7 @@ Your tab list should look like this:
 
 ## Add the Trigger
 
-Once your scripts are imported we’ll want to add our trigger so that the generator runs every time a new Form response is submitted. To do so, head to the “Main” file and run the function `attachTrigger`. You’ll be prompted to authorize a series of permissions that let you clone the template to a folder, modify the cloned template, update the generator sheet, and send a success/failure email.
+Once your scripts are imported we’ll want to add our trigger so that the generator runs every time a new Form response is submitted. To do so, head to the “Main” file and run the function `attachTrigger`. You’ll be prompted to authorize a series of permissions that let you clone the template to a folder, modify the cloned template, update the generator sheet, and send a success/failure email. **Only run this trigger once.**
 
 ![A screenshot of the "attachTrigger" script being run from the "Main.gs" file within the Apps Script Editor](../images/google-slides-presentation-generator/script-run-trigger.png)  
 *Running the Trigger*
@@ -328,7 +407,7 @@ Have your presenters bookmark this presentation. That way if they need a new dec
 
 The generator is built to be extended to fit whatever use cases you and your organization requires. That being said, here are some things built-in that you can try:
 
-1. As mentioned before, add as many variables and sections as you want - as you update the Google Sheet, the generator will adapt automatically.  
+1. As mentioned before, add as many variables, images, and sections as you want - as you update the Google Sheet, the generator will adapt automatically. If you don’t want these features, don’t add them - the generator will know what to do based on the data it receives.  
 2. In `Main.gs`, you’ll notice there are some additional commented-out arguments for start and end date. If you’re presenting on a topic that has a beginning and end (like a POC), add those arguments to your form and use the existing utility function called `calculateDuration` to get a duration between those two dates in days.  
 3. Also in `Main` you’ll see that there’s another case commented out other than `Slides`. The generator is built using a parent `Template` class - meaning that you can create a generator for Google Docs, Google Sheets, Google Forms, etc. using the functions extended from that base class. As you add more classes, put them into the switch statement to be generated - and everything else will just work as expected.
 

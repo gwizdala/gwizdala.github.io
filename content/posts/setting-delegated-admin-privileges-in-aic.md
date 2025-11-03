@@ -153,7 +153,7 @@ No special privileges.
 
 Think of the default permissions like a series of nested circles with Members in the center. As you traverse wider out in the circle, your permissions increase. An example diagram of what this might look like with additional features on your Organization is below.
 
-![A diagram showing cocentric circles of increasing permissions. The permissions match the descriptions in the provided table.](../images/setting-delegated-admin-privileges-in-aic/example-relationship-mapping.png)
+![A diagram showing cocentric circles of increasing permissions. The permissions match the descriptions in the provided table.](/img/setting-delegated-admin-privileges-in-aic/example-relationship-mapping.png)
 
 *Example Relationship Mapping for Default Organization Modeling User Types*
 
@@ -327,7 +327,7 @@ frodo idm import -f updated_privilegeAssignments.json -i privilegeAssignments <t
 
 When you’re done modifying permissions, it’s possible that your privileges will look more like a Venn Diagram than a series of nested circles.  
 
-![An example diagram illustrating how delegated permissions can overlap depending on how you customize privileges](../images/setting-delegated-admin-privileges-in-aic/example-relationship-mapping-altered.png)
+![An example diagram illustrating how delegated permissions can overlap depending on how you customize privileges](/img/setting-delegated-admin-privileges-in-aic/example-relationship-mapping-altered.png)
 
 
 Let’s take a look at some ways we may want to modify our privileges.
@@ -338,7 +338,7 @@ In most cases, the existing privilege set defined in your `alphaOrgPrivileges` w
 
 As an example, let’s say that we want our Administrators to be able to view the first and last name of their pre-existing Members but not be able to update them. 
 
-![A screenshot of the end-user portal where an admin can manage the member's first and last name](../images/setting-delegated-admin-privileges-in-aic/admin-managing-member-default.png)
+![A screenshot of the end-user portal where an admin can manage the member's first and last name](/img/setting-delegated-admin-privileges-in-aic/admin-managing-member-default.png)
 
 *Default Admin Behavior - Managing Member First Name and Last Name*
 
@@ -393,7 +393,7 @@ Let’s set both of those fields to `true`.
 
 Save and push the updated config. When you refresh the page as an admin, you’ll see that you have read-only permissions to those attributes.
 
-![A screenshot of the end-user portal where an admin cannot manage the member's first and last name](../images/setting-delegated-admin-privileges-in-aic/admin-managing-member-readonly.png)
+![A screenshot of the end-user portal where an admin cannot manage the member's first and last name](/img/setting-delegated-admin-privileges-in-aic/admin-managing-member-readonly.png)
 
 _Updated Admin Behavior - Read Only_
 
@@ -415,7 +415,7 @@ In this example, let’s create a privilege that enables administrators to view,
 
 To create this attribute, head to the Native Consoles → Identity Management and then to your Managed Alpha User (Configure → Managed Objects → alpha\_User).
 
-![A screenshot of editing the alpha user](../images/setting-delegated-admin-privileges-in-aic/alpha-user-edit.png)
+![A screenshot of editing the alpha user](/img/setting-delegated-admin-privileges-in-aic/alpha-user-edit.png)
 
 _The Managed Alpha User_
 
@@ -427,13 +427,13 @@ Once there, select “Add a Property” and create a new attribute with the foll
 
 Once created, select the attribute and under Show advanced options set “Searchable” to `true` (enabled).
 
-![A screenshot of setting the new attribute to searchable](../images/setting-delegated-admin-privileges-in-aic/alpha-user-searchable-true.png)
+![A screenshot of setting the new attribute to searchable](/img/setting-delegated-admin-privileges-in-aic/alpha-user-searchable-true.png)
 
 _Setting Searchable to True_
 
 After saving our updates, when we look at a User we’ll see the “Enable Customer Support” option on their profile.
 
-![A screenshot of the searchable field on the user's management screen](../images/setting-delegated-admin-privileges-in-aic/alpha-user-searchable-management.png)
+![A screenshot of the searchable field on the user's management screen](/img/setting-delegated-admin-privileges-in-aic/alpha-user-searchable-management.png)
 
 _The User's View_
 
@@ -510,11 +510,11 @@ Save and push the updated alpha org privileges config.
 
 Log in as a Member and an Administrator on two separate browsers. By default, the Administrator won’t be able to manage the Member’s first and last name. As the Member, set “Enable Customer Support” to `true` (enabled) and then refresh the Administrator’s page. You now have access as an Administrator to manage the Member’s name\!
 
-![A screenshot of the user enabling customer support](../images/setting-delegated-admin-privileges-in-aic/alpha-user-searchable-management-enabled.png)
+![A screenshot of the user enabling customer support](/img/setting-delegated-admin-privileges-in-aic/alpha-user-searchable-management-enabled.png)
  
 *Setting Member’s Support to Enabled (under /enduser/?realm=/alpha#/profile)*
 
-![A screenshot of the admin being able to support the user again](../images/setting-delegated-admin-privileges-in-aic/admin-managing-member-default.png)
+![A screenshot of the admin being able to support the user again](/img/setting-delegated-admin-privileges-in-aic/admin-managing-member-default.png)
 
 *Supporting that Identity as an Administrator*
 
@@ -535,7 +535,7 @@ First off, we’re going to need to create a new RDVP on our Managed Organizatio
 
 In your Native IDM console (Native Consoles → Identity Management) and head to your Managed Organization (Configure → Managed Objects → alpha_organization). 
 
-![A screenshot of the alpha_organization editor](../images/setting-delegated-admin-privileges-in-aic/alpha-org-edit.png)
+![A screenshot of the alpha_organization editor](/img/setting-delegated-admin-privileges-in-aic/alpha-org-edit.png)
 
 *Editing the Alpha Organization*
 
@@ -547,7 +547,7 @@ Once there, select “Add a Property” and create a new attribute with the foll
 
 Select the newly-created attribute, and under Details → Advanced Options, **disable** *Viewable* and *User Editable* and **enable** *Virtual* and *Return by Default*. You know you’ve done this right when after saving the *Query Configuration* tab appears on the page.
 
-![A screenshot of the childIDs attribute with virtual and return by default set](../images/setting-delegated-admin-privileges-in-aic/childids-edit.png)
+![A screenshot of the childIDs attribute with virtual and return by default set](/img/setting-delegated-admin-privileges-in-aic/childids-edit.png)
 
 *Editing the Child IDs Advanced Properties*
 
@@ -559,7 +559,7 @@ Select Query Configuration, and input the following fields:
 | Referenced Object Fields | `_id,childIDs` |
 | Flatten Properties | `true` (checked) |
 
-![A screenshot of the childIDs query editor screen](../images/setting-delegated-admin-privileges-in-aic/childids-query.png)
+![A screenshot of the childIDs query editor screen](/img/setting-delegated-admin-privileges-in-aic/childids-query.png)
 
 *Setting the ChildIDs Query*
 
@@ -567,23 +567,23 @@ Next, we will need to notify the appropriate relationships that changes have bee
 
 Once there, select the `parent` attribute. Under Relationship Configuration, select the Edit button next to the “parent” `alpha_organization` and set “Notify” to `true` (enabled). This notifies the child that a relationship change has occurred on the parent.
 
-![A screenshot of where the edit icon is on the Child within the Parent relationship (aria label edit, under alpha_organization)](../images/setting-delegated-admin-privileges-in-aic/parent-relationship-child.png)
+![A screenshot of where the edit icon is on the Child within the Parent relationship (aria label edit, under alpha_organization)](/img/setting-delegated-admin-privileges-in-aic/parent-relationship-child.png)
 
 *Editing the Child Relationship*
 
-![A screenshot of setting the "Notify" property on the Child to "true"](../images/setting-delegated-admin-privileges-in-aic/notify-child.png)
+![A screenshot of setting the "Notify" property on the Child to "true"](/img/setting-delegated-admin-privileges-in-aic/notify-child.png)
 
 *Ensuring the Child is Notified on Relationship Change*
 
 Back on the main Organization screen, Select the `children` attribute and under Details → Advanced Options → Notify Relationships select `parent` and `admins`. This notifies the parent and the admins that a change has occurred on the child.
 
-![A screenshot of adding parent and admins to the child's notify relationships field](../images/setting-delegated-admin-privileges-in-aic/notify-parent-admin.png)
+![A screenshot of adding parent and admins to the child's notify relationships field](/img/setting-delegated-admin-privileges-in-aic/notify-parent-admin.png)
 
 *Notifying the Parent and Admin of Changes on the Child*
 
 Next, underneath the Organization screen as well, select the `admin` attribute and under the relationship editor for `alpha_user` set Notify to `true`. This notifies the Admin user to update its adminOfOrgIDs when the Child IDs have changed on the Organization they’re an Admin of.
 
-![A screenshot of adding the notification on the admin relationship](../images/setting-delegated-admin-privileges-in-aic/notify-admin-relationship.png)
+![A screenshot of adding the notification on the admin relationship](/img/setting-delegated-admin-privileges-in-aic/notify-admin-relationship.png)
 
 *Notifying the Admin of Changes to Child IDs*
 
@@ -591,7 +591,7 @@ Finally, we’re going to need to create a new RDVP on our Managed User which tr
 
 Just like with the `childIDs`, under advanced options deselect “Viewable”, “Searchable”, and “User Editable” and select “Virtual” and “Return by Default”. I’m also renaming my title to “Admin of Org IDs” so it’s easier for me to find later.
 
-![A screenshot of setting the virtual property on the frIndexedMultivalue1](../images/setting-delegated-admin-privileges-in-aic/adminorgids-virtual.png)
+![A screenshot of setting the virtual property on the frIndexedMultivalue1](/img/setting-delegated-admin-privileges-in-aic/adminorgids-virtual.png)
 
 *Enabling the RDVP*
 
@@ -603,25 +603,25 @@ Select Query Configuration, and input the following fields:
 | Referenced Object Fields | `_id,childIDs` |
 | Flatten Properties | `true` (checked) |
 
-![A screenshot of setting the query on the frIndexedMultivalue1](../images/setting-delegated-admin-privileges-in-aic/adminorgids-query.png)
+![A screenshot of setting the query on the frIndexedMultivalue1](/img/setting-delegated-admin-privileges-in-aic/adminorgids-query.png)
 
 *Setting the Query*
 
 Now for an RDVP to take effect we will need to make a change in our Organization. Make a Child Organization and assign it to the Organization you’ve been testing with.
 
-![A screenshot of setting a Child org to a Parent Org](../images/setting-delegated-admin-privileges-in-aic/child-parent-org.png)
+![A screenshot of setting a Child org to a Parent Org](/img/setting-delegated-admin-privileges-in-aic/child-parent-org.png)
 
 *The Child to Parent Org Relationship*
 
 If you’ve set up your new RDVP correctly, you’ll see back on your parent organization, inside of “Raw JSON”, that the child you just created has been assigned.
 
-![A screenshot of the parent org containing the child org's id](../images/setting-delegated-admin-privileges-in-aic/parent-json.png)
+![A screenshot of the parent org containing the child org's id](/img/setting-delegated-admin-privileges-in-aic/parent-json.png)
 
 *There's the Child Org ID!*
 
 The same will be said for your Admin. If you look at their `frIndexedMultivalued1` attribute (the one we set in this example), both the IDs of the Parent they are directly assigned to AND the Child they now manage are present.
 
-![A screenshot of frIndexedMultivalue1 containing the Parent and Child Org Ids, in raw JSON](../images/setting-delegated-admin-privileges-in-aic/adminorgids-json.png)
+![A screenshot of frIndexedMultivalue1 containing the Parent and Child Org Ids, in raw JSON](/img/setting-delegated-admin-privileges-in-aic/adminorgids-json.png)
 
 *AdminOrgIDs in Practice*
 
@@ -696,13 +696,13 @@ Save and push the updated alpha org privileges config.
 
 Now, let’s log in as an Owner. When you select a Member, you’ll see that you can update their first name and last name.
 
-![A screenshot of an owner editing a member's first and last name](../images/setting-delegated-admin-privileges-in-aic/owner-member.png)
+![A screenshot of an owner editing a member's first and last name](/img/setting-delegated-admin-privileges-in-aic/owner-member.png)
 
 *The Owner's Member Management Permissions*
 
 When you select the Administrator, you’ll see that you can’t update their first and last name!
 
-![A screenshot of an owner not being able to edit an admin's first and last name](../images/setting-delegated-admin-privileges-in-aic/owner-admin.png)
+![A screenshot of an owner not being able to edit an admin's first and last name](/img/setting-delegated-admin-privileges-in-aic/owner-admin.png)
 
 *The Owner's Admin Management Permissions*
 

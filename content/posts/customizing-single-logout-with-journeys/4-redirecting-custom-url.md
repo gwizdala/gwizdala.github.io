@@ -20,7 +20,7 @@ author: David Gwizdala
 
 Instead of taking the user back to a Login screen, you may want to redirect them to a specific location (such as a company portal or ecommerce page). If every user should redirect to the same page you can utilize a [Failure URL Node](https://docs.pingidentity.com/auth-node-ref/latest/auth-node-failure-url.html) wired up to the Failure node, looking something like this:
 
-![Screenshot of the Failure URL Node](../images/4-failure-url-node.png)
+![Screenshot of the Failure URL Node](/img/4-failure-url-node.png)
 
 _Failure URL Node_
 
@@ -161,7 +161,7 @@ Once you’ve pasted this in, wire `Found` to the Failure Node and `Not Found` t
 
 Your completed Journey should look like this:
 
-![Screenshot of Dynamic Redirect Journey](../images/4-dynamic-redirect-journey.png)
+![Screenshot of Dynamic Redirect Journey](/img/4-dynamic-redirect-journey.png)
 
 _Dynamic Redirect Journey_
 
@@ -246,14 +246,14 @@ To test that our Journey is successful, we’ll add some test routes to our user
 
 In the User example, we’re expecting that the user has some redirect information stored on their user profile (for example, a session pointing back to a customized cart). Create a test user in PingOne Advanced Identity Cloud (we’re using the username `test`) and add a recognizable string to the `frUnindexedString3` attribute (by default, this attribute is labeled as `Generic Unindexed String 3` in the Identity Cloud Console). The user’s profile should look something like this:
 
-![Screenshot of Test User](../images/2-user-details-page.png)
-![Screenshot of url added to Generic Unindexed String 3](../images/4-test-user-url.png)
+![Screenshot of Test User](/img/2-user-details-page.png)
+![Screenshot of url added to Generic Unindexed String 3](/img/4-test-user-url.png)
 
 _Test User Data_
 
 Open an incognito (or separate browser) window, log in as your test user, and then paste in the URL of your new Journey. You should be redirected to the URL stored on their profile.
 
-![Screenshot of a redirect to ForgeRock.com](../images/4-redirect-result.png)
+![Screenshot of a redirect to ForgeRock.com](/img/4-redirect-result.png)
 
 _Routing to a URL based on a User Attribute_
 
@@ -277,14 +277,14 @@ var STATE_KEY = "failureUrl";
 
 Next, create a test Organization and add the routing URL you’d like into the `Description` field. In the future you can always add or change fields on the Organization - we’re using `Description` here as it’s included by default. Finally, add the test user you created as a Member of the Organization.
 
-![Screenshot of Organization Details](../images/4-test-org-details.png)
-![Screenshot of test user added to organization](../images/4-test-user-org-membership.png)
+![Screenshot of Organization Details](/img/4-test-org-details.png)
+![Screenshot of test user added to organization](/img/4-test-user-org-membership.png)
 
 _Test Organization Data_
 
 Now, if you open an incognito (or separate browser) window, log in as your test user, and then paste in the URL of your new Journey you should be redirected to the URL stored on the Organization.
 
-![Screenshot of a redirect to pingidentity.com](../images/4-redirect-result-org.png)
+![Screenshot of a redirect to pingidentity.com](/img/4-redirect-result-org.png)
 
 _Routing to a URL based on an Organization Attribute_
 

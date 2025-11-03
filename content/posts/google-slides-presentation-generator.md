@@ -47,7 +47,7 @@ Since this How-To is about template generation, and not theming, the slides prov
 
 Let’s start with a blank presentation. To make finding this generator and its associated content easier I’ve put everything into a single folder.
 
-![A screenshot of the right-click menu in a Google Drive folder where Google Slides and Blank Presentation have been selected](../images/google-slides-presentation-generator/creating-the-template.png)  
+![A screenshot of the right-click menu in a Google Drive folder where Google Slides and Blank Presentation have been selected](/img/google-slides-presentation-generator/creating-the-template.png)  
 *Creating the New Google Slide Template*
 
 I’ve named this file “Slide Template” but you can name this whatever you’d like.
@@ -56,12 +56,12 @@ I’ve named this file “Slide Template” but you can name this whatever you�
 
 Since your presentation is likely going to be presented *to* someone, let’s put in a variable that defines who we are talking to. Our generator uses Handlebars syntax, which basically means that when we want a custom-generated value we are going to type two curly-braces surrounding the name of that custom value. In this example, we’re going to use `CompanyName` as the variable that holds the name of the company, which will look like `{{CompanyName}}` on the slide.
 
-![A screenshot of the title slide of your presentation in which the CompanyName variable has been added](../images/google-slides-presentation-generator/first-variable.png)  
+![A screenshot of the title slide of your presentation in which the CompanyName variable has been added](/img/google-slides-presentation-generator/first-variable.png)  
 *Adding Your First Variable*
 
 Presentations often have the year marked on the bottom of the slide, which helps us identify the recency of data presented. Since this slide will be dynamically generated, we’ll want to auto-populate that with the current year - so let’s use another variable! This time we’re adding `{{Year}}` in a text box at the bottom of the page. **Don’t use the Slide Theme for this - we won’t be able to target it in our script.**
 
-![A screenshot of the title slide in which a footer, including the year variable, has been added](../images/google-slides-presentation-generator/footer-variable.png)  
+![A screenshot of the title slide in which a footer, including the year variable, has been added](/img/google-slides-presentation-generator/footer-variable.png)  
 *Adding a Dynamic Footer*
 
 If you expect to use the same footer on every page, make it a group so that you can copy/paste more easily.
@@ -78,13 +78,13 @@ In the top toolbar, select *Insert* → *Image* → *By URL* and place in an ima
 
 `https://placehold.co/600x400/png?font=roboto&text=600x400\n{{CompanyLogo}}`
 
-![A screenshot of the toolbar in Google Slides to add the custom image by URL](../images/google-slides-presentation-generator/add-image-url.png)  
+![A screenshot of the toolbar in Google Slides to add the custom image by URL](/img/google-slides-presentation-generator/add-image-url.png)  
 *Adding an Image By URL*
 
 Once you have your image in place, right click on the image and select *Format Options* to open the Format Options Toolbar. We are going to tag this image using the alt text title: select *Alt Text* → *Advanced Options* and enter a unique image variable for this logo (in this case, `CompanyLogo`).
 
-![A screenshot of the toolbar in Google Slides when right-clicking an image to go to format options](../images/google-slides-presentation-generator/format-image-select.png)
-![A screenshot of adding the alt title "CompanyLogo" to the image in Google Slides](../images/google-slides-presentation-generator/format-image-title.png) 
+![A screenshot of the toolbar in Google Slides when right-clicking an image to go to format options](/img/google-slides-presentation-generator/format-image-select.png)
+![A screenshot of adding the alt title "CompanyLogo" to the image in Google Slides](/img/google-slides-presentation-generator/format-image-title.png) 
 *Adding the Alt Title Variable*
 
 > **Note:** When we replace this image our alt text will go away. For best accessibility practices, it’s recommended to capture descriptive image alt text in your form and update the image accordingly.
@@ -95,7 +95,7 @@ Let’s create some sections. While Google Slides doesn’t natively support sec
 
 I’d like a section on Gizmos, Widgets, and Gadgets. To do so, I’m going to put a tag on the page that indicates the slide is for that section. Just like before, we’ll use Handlebars. Our formatting is `{{tag_slide}}`, where “tag” is changed to whatever text tag you’d like to designate this section. In my case I’m using `{{gizmos_slide}}`, `{{widgets_slide}}`, and `{{gadgets_slide}}`, and I’m putting the tag at the center-bottom of the slide right over my footer. While you don’t have to put it there, just make sure you put your tag in a place that is unobtrusive while designing but easy for your designers to find and change depending on what section they’re on. Like before, save your slide tag names.
 
-![A screenshot of the presentation where 3 additional slides have been added, each of which has a variable indicating that is is part of a section](../images/google-slides-presentation-generator/section-variable.png)  
+![A screenshot of the presentation where 3 additional slides have been added, each of which has a variable indicating that is is part of a section](/img/google-slides-presentation-generator/section-variable.png)  
 *Adding Sections*
 
 Notice that each of my sections are using different slide formats. As long as you have that tag somewhere on the page, it doesn’t matter what the slide looks like.
@@ -104,7 +104,7 @@ Notice that each of my sections are using different slide formats. As long as yo
 
 We probably want a table of contents that lists all of the different sections we’ll be presenting. With that in mind, add a new slide 2 with the variable TableOfContents. I titled mine “Agenda” but that’s up to you.
 
-![A screenshot of the Agenda slide in which the TableOfContents variable has been added](../images/google-slides-presentation-generator/toc-variable.png)
+![A screenshot of the Agenda slide in which the TableOfContents variable has been added](/img/google-slides-presentation-generator/toc-variable.png)
 *Table of Contents (Agenda)*
 
 # Building the Form
@@ -113,7 +113,7 @@ So now that we have a baseline slide template that we want to generate from, let
 
 Back in the folder you created, go ahead and create a new Blank Form. I’ve named this form “Slide Generator” but you can name it whatever you’d like.
 
-![A screenshot of the right-click menu in a Google Drive folder where Google Forms and Blank form have been selected](../images/google-slides-presentation-generator/creating-the-form.png)  
+![A screenshot of the right-click menu in a Google Drive folder where Google Forms and Blank form have been selected](/img/google-slides-presentation-generator/creating-the-form.png)  
 *Creating the Form*
 
 Inside the form we are going to need to capture a few things:
@@ -126,8 +126,8 @@ Inside the form we are going to need to capture a few things:
 
 First off - let’s get the email. You may have this setting already applied, but make sure you’ve set your Form defaults (under Settings - Defaults) to collect email addresses. You know this is applied when you see the comment “This form is automatically collecting emails from all respondents” at the top of your form.
 
-![A screenshot of the form defaults in which collecting email addresses is set to true](../images/google-slides-presentation-generator/form-defaults.png)  
-![A screenshot of the description on the top of the Google Form that indicates it is automatically collecting respondent emails](../images/google-slides-presentation-generator/email-automatic.png)
+![A screenshot of the form defaults in which collecting email addresses is set to true](/img/google-slides-presentation-generator/form-defaults.png)  
+![A screenshot of the description on the top of the Google Form that indicates it is automatically collecting respondent emails](/img/google-slides-presentation-generator/email-automatic.png)
 *Collecting Email in the Form*
 
 ## Getting the Variables
@@ -139,7 +139,7 @@ Next, let’s populate some values. Here are the defaults that I’ve started wi
 | File Name | Short Answer | The name of the file(s) generated, formatted "Presentation: **Your File Name**" | Yes |
 | Company Name | Short Answer | The name of the company you’re presenting to | Yes |
 
-![A screenshot of the Google Form editor with the File Name and Company Name variables added](../images/google-slides-presentation-generator/form-variables.png)  
+![A screenshot of the Google Form editor with the File Name and Company Name variables added](/img/google-slides-presentation-generator/form-variables.png)  
 *The form with some variables populated*
 
 ### Selecting a Folder
@@ -148,7 +148,7 @@ While allowing your team to specify a folder where they want their presentation 
 
 First off, create a folder inside your other folder where you want the presentations to be generated by default. I’ve named mine “Generated Presentations”. Copy the ID of that folder, which you’ll find at the end of your Drive URL, for later.
 
-![A screenshot of the Generated Presentations folder and the folder URL in which the ID is highlighted](../images/google-slides-presentation-generator/folder-id.png) 
+![A screenshot of the Generated Presentations folder and the folder URL in which the ID is highlighted](/img/google-slides-presentation-generator/folder-id.png) 
 *The Generated Presentations Folder*
 
 Next: add the following question, being sure to change the values for your email address and drive folder link in the description.
@@ -164,7 +164,7 @@ To ensure that users don’t accidentally submit a malformatted folder link, sel
 * `^[a-zA-Z0-9_-]{28,33}$`  
 * “Must be a valid Google Drive Folder ID.”
 
-![A screenshot of the folder ID being collected within the form editor](../images/google-slides-presentation-generator/form-folder-id.png) 
+![A screenshot of the folder ID being collected within the form editor](/img/google-slides-presentation-generator/form-folder-id.png) 
 *The Folder ID Variable*
 
 ## Getting the Images
@@ -184,7 +184,7 @@ Select the three dots next to “Required”, enable “Response Validation”, 
 * `^https?:\/\/.*\.(?:png|jpe?g)$`  
 *  “Must be a valid image url (png, jpg, jpeg)”
 
-![A screenshot of the company logo URL being collected within the form editor](../images/google-slides-presentation-generator/form-folder-id.png) 
+![A screenshot of the company logo URL being collected within the form editor](/img/google-slides-presentation-generator/form-folder-id.png) 
 *The Company Logo Image URL*
 
 This approach can be repeated for as many images as you need.
@@ -199,14 +199,14 @@ Our last question will be used to identify what sections your presenter wants to
 
 Since I created the Gizmos, Widgets, and Gadgets sections I’ll add them here.
 
-![A screenshot of the Checkbox field added to the Form that contains the sections](../images/google-slides-presentation-generator/form-sections.png)  
+![A screenshot of the Checkbox field added to the Form that contains the sections](/img/google-slides-presentation-generator/form-sections.png)  
 *Adding the Sections in the Form*
 
 While not necessary, you may want to set a rule that ensures at least one section is selected. The generator isn’t that useful if it generates an empty deck! 
 
 To do so, click the three dot menu next to “Required”, check “Response Validation”, and set the rule to “Select at least” 1. 
 
-![A screenshot of the Form validation added to the Sections field that validates at least one selection must be selected.](../images/google-slides-presentation-generator/form-section-validation.png)
+![A screenshot of the Form validation added to the Sections field that validates at least one selection must be selected.](/img/google-slides-presentation-generator/form-section-validation.png)
 *Section Form Validation*
 
 # Adding the Sheet
@@ -215,19 +215,19 @@ Now that we have our template and form ready to go, let’s link it up to our sh
 
 Under the Responses tab of your Form editor, click the link “Link to Sheets”. We’ll be using a Google Sheet so that we can track things like links to the generated documents and the status of the generation. When prompted, create a new spreadsheet and name it whatever you’d like - I’m using the default.
 
-![A screenshot of the Form responses tab in which the Link to Sheets button is highlighted](../images/google-slides-presentation-generator/form-link-sheet.png)  
+![A screenshot of the Form responses tab in which the Link to Sheets button is highlighted](/img/google-slides-presentation-generator/form-link-sheet.png)  
 *Link to Sheets*
 
 Once created, you should be redirected to the Google Sheet. Add two extra columns - one called “Generation Status” and the other called “File Link(s)”. It should look something like this:
 
-![A screenshot of the initial linked sheet when created](../images/google-slides-presentation-generator/sheet-initial.png)  
+![A screenshot of the initial linked sheet when created](/img/google-slides-presentation-generator/sheet-initial.png)  
 *The Initial Spreadsheet*
 
 To make it easier to update in the future, we’re going to use Sheet Tabs (i.e. “Sheets”) to store configuration information like variables, images, and sections. This is what our script will look at to know how to read the form responses and populate default values.
 
 At the bottom of the page click the plus button next to the tab that says “Form Responses 1” and add the following three sheets: **Variables**, **Images**, and **Sections**. Your sheet list should look like this:
 
-![A screenshot of the Sheets (tabs) for Variables, Images, and Sections added to the linked spreadsheet](../images/google-slides-presentation-generator/sheet-sections.png)
+![A screenshot of the Sheets (tabs) for Variables, Images, and Sections added to the linked spreadsheet](/img/google-slides-presentation-generator/sheet-sections.png)
 *Adding the Sheets to the Spreadsheet*
 
 > **Note**: Case and spelling is important here - make sure that *Variables* , *Images*, and *Sections* are written exactly as they appear in this document.
@@ -341,7 +341,7 @@ So we have our template, we have a place to track our responses, and we have a m
 
 Inside your Spreadsheet up at the top of the page, click on Extensions → Apps Script to enter the script editor. 
 
-![A screenshot of the "Extensions" tab in the top of the Google Sheet where Apps Script has been selected](../images/google-slides-presentation-generator/sheet-add-script.png)  
+![A screenshot of the "Extensions" tab in the top of the Google Sheet where Apps Script has been selected](/img/google-slides-presentation-generator/sheet-add-script.png)  
 *Creating the Script*
 
 Name your project something memorable - I’m calling mine Template Generator. Using the “+” button next to the “Files” tab, add in the files below (repository [here](https://github.com/gwizdala/google-template-generator/tree/main)):
@@ -357,24 +357,24 @@ Name your project something memorable - I’m calling mine Template Generator. U
 
 Your tab list should look like this:
 
-![A screenshot of the imported scripts into the Files section of the Apps Script](../images/google-slides-presentation-generator/script-list.png)  
+![A screenshot of the imported scripts into the Files section of the Apps Script](/img/google-slides-presentation-generator/script-list.png)  
 *The Imported Scripts*
 
 ## Add the Trigger
 
 Once your scripts are imported we’ll want to add our trigger so that the generator runs every time a new Form response is submitted. To do so, head to the “Main” file and run the function `attachTrigger`. You’ll be prompted to authorize a series of permissions that let you clone the template to a folder, modify the cloned template, update the generator sheet, and send a success/failure email. **Only run this trigger once.**
 
-![A screenshot of the "attachTrigger" script being run from the "Main.gs" file within the Apps Script Editor](../images/google-slides-presentation-generator/script-run-trigger.png)  
+![A screenshot of the "attachTrigger" script being run from the "Main.gs" file within the Apps Script Editor](/img/google-slides-presentation-generator/script-run-trigger.png)  
 *Running the Trigger*
 
-![A screenshot of the "Authorization required" prompt appearing from google before running the script](../images/google-slides-presentation-generator/script-permissions.png)
-![A screenshot of the list of permissions you are required to authorize to run this script](../images/google-slides-presentation-generator/script-permissions-list.png)  
+![A screenshot of the "Authorization required" prompt appearing from google before running the script](/img/google-slides-presentation-generator/script-permissions.png)
+![A screenshot of the list of permissions you are required to authorize to run this script](/img/google-slides-presentation-generator/script-permissions-list.png)  
 *Authorizing the Trigger*
 
 After running this function, you should see an execution log indicating that the process ran as well as a “From spreadsheet - On form submit” trigger loaded for your project (you can see that in the “Triggers” section, indicated by a clock icon).
 
-![A screenshot of the execution log that shows the attachTrigger function starting and completing](../images/google-slides-presentation-generator/script-execution.png)
-![A screenshot of the Triggers view in the Apps Script editor in which the From spreadsheet - On form submit trigger has been added](../images/google-slides-presentation-generator/script-trigger-loaded.png)  
+![A screenshot of the execution log that shows the attachTrigger function starting and completing](/img/google-slides-presentation-generator/script-execution.png)
+![A screenshot of the Triggers view in the Apps Script editor in which the From spreadsheet - On form submit trigger has been added](/img/google-slides-presentation-generator/script-trigger-loaded.png)  
 *The Loaded Trigger*
 
 # Generating Slides
@@ -385,22 +385,22 @@ In the top-right corner of your Form, click the “Publish” button, set your s
 
 Back in your Slides, add a new slide right at the beginning that teaches people how to generate. I usually add the following text: “How to Use: Fill out **This Form** to receive a generated template.” replacing the bolded underlined section with your unique responder link.
 
-![A screenshot of the new first slide in your template that links out to the generator form](../images/google-slides-presentation-generator/slide-howto.png)  
+![A screenshot of the new first slide in your template that links out to the generator form](/img/google-slides-presentation-generator/slide-howto.png)  
 *The First Slide in Your Template*
 
 Have your presenters bookmark this presentation. That way if they need a new deck, they can click the link, fill out the form, and in a matter of seconds receive a slide deck customized just for them!
 
-![A screenshot of the Slide Generator form being filled out with details from the presenter](../images/google-slides-presentation-generator/generator-form.png)  
+![A screenshot of the Slide Generator form being filled out with details from the presenter](/img/google-slides-presentation-generator/generator-form.png)  
 *Filling out the form*
 
-![A screenshot of the successful generation within the Google Sheet](../images/google-slides-presentation-generator/generator-sheet.png)  
+![A screenshot of the successful generation within the Google Sheet](/img/google-slides-presentation-generator/generator-sheet.png)  
 *The Results in the Sheet*
 
-![A screenshot of the generation results and the ownership change sent to the presenter's email](../images/google-slides-presentation-generator/generator-emails.png)  
-![A screenshot of the generation results email that includes the list of generated files](../images/google-slides-presentation-generator/generator-emailbody.png)  
+![A screenshot of the generation results and the ownership change sent to the presenter's email](/img/google-slides-presentation-generator/generator-emails.png)  
+![A screenshot of the generation results email that includes the list of generated files](/img/google-slides-presentation-generator/generator-emailbody.png)  
 *The User’s Emails*
 
-![A screenshot of the generated presentation](../images/google-slides-presentation-generator/generator-slides.png)  
+![A screenshot of the generated presentation](/img/google-slides-presentation-generator/generator-slides.png)  
 *The Generated Presentation*
 
 # Extending the Generator

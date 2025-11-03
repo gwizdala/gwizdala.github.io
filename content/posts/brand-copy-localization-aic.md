@@ -51,7 +51,7 @@ Select that property and add the following properties to it, all with “Require
 | `descriptions` | Descriptions | Array |
 | `footers` | Footers | Array |
 
-![A screenshot of the IDM Managed Locale Object Property within the Alpha Organization](../images/brand-copy-localization-aic/idm-property-locale.png) 
+![A screenshot of the IDM Managed Locale Object Property within the Alpha Organization](/img/brand-copy-localization-aic/idm-property-locale.png) 
 *The Locale Object*
 
 Finally, inside of each of those new properties, set the “Item Type” to “Object” and add the following properties with “Required” set to true:
@@ -61,17 +61,17 @@ Finally, inside of each of those new properties, set the “Item Type” to “O
 | `language` | Language | String | ISO 639 Code (e.g. "en", "en-us") |
 | `message` | Message | String | The localized message |
 
-![A screenshot of the IDM Managed Headers Object Property within the Locale Object](../images/brand-copy-localization-aic/idm-property-headers.png) 
+![A screenshot of the IDM Managed Headers Object Property within the Locale Object](/img/brand-copy-localization-aic/idm-property-headers.png) 
 *Inside the Headers Object*
 
 At this point we’ve created a means to store both the language code and the localized message for the header, the description, and the footer. In the Platform UI, head over to an Organization we’ve created to see what that looks like for our delegated admins.
 
-![A screenshot of a example organization in which the Locale Array and its object properties are visible](../images/brand-copy-localization-aic/example-org-unpopulated.png)  
+![A screenshot of a example organization in which the Locale Array and its object properties are visible](/img/brand-copy-localization-aic/example-org-unpopulated.png)  
 *The Example Organization with Localization Properties*
 
 Right now we don’t have any localizations defined. Let’s add in some messages specific to this Organization. Since we’ve defined each property to be an array, we can add as many language options as we want.
 
-![A screenshot of a example organization in which a header, description, and footer message have been applied](../images/brand-copy-localization-aic/example-org-populated.png)   
+![A screenshot of a example organization in which a header, description, and footer message have been applied](/img/brand-copy-localization-aic/example-org-populated.png)   
 *Applying Localized Messages to the Example Organization*
 
 You now have localized messages stored on individual Organizations (e.g. brands, departments, partnerships, etc.). Continue on to the next section when you’re ready to apply these values in your user experiences, otherwise if you want to do some more extensions:
@@ -94,20 +94,20 @@ Navigate to “Journeys” inside of your tenant and create a brand-new Journey 
 
 Your Journey editor will start out empty. Connect your Start Node to a Page Node and inside of it add a Platform Username and Platform Password Node, as if we’re building a login screen. Your Journey editor and page preview (the URL is found in the top-right corner of your screen) should look something like this:
 
-![A screenshot of the Journey editor which has a Page Node, a Platform Username Node, and a Password Node](../images/brand-copy-localization-aic/journey-initial.png)  
-![A screenshot of the end-user view of the original Journey in which no copy has been applied to the page node](../images/brand-copy-localization-aic/journey-initial-rendered.png)   
+![A screenshot of the Journey editor which has a Page Node, a Platform Username Node, and a Password Node](/img/brand-copy-localization-aic/journey-initial.png)  
+![A screenshot of the end-user view of the original Journey in which no copy has been applied to the page node](/img/brand-copy-localization-aic/journey-initial-rendered.png)   
 *The Starting Journey*
 
 Right now we don’t have any copy at all. Let’s define some defaults that our Page Node can fall back on if nothing is provided by our brands.
 
 In your editor, click on the Page Node. You’ll see that there are input sections for Page Header, Page Description, and Page Footer, and that you add key-value pairs to define the language code and the message for each section. This should look familiar \- it’s the same setup we made in the Organization Object.
 
-![A screenshot of the Page Node property view in which custom values are being added - in this case a Spanish description](../images/brand-copy-localization-aic/journey-defaults.png)
+![A screenshot of the Page Node property view in which custom values are being added - in this case a Spanish description](/img/brand-copy-localization-aic/journey-defaults.png)
 *Adding Default Values*
 
 After adding some values for our header, description, and footer, we can see these values applied to our page.
 
-![A screenshot of the default values applied to the end-user rendered view of the page](../images/brand-copy-localization-aic/journey-defaults-rendered.png)  
+![A screenshot of the default values applied to the end-user rendered view of the page](/img/brand-copy-localization-aic/journey-defaults-rendered.png)  
 *Rendering Defaults*
 
 ## Localizing with a Script
@@ -361,7 +361,7 @@ function renderLocale(locales) {
 
 Your Journey should look like this:  
 
-![A screenshot of the Journey editor which the three scripts have been applied](../images/brand-copy-localization-aic/journey-scripted.png)  
+![A screenshot of the Journey editor which the three scripts have been applied](/img/brand-copy-localization-aic/journey-scripted.png)  
 *Getting and Setting Locale*
 
 ## Testing Localization
@@ -381,14 +381,14 @@ https://{your-domain}/am/XUI/?realm=/alpha&authIndexType=service&authIndexValue=
 
 Loading this URL, you’ll find that the Header, Footer, and Description have changed to the values set in the matching language on your Organization.
 
-![A screenshot of the rendered journey in which the custom english copy has been applied](../images/brand-copy-localization-aic/journey-scripted-rendered-english.png)
+![A screenshot of the rendered journey in which the custom english copy has been applied](/img/brand-copy-localization-aic/journey-scripted-rendered-english.png)
 *Rendering the English Copy*
 
 Now, what if your Organization doesn’t have any custom copy in the user’s language? The script “Set Locale on Page” only overrides the default messages if there’s a matching message keyed to the correct language code, rendered in order of the user’s language preferences. To test this, change your browser setting to a language that you don’t have stored on your Organization object or remove the messages that match your browser preferences on that Organization.
 
 In my example, I’ve set my browser language to Spanish. I have defaults in Spanish on my page node but only have an override for the Description within my organization. When rendering the Journey, I see my defaults in the Header and Footer and my override in the Description.
 
-![A screenshot of the rendered journey in which the custom spanish copy has been applied to parts of the page](../images/brand-copy-localization-aic/journey-scripted-rendered-spanish.png) 
+![A screenshot of the rendered journey in which the custom spanish copy has been applied to parts of the page](/img/brand-copy-localization-aic/journey-scripted-rendered-spanish.png) 
 *Branding Portions of the Page*
 
 An important note: If the user’s browser is set to a language that neither the overrides or the defaults have, the Page Node will fall back to English by default. This has nothing to do with the Scripted Decision Node you’ve added \- it’s default behavior for the page itself.

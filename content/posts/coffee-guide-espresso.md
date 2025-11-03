@@ -16,7 +16,7 @@ ShowToc: true
 author: David Gwizdala
 ---
 
-![The Espresso Coffee Guide Infographic](../images/coffee-guide-espresso/coffee_guide_espresso.png)
+![The Espresso Coffee Guide Infographic](/img/coffee-guide-espresso/coffee_guide_espresso.png)
 
 [Espresso Coffee Guide Infographic (PDF)](/documents/coffee_guide_espresso.pdf)
 
@@ -71,7 +71,7 @@ Approximately 9 bars of pressure is considered to have the peak flow rate throug
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Affogato](../images/coffee-guide-espresso/affogato.png)
+![Infographic of Affogato](/img/coffee-guide-espresso/affogato.png)
 
 {{< /column >}}
 {{< column >}}
@@ -92,7 +92,7 @@ Pour espresso over ice cream.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Americano](../images/coffee-guide-espresso/americano.png)
+![Infographic of Americano](/img/coffee-guide-espresso/americano.png)
 
 {{< /column >}}
 {{< column >}}
@@ -113,7 +113,7 @@ Pour espresso over water.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Breve](../images/coffee-guide-espresso/breve.png)
+![Infographic of Breve](/img/coffee-guide-espresso/breve.png)
 
 {{< /column >}}
 {{< column >}}
@@ -135,7 +135,7 @@ Pour milk over espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Café Bombón](../images/coffee-guide-espresso/bombon.png)
+![Infographic of Café Bombón](/img/coffee-guide-espresso/bombon.png)
 
 {{< /column >}}
 {{< column >}}
@@ -156,7 +156,7 @@ Milk will settle to bottom.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Latte](../images/coffee-guide-espresso/latte.png)
+![Infographic of Latte](/img/coffee-guide-espresso/latte.png)
 
 {{< /column >}}
 {{< column >}}
@@ -178,7 +178,7 @@ Pour milk over espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Cappuccino](../images/coffee-guide-espresso/cappuccino.png)
+![Infographic of Cappuccino](/img/coffee-guide-espresso/cappuccino.png)
 
 {{< /column >}}
 {{< column >}}
@@ -200,7 +200,7 @@ Pour milk over espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Corretto](../images/coffee-guide-espresso/corretto.png)
+![Infographic of Corretto](/img/coffee-guide-espresso/corretto.png)
 
 {{< /column >}}
 {{< column >}}
@@ -220,7 +220,7 @@ Pour brandy over espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Cortado](../images/coffee-guide-espresso/cortado.png)
+![Infographic of Cortado](/img/coffee-guide-espresso/cortado.png)
 
 {{< /column >}}
 {{< column >}}
@@ -241,7 +241,7 @@ Pour milk over espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Espresso Con Panna](../images/coffee-guide-espresso/panna.png)
+![Infographic of Espresso Con Panna](/img/coffee-guide-espresso/panna.png)
 
 {{< /column >}}
 {{< column >}}
@@ -261,7 +261,7 @@ Spoon whipped cream onto espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Espresso Laccino](../images/coffee-guide-espresso/laccino.png)
+![Infographic of Espresso Laccino](/img/coffee-guide-espresso/laccino.png)
 
 {{< /column >}}
 {{< column >}}
@@ -281,7 +281,7 @@ Fill espresso cup with ice.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Flat White](../images/coffee-guide-espresso/flat-white.png)
+![Infographic of Flat White](/img/coffee-guide-espresso/flat-white.png)
 
 {{< /column >}}
 {{< column >}}
@@ -302,7 +302,7 @@ Pour milk over espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Freddo](../images/coffee-guide-espresso/freddo.png)
+![Infographic of Freddo](/img/coffee-guide-espresso/freddo.png)
 
 {{< /column >}}
 {{< column >}}
@@ -325,7 +325,7 @@ Strain over ice-filled glass.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Macchiato](../images/coffee-guide-espresso/macchiato.png)
+![Infographic of Macchiato](/img/coffee-guide-espresso/macchiato.png)
 
 {{< /column >}}
 {{< column >}}
@@ -346,7 +346,7 @@ Pour milk over espresso.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Marocchino](../images/coffee-guide-espresso/marocchino.png)
+![Infographic of Marocchino](/img/coffee-guide-espresso/marocchino.png)
 
 {{< /column >}}
 {{< column >}}
@@ -370,7 +370,7 @@ Pour milk over chocolate.
 {{< column-container wrap="true" >}}
 {{< column >}}
 
-![Infographic of Romano](../images/coffee-guide-espresso/romano.png)
+![Infographic of Romano](/img/coffee-guide-espresso/romano.png)
 
 {{< /column >}}
 {{< column >}}

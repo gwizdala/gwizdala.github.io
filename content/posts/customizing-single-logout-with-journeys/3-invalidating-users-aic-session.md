@@ -30,13 +30,13 @@ Now that we’ve captured the session, we can optionally call the logout actions
 
 Your journey will either look like this:
 
-![Screenshot of No External Sessions Logout Journey](../images/3-no-external-sessions-journey.png)
+![Screenshot of No External Sessions Logout Journey](/img/3-no-external-sessions-journey.png)
 
 _Logging Out the User in PingOne AIC - No External Sessions_
 
 Or if you added the REST call Journey, like this:
 
-![Screenshot of External Sessions Logout Journey](../images/3-external-sessions-journey.png)
+![Screenshot of External Sessions Logout Journey](/img/3-external-sessions-journey.png)
 
 _Logging Out the User in PingOne AIC - External Sessions_
 
@@ -148,21 +148,21 @@ Finally, we’ll want to make sure that any errors from our Session Invalidation
 
 Your completed Journey should look something like this:
 
-![Screenshot of External Sessions Logout Journey with Testing](../images/3-external-sessions-journey-test.png)
+![Screenshot of External Sessions Logout Journey with Testing](/img/3-external-sessions-journey-test.png)
 
 _Invalidating PingOne AIC Sessions Journey_
 
 Open an incognito (or separate browser) window and log in as your test user. You should see their active session within your AM Native Console under the “Sessions” tab by searching for their `_id` (this attribute is in your managed users user page under “Raw JSON”).
 
-![Screenshot of the Logged-In User](../images/3-logged-in-user.png)
-![Screenshot of the Logged-In User's Active Session](../images/3-logged-in-user-session.png)
+![Screenshot of the Logged-In User](/img/3-logged-in-user.png)
+![Screenshot of the Logged-In User's Active Session](/img/3-logged-in-user-session.png)
 
 _The User and Their Active Session_
 
 Once you’ve validated that the user’s session exists and is active, paste in the URL of your new Journey in the browser where you’re logged in as that user. You should be taken to your default login screen. When you check the AM Native console, all sessions related to that user should be gone!
 
-![Screenshot of the login screen](../images/3-login-screen.png)
-![Screenshot of no sessions](../images/3-no-session.png)
+![Screenshot of the login screen](/img/3-login-screen.png)
+![Screenshot of no sessions](/img/3-no-session.png)
 
 _Login Screen for User and No Sessions in the Admin Console_
 

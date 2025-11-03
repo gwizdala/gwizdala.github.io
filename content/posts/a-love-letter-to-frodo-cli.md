@@ -19,7 +19,7 @@ author: David Gwizdala
 # What is Frodo-Cli, and Why Do I Love it So Much?
 
 {{<details title="And no, I'm _not_ talking about the Baggins variety.">}}
-![An Image of Frodo Baggins Looking Sad](../images/a-love-letter-to-frodo-cli/sad-frodo.avif)
+![An Image of Frodo Baggins Looking Sad](/img/a-love-letter-to-frodo-cli/sad-frodo.avif)
 
 _Sorry, friend_
 {{</details>}}
@@ -48,8 +48,8 @@ When you do this, FroDo performs some magic for you.
 2. FroDo creates a new log API key and secret
 3. FroDo takes these new clients, plus details about your account and your tenant, and stores it encrypted on your device at `~/.frodo/.frodorc`
 
-![A Screenshot of the generated FroDo Service Account](../images/a-love-letter-to-frodo-cli/frodo-service-account.png)
-![A Screenshot of the generated FroDo Logger](../images/a-love-letter-to-frodo-cli/frodo-logger.png)
+![A Screenshot of the generated FroDo Service Account](/img/a-love-letter-to-frodo-cli/frodo-service-account.png)
+![A Screenshot of the generated FroDo Logger](/img/a-love-letter-to-frodo-cli/frodo-logger.png)
 
 _One Command, Infinite Possibilities_
 

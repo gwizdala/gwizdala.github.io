@@ -22,7 +22,7 @@ Single Logout is a powerful feature of the SAML2 Spec that enables you to push a
 
 When configuring [Federated Single Logout (SLO)](https://docs.pingidentity.com/pingoneaic/latest/am-saml2/saml2-sso-slo.html) in PingOne Advanced Identity Cloud (AIC) with Ping as the Identity Provider (IdP), your setup may look something like this:
 
-![Single Logout Diagram](../images/slo-diagram.png "A typical Single Logout (SLO) flow with Ping as the IdP.")
+![Single Logout Diagram](/img/slo-diagram.png "A typical Single Logout (SLO) flow with Ping as the IdP.")
 
 _A typical Single Logout (SLO) flow with Ping as the IdP._
 

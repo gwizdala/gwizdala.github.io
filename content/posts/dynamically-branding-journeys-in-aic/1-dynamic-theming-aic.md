@@ -58,13 +58,13 @@ Select that attribute and add the following properties to it:
 
 Your `themeOverrides` object should look like this:
 
-![The Theme Overrides Object Attribute](../images/1-themeOverrides.png)
+![The Theme Overrides Object Attribute](/img/1-themeOverrides.png)
 
 _The Object Attribute inside Organization Object_
 
 With this configuration in place, when we head over to an Organization we’ve created we’ll see a new tab entitled “Theme Overrides” with the two options we’ve configured.
 
-![The Theme Overrides Object inside the "Example" Organization](../images/1-themeOverridesEditor.png)
+![The Theme Overrides Object inside the "Example" Organization](/img/1-themeOverridesEditor.png)
 
 _The Theme Overrides in Action_
 
@@ -84,13 +84,13 @@ Navigate to “Journeys” inside of your tenant and create a new Journey, using
 
 In this example, we’re going to have a basic username and password login. Drag in a Page Node with a Platform Username and Platform Password node, tied to a Data Store Decision. This should end up looking like a simplified version of the default “Login” Journey.
 
-![The Simplified Login Journey inside the Journey Editor](../images/1-basicLogin.png)
+![The Simplified Login Journey inside the Journey Editor](/img/1-basicLogin.png)
 
 _Basic Login_
 
 Copy the Preview URL and open up the Journey in a Guest Window, Incognito Window, or separate browser. You should be able to login using an existing user, all with the Default Theme defined in your tenant.
 
-![The Simplified Login Journey Rendered in Preview within a Browser Window](../images/1-basicLoginPreview.png)
+![The Simplified Login Journey Rendered in Preview within a Browser Window](/img/1-basicLoginPreview.png)
 
 _Basic Login, In Action_
 
@@ -226,7 +226,7 @@ var NodeOutcome = {
 
 Connect the Start Node to this new Scripted Decision Node, the `Found` and `Missing` outputs to your Set Theme script, and the `Error` output to the Failure node. Your complete Journey should look something like this:
 
-![A screenshot of the dynamic hosted pages journey](../images/1-dynamic-hosted-pages-journey.png)
+![A screenshot of the dynamic hosted pages journey](/img/1-dynamic-hosted-pages-journey.png)
 
 _The Dynamic Hosted Pages Journey_
 
@@ -253,7 +253,7 @@ To test, you’ll have to have created an Organization. I’ll be using the “E
 
 Refresh the Guest/Incognito window that has the preview URL to your Journey. The theme should default to the the `HOSTED_PAGE` default set in the script (the above example being `Contrast`).
 
-![A screenshot of the rendered "Contrast" Hosted Page theme](../images/1-contrast-fallback.png)
+![A screenshot of the rendered "Contrast" Hosted Page theme](/img/1-contrast-fallback.png)
 
 _The Default Theme_
 
@@ -269,13 +269,13 @@ When you go to this URL route, nothing should have changed. You haven’t set an
 
 Now, in your Managed Organization, change the theme name to another Hosted Page you have in your Tenant. I’m using Highlander.
 
-![A screenshot of the "Highlander" Theme being added to the "Example" Organization](../images/1-setting-highlander.png)
+![A screenshot of the "Highlander" Theme being added to the "Example" Organization](/img/1-setting-highlander.png)
 
 _Setting Highlander as the Hosted Page Theme_
 
 Save the Organization, and then refresh the page with your Journey. The theme has changed!
 
-![A screenshot of the Journey changing to the Highlander Hosted Page theme](../images/1-highlander-set.png)
+![A screenshot of the Journey changing to the Highlander Hosted Page theme](/img/1-highlander-set.png)
 
 _Dynamic Hosted Pages in Action_
 
@@ -369,7 +369,7 @@ This example uses the `Registration` email template that comes with your tenant 
 
 Wire up the `Success` and `Error` outcomes of your `Set Hosted Pages` script to this new Node and the `Success` and `Error` outcomes of this script to your Page Node. The start of your Journey should now look like this:
 
-![A screenshot of the beginning part of the Journey containing both the Set Hosted Page and Set Email Scripted Nodes](../images/1-dynamic-emails-journey-start.png)
+![A screenshot of the beginning part of the Journey containing both the Set Hosted Page and Set Email Scripted Nodes](/img/1-dynamic-emails-journey-start.png)
 
 _The Beginning of the Journey_
 
@@ -392,7 +392,7 @@ config = nodeState.get("emailVerificationConfig").asMap();
 
 Connect the `True` outcome of your Data Store Decision node to your Identify Existing User Node, the `True` outcome of your Identify Existing User Node to your Config Provider Node, the `Outcome` of your Config Provider Node to the Success Node, and finally the `Configuration Failure` outcome of the Config Provider to the Failure Node. Your Journey should now look like this:
 
-![A screenshot of the entire Journey containing both the Set Hosted Page and Set Email Scripted Nodes](../images/1-dynamic-emails-journey-complete.png)
+![A screenshot of the entire Journey containing both the Set Hosted Page and Set Email Scripted Nodes](/img/1-dynamic-emails-journey-complete.png)
 
 _The Complete Journey_
 
@@ -431,9 +431,9 @@ To test, make sure you have a user with an email address that you can receive em
 
 Go back to the base Journey Preview with no Organization ID passed into the query parameter. You’ll get the default branding both in the Hosted Pages and in your Email (in my case, the `Contrast` Hosted Page and `Registration` Email Template).
 
-![A screenshot of the default "Contrast" Hosted Page theme](../images/1-contrast-theme-testing.png)
-![A screenshot of the default email suspend node page with "Contrast" theme](../images/1-contrast-theme-testing-sent.png)
-![A screenshot of the default "registration" email in a mail viewer](../images/1-default-registration-email.png)
+![A screenshot of the default "Contrast" Hosted Page theme](/img/1-contrast-theme-testing.png)
+![A screenshot of the default email suspend node page with "Contrast" theme](/img/1-contrast-theme-testing-sent.png)
+![A screenshot of the default "registration" email in a mail viewer](/img/1-default-registration-email.png)
 
 _The Default Journey with No Organization Set_
 
@@ -441,13 +441,13 @@ Now, let’s add the `orgId` query parameter like we did when we changed the Hos
 
 Now, back in your Organization add the name of another email template. I’ll use the default `forgottenUsername` template for the sake of this example.
 
-![A screenshot of setting the Verification Email Template Name to "forgottenUsername"](../images/1-setting-email-template.png)
+![A screenshot of setting the Verification Email Template Name to "forgottenUsername"](/img/1-setting-email-template.png)
 
 _Overriding the Email Template_
 
 Re-running your Journey, you’ll see that the email has changed!
 
-![A screenshot of the "forgottenUsername" in an email browser](../images/1-viewing-email-template.png)
+![A screenshot of the "forgottenUsername" in an email browser](/img/1-viewing-email-template.png)
 
 _The Email Override in Action_
 

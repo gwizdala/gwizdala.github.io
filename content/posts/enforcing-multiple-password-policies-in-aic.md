@@ -56,17 +56,17 @@ To create a Library Script, go to Scripts → Auth Scripts, Select “New Script
 {{< column-container >}}
 {{< column >}}
 
-![A screenshot of the Auth Scripts tab in the Admin UI](../images/enforcing-multiple-password-policies-in-aic/select-auth-script.png)
+![A screenshot of the Auth Scripts tab in the Admin UI](/img/enforcing-multiple-password-policies-in-aic/select-auth-script.png)
 
 {{< /column >}}
 {{< column >}}
 
-![A screenshot of the "New Script" button being pressed](../images/enforcing-multiple-password-policies-in-aic/new-script.png)
+![A screenshot of the "New Script" button being pressed](/img/enforcing-multiple-password-policies-in-aic/new-script.png)
 
 {{< /column >}}
 {{< /column-container >}}
 
-![A screenshot of the Library Script Button from the New Script Dialog](../images/enforcing-multiple-password-policies-in-aic/select-library-script.png)
+![A screenshot of the Library Script Button from the New Script Dialog](/img/enforcing-multiple-password-policies-in-aic/select-library-script.png)
 
 _Creating the Library Script_
 
@@ -82,7 +82,7 @@ This section gives you an overview of how to use the Password Policy Library Scr
 
 To use your new password policy library script in a Journey, drag and drop in a [Scripted Decision Node](https://docs.pingidentity.com/auth-node-ref/latest/auth-node-scripted-decision.html) with Next Gen Scripting selected. In the code editor provided, you can select the “Libraries” tab (it’s the little document icon in the top-left corner), open up the `library_passwordPolicy` dropdown, and click the functions you’d like to be auto-added into your editor.
 
-![A screenshot of the Script Editor in which the Password Policy Library has been selected and inputted](../images/enforcing-multiple-password-policies-in-aic/use-library-script.png)
+![A screenshot of the Script Editor in which the Password Policy Library has been selected and inputted](/img/enforcing-multiple-password-policies-in-aic/use-library-script.png)
 
 _Using the Library Script in an Editor_
 
@@ -247,7 +247,7 @@ Under Security → Password Policy, update your policy to what you’ll consider
 
 For my example, I’m going to remove the “Part of Alpha realm - User attributes”, remove that it must contain any of the character type requirements, change the minimum character length to 4, and prevent reuse of the last 3 passwords. This is likely too lenient in a real-world use case but ensures during this demonstration that we won’t have any policy conflicts. If you have your own policy set you can skip this: later in this document we’ll walk through [how to set your global policy to be the default established for all custom policies moving forward](#ensuring-the-default-policy).
 
-![A screenshot of the password policy set for the realm using the parameters provided](../images/enforcing-multiple-password-policies-in-aic/set-default-policy.png)
+![A screenshot of the password policy set for the realm using the parameters provided](/img/enforcing-multiple-password-policies-in-aic/set-default-policy.png)
 
 _Setting the Realm Default Password Policy_
 
@@ -261,13 +261,13 @@ Next, navigate to “Journeys” inside of your tenant and duplicate the Registr
 
 Since this How-To is focused on dynamic password policy enforcement, we’ll remove the Accept Terms and Conditions node, the KBA Definition node, and the Email Suspend Node from our copy. Your Journey should look something like this:
 
-![A screenshot of the Journey editor where a pared-down copy of the Registration Journey is shown](../images/enforcing-multiple-password-policies-in-aic/initial-journey.png)
+![A screenshot of the Journey editor where a pared-down copy of the Registration Journey is shown](/img/enforcing-multiple-password-policies-in-aic/initial-journey.png)
 
 _The Starter Journey_
 
 Click on the Platform Password node and deselect the “Validate Password” option. Since we are evaluating off of our own custom policy we won’t want to confuse the user by listing a separate one.
 
-![A screenshot of the "Validate Password" check disabled](../images/enforcing-multiple-password-policies-in-aic/validate-password-unchecked.png)
+![A screenshot of the "Validate Password" check disabled](/img/enforcing-multiple-password-policies-in-aic/validate-password-unchecked.png)
 
 _Unchecking Password Validation_
 
@@ -535,7 +535,7 @@ Now we have a means for the user to see what policies they have successfully pas
 
 Connect the `Valid` outcomes of both nodes to the Create Object Node, the `Undefined` and `Error` outcomes to the Failure node, and the `Invalid` outcome of the Enforce Password Node back to the Evaluate Password node. Your Journey should look something like this:
 
-![A screenshot of the Journey editor that includes the password validation and enforcement](../images/enforcing-multiple-password-policies-in-aic/journey-evaluate-enforce.png)
+![A screenshot of the Journey editor that includes the password validation and enforcement](/img/enforcing-multiple-password-policies-in-aic/journey-evaluate-enforce.png)
 
 _Connecting the Evaluation and Enforcement Nodes_
 
@@ -582,7 +582,7 @@ outcome = "true";
 
 Wire up the Page node where you are collecting the user’s attributes and password to this new node, and then the outcome of that node to your Evaluate Password Policy node. Your Journey will ultimately look like this:
 
-![A screenshot of the Journey editor that includes the testing policy](../images/enforcing-multiple-password-policies-in-aic/journey-test.png)
+![A screenshot of the Journey editor that includes the testing policy](/img/enforcing-multiple-password-policies-in-aic/journey-test.png)
 
 _Connecting the Test Policy_
 
@@ -598,13 +598,13 @@ Let’s test our password policy. I’ll be entering the following details, but 
 | Email Address | badUser@example.com |
 | Password | example1234 |
 
-![A screenshot of the end-user registration UI in which the above values have been entered](../images/enforcing-multiple-password-policies-in-aic/ui-entry-baduser.png)
+![A screenshot of the end-user registration UI in which the above values have been entered](/img/enforcing-multiple-password-policies-in-aic/ui-entry-baduser.png)
 
 _The User with the Bad Password_
 
 Hitting next, you’ll find that you need to update your password to meet the policy requirements. In my case, my example password is greater than 10 characters long, contains my username, has been found in the list of breached passwords, doesn’t have an uppercase character, and doesn’t have a special character.  
 
-![A screenshot of the user's password being flagged as invalid along with the list of reasons why](../images/enforcing-multiple-password-policies-in-aic/ui-enforce-baduser.png)
+![A screenshot of the user's password being flagged as invalid along with the list of reasons why](/img/enforcing-multiple-password-policies-in-aic/ui-enforce-baduser.png)
 
 _Enforcing the Password Policy_
 
@@ -612,7 +612,7 @@ Let’s update our password to meet the requirements. I’m using the password `
 
 Inputting the new password, your user has been registered and is in the platform. Nice!
 
-![A screenshot of the user successfully registering an account with the updated password](../images/enforcing-multiple-password-policies-in-aic/ui-success-baduser.png)
+![A screenshot of the user successfully registering an account with the updated password](/img/enforcing-multiple-password-policies-in-aic/ui-success-baduser.png)
 
 _Registering the User_
 
@@ -649,13 +649,13 @@ Select that attribute and add the following properties to it, all with “Requir
 
 Your `passwordPolicy` object should look like this:  
 
-![A screenshot of the Native IDM Console showing the passwordPolicy object created in the Organization](../images/enforcing-multiple-password-policies-in-aic/idm-policy.png)
+![A screenshot of the Native IDM Console showing the passwordPolicy object created in the Organization](/img/enforcing-multiple-password-policies-in-aic/idm-policy.png)
 
 _The Managed Password Policy Object_
 
 With this configuration in place, when we head over to an Organization we’ve created we’ll see a new tab entitled “Password Policy” with the options we’ve configured.  
 
-![A screenshot of the Admin console where the Password Policy is available to be edited on an Organization](../images/enforcing-multiple-password-policies-in-aic/idm-policy-object.png)
+![A screenshot of the Admin console where the Password Policy is available to be edited on an Organization](/img/enforcing-multiple-password-policies-in-aic/idm-policy-object.png)
 
 _Viewing the Policy_
 
@@ -800,7 +800,7 @@ Connect the `Success` outcome of gathering the password policy to the Page Node 
 
 That’s a lot of connections! Let’s see what our Journey should look like now:
 
-![A screenshot of the Registration Journey including the Organization metadata and policy enforcement scripts](../images/enforcing-multiple-password-policies-in-aic/journey-complete.png)
+![A screenshot of the Registration Journey including the Organization metadata and policy enforcement scripts](/img/enforcing-multiple-password-policies-in-aic/journey-complete.png)
 
 _The Completed Journey_
 
@@ -819,13 +819,13 @@ Now let’s enforce a password policy set by an Organization. Head back to the E
 
 Your Organization password policy should look like this:
 
-![A screenshot of the Admin console where the Password Policy has been set on the organization according to the provided details](../images/enforcing-multiple-password-policies-in-aic/test-org-policy.png)
+![A screenshot of the Admin console where the Password Policy has been set on the organization according to the provided details](/img/enforcing-multiple-password-policies-in-aic/test-org-policy.png)
 
 _The Test Policy_
 
 Select the “Raw JSON” tab. You should see the Password Policy set on your organization.
 
-![A screenshot of the updated organization's raw JSON values, which include the inputted policy](../images/enforcing-multiple-password-policies-in-aic/test-org-json.png)
+![A screenshot of the updated organization's raw JSON values, which include the inputted policy](/img/enforcing-multiple-password-policies-in-aic/test-org-json.png)
 
 _Viewing the Org's Test Policy_
 
@@ -841,19 +841,19 @@ https://{your-domain}/am/XUI/?realm=/alpha&authIndexType=service&authIndexValue=
 
 Just like when we tested before, let’s add in a user that will flag the password policy we created. In this case, we’ll use the username `aaaa` and the password `aaaa`. 
 
-![A screenshot of the end-user UI in which a test user has been provided as part of this organization](../images/enforcing-multiple-password-policies-in-aic/test-org-user.png)
+![A screenshot of the end-user UI in which a test user has been provided as part of this organization](/img/enforcing-multiple-password-policies-in-aic/test-org-user.png)
 
 _The Test User_
 
 As expected, our password was flagged that it did not meet most criteria in our policy. Now, let’s change our password to the name of the Organization - in my case it was `Example Org`. 
 
-![A screenshot of the end-user UI in which the password `aaaa` has been flagged and the password `Example Org` is being entered](../images/enforcing-multiple-password-policies-in-aic/test-org-failure.png)
+![A screenshot of the end-user UI in which the password `aaaa` has been flagged and the password `Example Org` is being entered](/img/enforcing-multiple-password-policies-in-aic/test-org-failure.png)
 
 _Evaluation Results for `aaaa`_
 
 We’re now flagged that we can’t match the name of the organization, either. Go ahead and change your password to something that passes the policy - I’m using `b$5j0sW`.
 
-![A screenshot of the end-user UI in which the password `Example Org` has been flagged and the password `b$5j0sW` is being entered](../images/enforcing-multiple-password-policies-in-aic/test-org-name-failure.png)
+![A screenshot of the end-user UI in which the password `Example Org` has been flagged and the password `b$5j0sW` is being entered](/img/enforcing-multiple-password-policies-in-aic/test-org-name-failure.png)
 
 _Evaluation Results for `Example Org`_
 

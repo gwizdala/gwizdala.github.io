@@ -7,7 +7,7 @@ summary: "About Me"
 {{< column-container >}}
 {{< column >}}
 
-![A drawing of my head with a chef's hat, baseball cap, and hard hat. My brain is showing and the hats are flying off of my head](images/profile-extended.png#centered)
+![A drawing of my head with a chef's hat, baseball cap, and hard hat. My brain is showing and the hats are flying off of my head](/img/profile-extended.png#centered)
 
 {{< /column >}}
 {{< column >}}

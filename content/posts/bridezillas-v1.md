@@ -278,7 +278,7 @@ Fill out your character sheet and send it to your wedding coordinator. If you ar
 
 {{<details title="Example Stylized Character Sheet (Click to Open)">}}
 
-![Bridezillas v1 character sheet](../images/bridezillas-v1/character-sheet.png)
+![Bridezillas v1 character sheet](/img/bridezillas-v1/character-sheet.png)
 
 {{</details>}}
 
@@ -322,7 +322,7 @@ These example characters will be used when describing the gameplay.
 
 {{<details title="Example Human Character Sheet (Click to Open)">}}
 
-![Bridezillas v1 human character sheet](../images/bridezillas-v1/character-sheet-human.png)
+![Bridezillas v1 human character sheet](/img/bridezillas-v1/character-sheet-human.png)
 
 {{</details>}}
 
@@ -362,7 +362,7 @@ These example characters will be used when describing the gameplay.
 
 {{<details title="Example Kaiju Character Sheet (Click to Open)">}}
 
-![Bridezillas v1 kaiju character sheet](../images/bridezillas-v1/character-sheet-kaiju.png)
+![Bridezillas v1 kaiju character sheet](/img/bridezillas-v1/character-sheet-kaiju.png)
 
 {{</details>}}
 
@@ -637,7 +637,7 @@ BRIDEZILLAS takes place over the course of a Wedding Day, and as such has a stri
 Wedding Clocks follow the Progress Clocks paradigm from Blades in the Dark (https://bladesinthedark.com/progress-clocks) and are represented by a circle divided into segments. Generally, the more complex the problem, the more segments in this clock (think 4 segments is complex, 6 is more complicated, and 8 is daunting). Fill in segments of the clock as players progress through the action.
 
 Your Wedding Clocks may look something like this:  
-![Circle Segments Reqpresenting a Wedding Clock](../images/bridezillas-v1/wedding-clock.png)
+![Circle Segments Reqpresenting a Wedding Clock](/img/bridezillas-v1/wedding-clock.png)
 
 Consider implementing clocks based on the following actions:
 
@@ -667,7 +667,7 @@ If you and your players need a mechanical nudge to help move the game along that
 
 {{<details title="Total Effect Tally Example (Click to Open)">}}
 
-![Total Effect Tally example](../images/bridezillas-v1/total-effect-tally-example.png)
+![Total Effect Tally example](/img/bridezillas-v1/total-effect-tally-example.png)
 
 {{</details>}}
 

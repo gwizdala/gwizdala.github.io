@@ -26,8 +26,8 @@ If the user is initiating SLO from a browser-based application that uses a logou
 
 AIC stores the user’s browser session within a cookie, keyed to the cookie ID unique to your tenant. Your Journey will inspect the browser’s cookies and retrieve the stored session, returning false if there’s no session available. To get the cookie ID for your tenant, go to your Tenant Settings > Global Settings, and copy the value set for Cookie.
 
-![Tenant Settings](../images/1-tenant-settings.png)
-![Tenant Cookie](../images/1-tenant-cookie.png)
+![Tenant Settings](/img/1-tenant-settings.png)
+![Tenant Cookie](/img/1-tenant-cookie.png)
 
 _Retrieving Your Tenant Cookie_
 
@@ -35,9 +35,9 @@ You can use this value directly within your Scripted Decision Node, however if y
 
 Go to Environment Secrets and Variables > Add Secret and paste in the value you copied on the previous page. For this example, the secret is named `esv-cookie`.
 
-![ESVs in Tenant Settings](../images/1-esvs.png)
-![Adding a Secret](../images/1-add-secret.png)
-![Setting the Secret Value](../images/1-set-secret-value.png)
+![ESVs in Tenant Settings](/img/1-esvs.png)
+![Adding a Secret](/img/1-add-secret.png)
+![Setting the Secret Value](/img/1-set-secret-value.png)
 
 _Setting the Cookie in an ESV_
 
@@ -158,25 +158,25 @@ config = {
 
 Your Journey (including the configuration for your Configuration Provider) should look something like this:
 
-![Getting the Session Journey Example](../images/1-session-journey.png)
+![Getting the Session Journey Example](/img/1-session-journey.png)
 
 _Getting the Session Journey_
 
 Open an incognito (or separate browser) window, log in as a tenant user, and then inspect the browser cookies (in Chrome, it’s under Application/Cookies). You should have one that matches your cookie name you found in the tenant admin.
 
-![Screenshot of the User's Cookie in Devtools](../images/1-session-cookie-devtools.png)
+![Screenshot of the User's Cookie in Devtools](/img/1-session-cookie-devtools.png)
 
 _A Logged-In User's Cookie_
 
 In the same or in another tab, Paste in the URL of your new Journey. You should reach your Message Node displaying the cookie you saw stored in your browser.
 
-![Screenshot of the User's Cookie in User State](../images/1-session-cookie-state.png)
+![Screenshot of the User's Cookie in User State](/img/1-session-cookie-state.png)
 
 _The User's Cookie in Shared State_
 
 Now, hit “Continue” to reach the user’s dashboard, log out the user, and then go back to your Journey. You should hit the Message Node indicating that no session cookie was found.
 
-![Screenshot of no cookies found in User State](../images/1-session-no-cookie-state.png)
+![Screenshot of no cookies found in User State](/img/1-session-no-cookie-state.png)
 
 _No Session Found_
 

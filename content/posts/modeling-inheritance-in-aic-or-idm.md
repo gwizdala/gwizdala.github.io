@@ -49,8 +49,8 @@ Let’s start with a simple example: we’ll create a single inherited attribute
 
 To do so, in the Identity Management Console’s (in AIC, Native Consoles → Identity Management) top toolbar select Configure → Managed Objects and then click on Alpha_organization. You’ll be taken to the Object Management page where you can manage attributes and their behavior.
 
-![Screenshot of selecting "Alpha_organization" under "Managed Objects" in PingIDM](../images/modeling-inheritance-in-aic-or-idm/managed-objects.png)  
-![Screenshot of a default "Alpha_organization"](../images/modeling-inheritance-in-aic-or-idm/alpha-org.png)
+![Screenshot of selecting "Alpha_organization" under "Managed Objects" in PingIDM](/img/modeling-inheritance-in-aic-or-idm/managed-objects.png)  
+![Screenshot of a default "Alpha_organization"](/img/modeling-inheritance-in-aic-or-idm/alpha-org.png)
 
 _Managing the Alpha Organization Object_
 
@@ -62,7 +62,7 @@ We’ll create a new attribute that we want to have inherited. Select “Add a P
 
 Select the newly-created attribute, and under Details → Advanced Options, **disable** *Viewable* and *User Editable* and **enable** *Virtual* and *Return by Default*. You know you’ve done this right when after saving the *Query Configuration* tab appears on the page.
 
-![Screenshot of the inherited_description with query configuration enabled](../images/modeling-inheritance-in-aic-or-idm/inherited-description.png)
+![Screenshot of the inherited_description with query configuration enabled](/img/modeling-inheritance-in-aic-or-idm/inherited-description.png)
 
 _The `inherited_descripton` with Query Configuration Displayed_
 
@@ -73,13 +73,13 @@ We’ll use an RDVP to store the value of `description` from the Parent of an Or
 | Referenced Relationship Fields | `["parent"]` |
 | Referenced Object Fields | `description` |
 
-![Screenshot of the Inherited Description Query](../images/modeling-inheritance-in-aic-or-idm/inherited-description-query.png)
+![Screenshot of the Inherited Description Query](/img/modeling-inheritance-in-aic-or-idm/inherited-description-query.png)
 
 _The `inherited_description` Query_
 
 Backing out of this object and back into the Organization managed object, select `description`. We’ll need to make sure that every time the description changes it notifies the children of the change to update the RDVP we just created. Under Default → Advanced Options, add `children` to the Notify Relationships array.
 
-![Screenshot of the modified "description" attribute with notifying children relationships](../images/modeling-inheritance-in-aic-or-idm/description-details.png)
+![Screenshot of the modified "description" attribute with notifying children relationships](/img/modeling-inheritance-in-aic-or-idm/description-details.png)
 
 _Notifying the Children_
 
@@ -87,19 +87,19 @@ _Notifying the Children_
 
 First, create an Organization named “Parent” and put a unique description on it. I’m using “Parent Description” for this example.
 
-![Screenshot of the Parent Organization with "Parent Description" set](../images/modeling-inheritance-in-aic-or-idm/parent-description.png)
+![Screenshot of the Parent Organization with "Parent Description" set](/img/modeling-inheritance-in-aic-or-idm/parent-description.png)
 
 _The Parent Organization_
 
 Next, create an Organization named “Child” and with its own unique description. For the sake of consistency, this one has the name “Child Description”.
 
-![Screenshot of the Child Organization with "Child Description" set](../images/modeling-inheritance-in-aic-or-idm/child-description.png)
+![Screenshot of the Child Organization with "Child Description" set](/img/modeling-inheritance-in-aic-or-idm/child-description.png)
 
 _The Child Organization_
 
 Finally, update the child to have “Parent” as its Parent Organization. If you take a look at the “Raw JSON” for this Organization, you’ll see that it contains the description of the parent under `inherited_description`.
 
-![Screenshot of the Child Organization's Raw JSON with the inherited_description and description attributes highlighted](../images/modeling-inheritance-in-aic-or-idm/child-json.png)
+![Screenshot of the Child Organization's Raw JSON with the inherited_description and description attributes highlighted](/img/modeling-inheritance-in-aic-or-idm/child-json.png)
 
 _The Child's JSON_
 
@@ -226,7 +226,7 @@ for (var i = 0; i < newObjectAttributes.length; i++) {
 ```
 {{</details>}}
 
-![Screenshot of the alpha_org postCreate and postUpdate scripts](../images/modeling-inheritance-in-aic-or-idm/alpha-org-scripts.png)
+![Screenshot of the alpha_org postCreate and postUpdate scripts](/img/modeling-inheritance-in-aic-or-idm/alpha-org-scripts.png)
 
 _Setting the `postCreate` and `postUpdate` Scripts_
 
@@ -249,13 +249,13 @@ Since our inheritance is enforced on a Create or Update, we’ll need to update 
 
 Go back into the Parent Organization and update its description - we’ll use “Parent Description v2”. Once you hit save, you’ll see that the description has been updated in both the parent and the child!
 
-![Screenshot of the Child Description updating to match the Parent](../images/modeling-inheritance-in-aic-or-idm/child-description-updated-v2.png)
+![Screenshot of the Child Description updating to match the Parent](/img/modeling-inheritance-in-aic-or-idm/child-description-updated-v2.png)
 
 _The Child Updating to Match the Parent_
 
 To show down-the-line inheritance, let’s add one more Organization named “Grandchild” and set the parent to “Child”. You should see the description update to match that of the Child AND of the Parent - showing inheritance flowing all the way down the tree.
 
-![Screenshot of the Grandchild Description updating to match the Child (its Parent)](../images/modeling-inheritance-in-aic-or-idm/grandchild-description-updated-v2.png)
+![Screenshot of the Grandchild Description updating to match the Child (its Parent)](/img/modeling-inheritance-in-aic-or-idm/grandchild-description-updated-v2.png)
 
 _The Grandchild Updating to Match the Child_
 
@@ -288,13 +288,13 @@ Once created, select that attribute and define the following property:
 
 Your `inheritance` object attribute should look like this:
 
-![Screenshot of the Alpha Organization inheritance object attribute](../images/modeling-inheritance-in-aic-or-idm/alpha-org-inheritance-attribute.png)
+![Screenshot of the Alpha Organization inheritance object attribute](/img/modeling-inheritance-in-aic-or-idm/alpha-org-inheritance-attribute.png)
 
 _The Inheritance Object Attribute_
 
 To ensure that inheritance is enabled by default when creating new objects, under the “Details” tab set the default value for your boolean flag to be `true`.
 
-![Screenshot of the inheritance attribute details page where the description subattribute is set to "true"](../images/modeling-inheritance-in-aic-or-idm/enforce-inheritance-default.png)
+![Screenshot of the inheritance attribute details page where the description subattribute is set to "true"](/img/modeling-inheritance-in-aic-or-idm/enforce-inheritance-default.png)
 
 _The Inheritance Object Attribute's Default Behavior_
 
@@ -324,7 +324,7 @@ Within the Script Manager window, select the “Add Variable” button and give 
 
 When you’re done, your script should look something like this:
 
-![Screenshot of the script manager containing the code snippet and the passed variables](../images/modeling-inheritance-in-aic-or-idm/inheritance-object-onstore.png)
+![Screenshot of the script manager containing the code snippet and the passed variables](/img/modeling-inheritance-in-aic-or-idm/inheritance-object-onstore.png)
 
 _The Inheritance Object Attribute's Default Behavior_
 
@@ -486,27 +486,27 @@ With the already-created objects, inheriting the description is set to `false`. 
 
 Go back into the Child Organization. You’ll see that there’s now an “Inheritance” tab and inside it the “Inherit Description from Parent” is disabled.
 
-![Screenshot of the Child Organization with the Inheritance options set to false](../images/modeling-inheritance-in-aic-or-idm/child-inherit-false.png)
+![Screenshot of the Child Organization with the Inheritance options set to false](/img/modeling-inheritance-in-aic-or-idm/child-inherit-false.png)
 
 _The Child Organization with Inheritance set to False_
 
 Back on the “Details” tab, change the description to something different. I’m going to use “Child Description v2”. After hitting Save, you’ll see that the new description is saved. You’ve successfully overridden the inherited Parent Attribute!
 
-![Screenshot of the Child description overriding the parent](../images/modeling-inheritance-in-aic-or-idm/child-overriding-parent.png)
+![Screenshot of the Child description overriding the parent](/img/modeling-inheritance-in-aic-or-idm/child-overriding-parent.png)
 
 _The Child Overriding the Parent_
 
 Now, head over the Grandchild Organization. In this example, we are going to inherit from our parent (in this case, the Child Organization). Once you enable “Inherit Description from Parent”, you’ll see that its description has been updated to reflect that of the Child Organization.
 
-![Screenshot of the Grandchild Organization with the Inheritance options set to true](../images/modeling-inheritance-in-aic-or-idm/grandchild-inherit-true.png)
-![Screenshot of the Grandchild Organization inheriting the description of the Child](../images/modeling-inheritance-in-aic-or-idm/grandchild-inheriting-child.png)
+![Screenshot of the Grandchild Organization with the Inheritance options set to true](/img/modeling-inheritance-in-aic-or-idm/grandchild-inherit-true.png)
+![Screenshot of the Grandchild Organization inheriting the description of the Child](/img/modeling-inheritance-in-aic-or-idm/grandchild-inheriting-child.png)
 
 _The Grandchild Inheriting from the Child_
 
 Finally, enable the Child’s description inheritance. Both the Child and the Grandchild now are inheriting upstream to the Parent.
 
-![Screenshot of the Child Organization with the Inheritance options set to true](../images/modeling-inheritance-in-aic-or-idm/child-inherit-true.png)
-![Screenshot of both the Child and Granchild inheriting the description from the Parent](../images/modeling-inheritance-in-aic-or-idm/all-inheriting.png)
+![Screenshot of the Child Organization with the Inheritance options set to true](/img/modeling-inheritance-in-aic-or-idm/child-inherit-true.png)
+![Screenshot of both the Child and Granchild inheriting the description from the Parent](/img/modeling-inheritance-in-aic-or-idm/all-inheriting.png)
 
 _All Layers of Children Inheriting from the Root_
 

@@ -71,7 +71,7 @@ In order to securely connect to the Policy Engine, we’ll want to create a spec
 
 To create a Gateway, navigate to Gateways & Agents and select “New Gateway/Agent”.
 
-![Screenshot of Creating a Gateway in AIC](../images/api-to-api-communication-with-aic/new-gateway-agent.png)
+![Screenshot of Creating a Gateway in AIC](/img/api-to-api-communication-with-aic/new-gateway-agent.png)
 
 _Creating a Gateway in AIC_
 
@@ -79,7 +79,7 @@ Inside the dialog, select “Identity Gateway”, and then provide a unique Agen
 
 We’ll now want to create a way for the Agent to authenticate. Navigate to Journeys, select “Import”, and upload the `AgentLogin.json`. The journey will contain a Username and Password field validated with an Agent Data Store Decision node, which only allows authentication by Agents.
 
-![Screenshot of Agent Login Journey](../images/api-to-api-communication-with-aic/agent-login-journey.png)
+![Screenshot of Agent Login Journey](/img/api-to-api-communication-with-aic/agent-login-journey.png)
 
 _The Agent Login Journey_
 
@@ -116,7 +116,7 @@ Policies and Policy Sets will validate Resources based on Resource Types, couple
 
 To create a Resource Type, go to Native Consoles \> AM \> Authorization \> Resource Types and select “New Resource Type”.
 
-![Screenshot of Resource Types](../images/api-to-api-communication-with-aic/new-resource-type.png)
+![Screenshot of Resource Types](/img/api-to-api-communication-with-aic/new-resource-type.png)
 
 _Creating a New Resource Type_
 
@@ -124,7 +124,7 @@ For your resource, use the name of the Provider API/service you’re looking to 
 
 Note that you can use whatever pattern you’d like as long as it’s consistent and unique \- your policy validation script will be following this pattern for every request coming through your services.
 
-![Screenshot of Configuring the Resource Type](../images/api-to-api-communication-with-aic/setting-resource-pattern.png)
+![Screenshot of Configuring the Resource Type](/img/api-to-api-communication-with-aic/setting-resource-pattern.png)
 
 _Setting Up the Pattern_
 
@@ -134,13 +134,13 @@ Now that we have a Resource Type, we can define a Policy Set. We’ll want to cr
 
 To create a Policy Set, go to Native Consoles \> AM \> Authorization \> Policy Sets and select “New Policy Set”.
 
-![Screenshot of Policy Sets](../images/api-to-api-communication-with-aic/new-policy-set.png)
+![Screenshot of Policy Sets](/img/api-to-api-communication-with-aic/new-policy-set.png)
 
 _Creating a New Policy Set_
 
 Set the ID of the Policy Set to the **ID of your Provider API**, the name to “{Provider Name} Policies” (for ease of filtering), and set the Resource Type to the matching Resource Type we created in the previous step.  
 
-![Screenshot of Configuring the Policy Set](../images/api-to-api-communication-with-aic/setting-policy-set.png)
+![Screenshot of Configuring the Policy Set](/img/api-to-api-communication-with-aic/setting-policy-set.png)
 
 _Setting Up the Policy Set_
 
@@ -152,26 +152,26 @@ Let’s add an example permission where we provide the `read` permission for the
 
 Inside your created Policy Set, select the “Add a Policy” button. On the New Policy screen, set the name to something easily understandable (such as “read”), select the Resource Type, and add the resource of `read`. This operates as your scope, and will be what the Policy Engine will be validating.
 
-![Screenshot of Configuring the Policy](../images/api-to-api-communication-with-aic/setting-policy.png)
+![Screenshot of Configuring the Policy](/img/api-to-api-communication-with-aic/setting-policy.png)
 
 _Configuring the Policy_
 
 You’ll next be taken to the Policy screen itself. Here you can define who this policy applies to (the Subjects) and what response should be made based on the request (the Actions). Let’s set these to GRANT access to the subject of the Consumer Application.   
 Hit the edit button for Subjects and in the specified condition select type of “OpenID Connect/JWT Claim”, the Claim Name of “subject”, and the Claim Value of the name of your Consumer API.
 
-![Screenshot of Configuring the Subject](../images/api-to-api-communication-with-aic/setting-subject.png)
+![Screenshot of Configuring the Subject](/img/api-to-api-communication-with-aic/setting-subject.png)
 
 _Configuring the Subject_
 
 Hit the checkmark, “Save Changes”, and then return to the Summary page. Select the edit button for Actions, add the Action “GRANT”, and select Save Changes.
 
-![Screenshot of Configuring the Action](../images/api-to-api-communication-with-aic/setting-action.png)
+![Screenshot of Configuring the Action](/img/api-to-api-communication-with-aic/setting-action.png)
 
 _Configuring the Action_
 
 When you return to the Summary page, your Policy should look like this:  
 
-![Screenshot of Policy Summary Page](../images/api-to-api-communication-with-aic/policy-summary.png)
+![Screenshot of Policy Summary Page](/img/api-to-api-communication-with-aic/policy-summary.png)
 
 _The Policy Summary_
 
@@ -253,19 +253,19 @@ Fortunately, the approach we’ve taken here already accounts for this concept -
 
 Firstly, let’s update our Policy to include the user’s UUID as a valid subject. To get the UUID, go to the “Raw JSON” tab on your user management page (Identities > Manage > Users > Your User) and copy the `_id` (it’s the same ID in the url of that page too).
 
-![Screenshot of the User's UUID](../images/api-to-api-communication-with-aic/getting-uuid.png)
+![Screenshot of the User's UUID](/img/api-to-api-communication-with-aic/getting-uuid.png)
 
 _The User's UUID_
 
 Next, make sure that your Consumer application includes the `code` **response type** and the `Authorization Code` **grant type** for this example. Optionally, associate the user with the Consumer OAuth Application (under the “Applications” tab) - this will help you organize users and apps as well as show the app in the user’s self-service UI.
 
-![Screenshot of the User associated with the scopeDrivenAPI1Client](../images/api-to-api-communication-with-aic/scoping-user.png)
+![Screenshot of the User associated with the scopeDrivenAPI1Client](/img/api-to-api-communication-with-aic/scoping-user.png)
 
 _Associating the User to the ScopeDrivenAPI1Client_
 
 Finally, add the `_id` as a subject within the policy you created in the [Creating a Policy](#creating-a-policy) section of this walkthrough. It’s important to note that you should switch the Logical Operator from “All of” to “Any of” in this example so that you can test both API and User as the Subject. Your configuration will look something like this:
 
-![Screenshot of the Policy Summary incorporating the User](../images/api-to-api-communication-with-aic/policy-summary-with-user.png)
+![Screenshot of the Policy Summary incorporating the User](/img/api-to-api-communication-with-aic/policy-summary-with-user.png)
 
 _Allow-listing the User's ID as a Subject in the Policy_
 

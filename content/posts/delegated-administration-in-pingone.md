@@ -106,7 +106,7 @@ Our example in this guide will start with an out-of-the-box instance of PingOne.
 
 Your PingOne instance comes pre-loaded with a dedicated **Administrators Environment**. This environment is where your “super-user” account lives and where you’ll add in most of your Administrators. Let’s leave this Environment alone for now while we set up some basic use-cases.
 
-![A screenshot of the PingOne Environments list](../images/delegated-administration-in-pingone/p1-env-list.png)
+![A screenshot of the PingOne Environments list](/img/delegated-administration-in-pingone/p1-env-list.png)
 
 *Your PingOne Instance and Administrators Environment*
 
@@ -116,7 +116,7 @@ To start, we are going to configure an example for each of the 4 different Servi
 
 From your Environments View, select the plus “+” icon at the top of the page (or the “Create Environment” button in the “Manage Environments” modal if it’s still on your page).
 
-![A screenshot with arrows pointing to the "Create Environment" buttons](../images/delegated-administration-in-pingone/p1-create-env.png)
+![A screenshot with arrows pointing to the "Create Environment" buttons](/img/delegated-administration-in-pingone/p1-create-env.png)
 
 *Creating an Environment*
 
@@ -124,8 +124,8 @@ From your Environments View, select the plus “+” icon at the top of the page
 
 First off, let’s create the Customer Environment. On the next page, select the “Customer solution” option. This will come pre-bundled with a variety of services that are common for CIAM deployments, such as Single-Sign-On, Multi-Factor Authentication (PingOne MFA), Risk Profiling (PingOne Protect), Identity Verification (PingOne Verify), and Orchestration (PingOne DaVinci).
 
-![A screenshot of step 1 in creating an Environment in which the Customer solution has been selected](../images/delegated-administration-in-pingone/p1-env-customer.png)
-![A screenshot of step 2 in creating an Environment in which the listed solutions for a Customer prebuild is listed](../images/delegated-administration-in-pingone/p1-env-customer-services.png)  
+![A screenshot of step 1 in creating an Environment in which the Customer solution has been selected](/img/delegated-administration-in-pingone/p1-env-customer.png)
+![A screenshot of step 2 in creating an Environment in which the listed solutions for a Customer prebuild is listed](/img/delegated-administration-in-pingone/p1-env-customer-services.png)  
 *The Environment Type and Services*
 
 In Step 3, where you set the deployment options, input the following values and select “Finish”:
@@ -141,7 +141,7 @@ In Step 3, where you set the deployment options, input the following values and 
 | **Include a solution designer to easily design and test experiences** | True (checked) |
 | **Choose your Industry** | Default |
 
-![A screenshot of step 3 in creating a Customer Environment in which the details provided by the above table are entered](../images/delegated-administration-in-pingone/p1-env-customer-details.png)
+![A screenshot of step 3 in creating a Customer Environment in which the details provided by the above table are entered](/img/delegated-administration-in-pingone/p1-env-customer-details.png)
 *The Environment Deployment Options*
 
 While this Environment is deploying, let’s create the Workforce Environment.
@@ -150,13 +150,13 @@ While this Environment is deploying, let’s create the Workforce Environment.
 
 Head back to the Environments view by clicking the Home icon or your Organization name in the top tab on your page just to the right of the Ping Identity logo. Mine is that `internal_davidgwizdala` text you saw earlier.
 
-![A screenshot of the home icon and organization listing](../images/delegated-administration-in-pingone/home.png)
+![A screenshot of the home icon and organization listing](/img/delegated-administration-in-pingone/home.png)
 *Heading Home*
 
 Back at the Environments view, create another new Environment like you did last time but rather than selecting “Customer solution” we’ll be selecting “Workforce solution” instead. You’ll notice that the services deployed will be slightly different, most notably that PingOne MFA has been replaced by PingID and PingOne Verify has been removed.
 
-![A screenshot of step 1 in creating an Environment in which the Workforce solution has been selected](../images/delegated-administration-in-pingone/p1-env-workforce.png)
-![A screenshot of step 2 in creating an Environment in which the listed solutions for a Workforce prebuild is listed](../images/delegated-administration-in-pingone/p1-env-workforce-services.png)  
+![A screenshot of step 1 in creating an Environment in which the Workforce solution has been selected](/img/delegated-administration-in-pingone/p1-env-workforce.png)
+![A screenshot of step 2 in creating an Environment in which the listed solutions for a Workforce prebuild is listed](/img/delegated-administration-in-pingone/p1-env-workforce-services.png)  
 *The Workforce Environment Type and Services*
 
 In Step 3, where you set the deployment options, input the following values and select “Finish”:
@@ -172,7 +172,7 @@ In Step 3, where you set the deployment options, input the following values and 
 | **Include a solution designer to easily design and test experiences** | True (checked) |
 | **Choose your Industry** | Default |
 
-![A screenshot of step 3 in creating a Workforce Environment in which the details provided by the above table are entered](../images/delegated-administration-in-pingone/p1-env-workforce-details.png) 
+![A screenshot of step 3 in creating a Workforce Environment in which the details provided by the above table are entered](/img/delegated-administration-in-pingone/p1-env-workforce-details.png) 
 *Workforce Environment Deployment Options*
 
 Now that we’ve created some example Environments to play with, let’s see what samples we are starting with.
@@ -196,9 +196,9 @@ With this setup, we have a working demonstration of both how Customers and Emplo
 
 Since this guide is focused on Delegated Administration, we’re going to specifically use the **PingOne Admin Console** Application. Copy and save the Admin Console URL from the **Administrators Environment**, either from the Applications page, the Environment Properties (Settings → Environment Properties), or Environment Summary tab (on the Environments List page).
 
-![A screenshot of the home page url found for the Environment's admin console](../images/delegated-administration-in-pingone/homepage-url.png)   
-![A screenshot of the console url found under the Environment properties](../images/delegated-administration-in-pingone/console-url.png)   
-![A screenshot of the console login url found on the Environment list page](../images/delegated-administration-in-pingone/consolelogin-url.png)   
+![A screenshot of the home page url found for the Environment's admin console](/img/delegated-administration-in-pingone/homepage-url.png)   
+![A screenshot of the console url found under the Environment properties](/img/delegated-administration-in-pingone/console-url.png)   
+![A screenshot of the console login url found on the Environment list page](/img/delegated-administration-in-pingone/consolelogin-url.png)   
 *Finding the Admin Console URL*
 
 ### Creating the Delegated Administrators
@@ -207,7 +207,7 @@ Remember the Administrators Environment we mentioned earlier? This Environment i
 
 Select the Administrators Environment from your Environments list, copying the Self Service URL on the details tab before entering, and then click on Directory → Users.
 
-![A screenshot of the admin environment self-service url found for the Environment's admin console](../images/delegated-administration-in-pingone/self-service-url.png)   
+![A screenshot of the admin environment self-service url found for the Environment's admin console](/img/delegated-administration-in-pingone/self-service-url.png)   
 *Saving the Admin Environment Self-Service URL for Later*
 
 We are going to be creating a couple different users to administer the Environments we created. Click the Plus “+” icon next to the Users header, enter in each of the following User details, and hit “Save” when done. You’ll be creating two users in total.
@@ -227,59 +227,59 @@ We are going to be creating a couple different users to administer the Environme
 
 Next, let’s verify these accounts so that we can perform delegated administration. In an incognito, guest, or separate browser window, go to the Self-Service URL for the Admin Environment that you copied earlier. Enter in the username and password of your administrators - you’ll then be presented with a change password prompt. 
 
-![A screenshot of the user flow in which the admin is required to change their password](../images/delegated-administration-in-pingone/admin-change-password.png)   
+![A screenshot of the user flow in which the admin is required to change their password](/img/delegated-administration-in-pingone/admin-change-password.png)   
 *The Change Password Prompt*
 
 Enter in the current password and then a new password of your choice. You’ll then be requested to enter in the verification code that was sent to your User when you created their account. 
 
-![A screenshot of the user flow in which the admin is required to enter in their verification code they received via email](../images/delegated-administration-in-pingone/admin-email-verification.png) 
+![A screenshot of the user flow in which the admin is required to enter in their verification code they received via email](/img/delegated-administration-in-pingone/admin-email-verification.png) 
 *Entering in the Verification Code*
 
 Repeat the above steps for the Workforce Administrator. When you return to your Administrator Environment and check the Users, you’ll see that the status of their email address is “Verified”.
 
-![A screenshot of the admin page indicating the user's email has been verified](../images/delegated-administration-in-pingone/admin-verified.png) 
+![A screenshot of the admin page indicating the user's email has been verified](/img/delegated-administration-in-pingone/admin-verified.png) 
 *The Verified Admin Email Address*
 
 ## Delegating Administration by User
 
 Right now, these Administrators are a part of the Administrators Environment but don’t have any specific permissions. Remember the Console URL we copied earlier?  Paste it into its own separate browser (or guest account) window and try to log in as either of the admins you just created. You’ll encounter an “Incorrect username or password. Please try again.” message.
 
-![A screenshot of the user flow in which the admin fails a login attempt to an environment they don't have permission to](../images/delegated-administration-in-pingone/admin-failed-login.png)   
+![A screenshot of the user flow in which the admin fails a login attempt to an environment they don't have permission to](/img/delegated-administration-in-pingone/admin-failed-login.png)   
 *Trying to Log In without Permissions*
 
 Now, let’s give these users some permissions. Starting with the Customer Admin, select the “Roles” tab in their user profile and then “Grant Roles”.
 
-![A screenshot of the admin portal where the grant roles option has been highlighted for the customerAdmin user](../images/delegated-administration-in-pingone/grant-user-role.png) 
+![A screenshot of the admin portal where the grant roles option has been highlighted for the customerAdmin user](/img/delegated-administration-in-pingone/grant-user-role.png) 
 *Granting Admin Roles to a User*
 
 From here, you’ll see a wide variety of permissions available to assign. Let’s start at the highest level and work our way down.
 
 First, set your Customer Admin to be an Environment Admin of the Customer Example Environment and hit Save. This gives your admin permission to View, Create, Update, and Delete configuration within the Environment. More details can be found in the info “i” icon next to the title, but for all intents and purposes **think of the Environment Admin the manager of Environment Configuration.**
 
-![A screenshot of the admin portal where the Environment Admin permission to the Customer Environment is being granted to the customerAdmin](../images/delegated-administration-in-pingone/grant-user-role-env.png) 
+![A screenshot of the admin portal where the Environment Admin permission to the Customer Environment is being granted to the customerAdmin](/img/delegated-administration-in-pingone/grant-user-role-env.png) 
 *Adding Environment Permissions*
 
 If you try logging in again, you’ll see that you’re now prompted with MFA enrollment (a default setting for Admin Users). Go ahead and enroll in a device of your choice.
 
-![A screenshot of the user flow where the admin has to enroll an mfa device](../images/delegated-administration-in-pingone/admin-enroll-mfa.png)
+![A screenshot of the user flow where the admin has to enroll an mfa device](/img/delegated-administration-in-pingone/admin-enroll-mfa.png)
 *Enrolling MFA as an Admin*
 
 You’ll see that your Customer Administrator has access to configuration details such as Monitoring, Applications, Policies, Roles, and Experience but doesn’t have the capability to see or manage Users directly.
 
-![A screenshot of the admin portal for the Customer environment with the granted roles to the customerAdmin. In this page, the admin can see a Group but can't edit it nor can they see the Users in the Group](../images/delegated-administration-in-pingone/admin-env-view.png) 
+![A screenshot of the admin portal for the Customer environment with the granted roles to the customerAdmin. In this page, the admin can see a Group but can't edit it nor can they see the Users in the Group](/img/delegated-administration-in-pingone/admin-env-view.png) 
 *The Environment Admin’s Capabilities*
 
 Most Admin Roles give us the capability to assign by Organization or Environment (see DaVinci Admin, Application Admin), but let’s get a bit more granular. Back in the Administrators Environment view, update the Customer Admin so that they **don’t** have the Environment Administrator Admin Role and **do** have the Identity Data Admin Role specifically for the “Sample Users” Population. To do that, select the Identity Data Admin Role, 1) click the Filter icon (next to the checkbox) and 2) select the Sample Users Population. When you’re done, you should see “Limited Access” next to the Population and then the specific population after saving in the User summary.
 
-![A screenshot of the admin portal where the identity data admin granted permission is filtered to a specific Population. The steps taken to the filter are highlighted.](../images/delegated-administration-in-pingone/grant-user-role-filter.png)   
-![A screenshot of the admin portal where the filter has been applied](../images/delegated-administration-in-pingone/grant-user-role-filter-applied.png) 
-![A screenshot of the admin portal where the grant has been updated and the summary is shown for the customerAdmin](../images/delegated-administration-in-pingone/grant-user-role-filter-summary.png)   
+![A screenshot of the admin portal where the identity data admin granted permission is filtered to a specific Population. The steps taken to the filter are highlighted.](/img/delegated-administration-in-pingone/grant-user-role-filter.png)   
+![A screenshot of the admin portal where the filter has been applied](/img/delegated-administration-in-pingone/grant-user-role-filter-applied.png) 
+![A screenshot of the admin portal where the grant has been updated and the summary is shown for the customerAdmin](/img/delegated-administration-in-pingone/grant-user-role-filter-summary.png)   
 *Limiting Access to the Sample Users Population*
 
 Now go back to your customerAdmin’s dashboard. After refreshing the page, you’ll see that most of your access has been revoked to Read-Only but now you can manage the Users within the Sample Population.
 
-![A screenshot of the customerAdmin's new permissions to access the Sample Users Population](../images/delegated-administration-in-pingone/admin-view-pop.png) 
-![A screenshot of the customerAdmin's view into the users under the Sample Users Population](../images/delegated-administration-in-pingone/admin-view-users.png) 
+![A screenshot of the customerAdmin's new permissions to access the Sample Users Population](/img/delegated-administration-in-pingone/admin-view-pop.png) 
+![A screenshot of the customerAdmin's view into the users under the Sample Users Population](/img/delegated-administration-in-pingone/admin-view-users.png) 
 *Identity Data Admin View*
 
 Using what you just learned, assign the same Admin Role to your Workforce Admin but with their permission pointed to the Sample Users Population in the Workforce Environment. 
@@ -290,12 +290,12 @@ So right now we have a User that can manage the Identity Data of one Population 
 
 Inside the Administrators Environment, under Directory → Groups, select the Plus “+” icon and give it the Group Name “Helpdesk”. This group is going to be able to manage all of the identities for both the customer and workforce environments.
 
-![A screenshot of creating the helpdesk Group within the admin portal](../images/delegated-administration-in-pingone/create-group.png) 
+![A screenshot of creating the helpdesk Group within the admin portal](/img/delegated-administration-in-pingone/create-group.png) 
 *Creating the Group*
 
 This Group is assigned outside of a Population so we can add any Users that are in this Environment to it. With that in mind, go to the Users tab in the Helpdesk group and select “Add Individually”. We mentioned this before, but to protect from accidental overpermissioning **Administrative Groups Permissions CANNOT be assigned via a filter.**
 
-![A screenshot of the admin portal where the "Add Individually" button for adding Users to a Group is being selected](../images/delegated-administration-in-pingone/assign-to-group.png) 
+![A screenshot of the admin portal where the "Add Individually" button for adding Users to a Group is being selected](/img/delegated-administration-in-pingone/assign-to-group.png) 
 *Adding Individual Users to the Helpdesk Group*
 
 On the next screen, select the customerAdmin and the workforceAdmin Users to this Group.
@@ -304,20 +304,20 @@ Next, go to the Roles Tab and select "Grant Roles". This screen will look very f
 
 This time, let’s give this Group the Identity Data Admin Role across both the Customer Example and Workforce Example Environments.
 
-![A screenshot of the admin portal where the Group is being assigned Identity Data Admin roles](../images/delegated-administration-in-pingone/group-roles.png)  
+![A screenshot of the admin portal where the Group is being assigned Identity Data Admin roles](/img/delegated-administration-in-pingone/group-roles.png)  
 *Assigning the Identity Data Admin Roles*
 
 When you hit Save, and go back to your customerAdmin or workforceAdmin User, you’ll see that their permissions have been “Granted By Group” to the two Environments.
 
-![A screenshot of the admin portal where the admins assigned to the Group have had updated permissions](../images/delegated-administration-in-pingone/updated-permissions.png) 
+![A screenshot of the admin portal where the admins assigned to the Group have had updated permissions](/img/delegated-administration-in-pingone/updated-permissions.png) 
 *The User’s Assigned Admin Roles, Direct and Group*
 
 > You probably also saw an error message pop up - we’ve just tried to assign the same Admin Role twice to our Admin Users. The highest amount of permission will win here: in this case, the Helpdesk Identity Data Admin Role that grants access to all Users in both Environments.
 
 Go ahead and refresh the admin portal for either your customerAdmin or your workforceAdmin. Not only will you see all 40 users in your current Environment, you’ll additionally be able to navigate into and see the other Environment too.
 
-![A screenshot of the customerAdmin being able to see all 40 users from all populations](../images/delegated-administration-in-pingone/admin-view-all-users.png) 
-![A screenshot of the customerAdmin being able to see multiple environments](../images/delegated-administration-in-pingone/admin-view-environments.png)  
+![A screenshot of the customerAdmin being able to see all 40 users from all populations](/img/delegated-administration-in-pingone/admin-view-all-users.png) 
+![A screenshot of the customerAdmin being able to see multiple environments](/img/delegated-administration-in-pingone/admin-view-environments.png)  
 *The Assigned Group Permissions to the End User*
 
 ## Putting it to Practice

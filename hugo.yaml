@@ -34,7 +34,7 @@ params:
   description: "David Gwizdala's site: including coding/development how-tos, custom game guides and documentation, and art assets."
   keywords: [Blog, Developer, Portfolio]
   author: David Gwizdala
-  images: ["images/banner.png"]
+  images: ["/img/banner.png"]
   defaultTheme: auto # dark, light
 
   profileMode:

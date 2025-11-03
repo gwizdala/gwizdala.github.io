@@ -28,7 +28,7 @@ Since we’ll be pulling attribute data from a user, we’ll want to ensure that
 
 Create a new Journey entitled _Terminate External API Session_. In your Journey, connect your Start Node to an Identify Existing User Node with the Identifier and Identity Attribute both set to “userName”. This will check for an existing userName in the session and will load additional attribute information such as the user’s `_id`, which we’ll use to access their attribute information.
 
-![Identify Existing User Node Details](../images/2-id-existing-user-details.png)
+![Identify Existing User Node Details](/img/2-id-existing-user-details.png)
 
 _Identify Existing User Details_
 
@@ -237,26 +237,26 @@ config = {
 
 Your Journey should look something like this:
 
-![Screenshot of the Terminate Session Journey](../images/2-terminate-session-journey.png)
+![Screenshot of the Terminate Session Journey](/img/2-terminate-session-journey.png)
 
 _Terminating a Session Journey_
 
 In this example, we’re expecting that the user has some session information stored on their user profile. Create a test user in PingOne Advanced Identity Cloud (we’re using the username `test`) and add a recognizable string to the `frUnindexedString2` attribute (by default, this attribute is labeled as `Generic Unindexed String 2` in the Identity Cloud Console). The user’s profile should look something like this:
 
-![Screenshot of the User Details Page](../images/2-user-details-page.png)
-![Screenshot of the phrase "exampleSSOToken" added to the User's Generic Unindexed String 2](../images/2-updating-frUnindexedString.png)
+![Screenshot of the User Details Page](/img/2-user-details-page.png)
+![Screenshot of the phrase "exampleSSOToken" added to the User's Generic Unindexed String 2](/img/2-updating-frUnindexedString.png)
 
 _Test User Data_
 
 Open an incognito (or separate browser) window, log in as your test user, and then paste in the URL of your new Journey. You should reach your Message Node displaying the API response from the request you made.
 
-![Screenshot of the termination response in state](../images/2-termination-response.png)
+![Screenshot of the termination response in state](/img/2-termination-response.png)
 
 _The Termination Response in Shared State_
 
 Now, hit “Continue” to reach the user’s dashboard, log out the user, and then go back to your Journey. You should hit the Message Node indicating that no user was found.
 
-![Screenshot of no user found in state](../images/2-no-user-found.png)
+![Screenshot of no user found in state](/img/2-no-user-found.png)
 
 _No User Found_
 

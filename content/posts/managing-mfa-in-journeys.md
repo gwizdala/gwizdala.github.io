@@ -173,7 +173,7 @@ This code is doing the following:
 2. If the user has devices, render a dropdown (that’s the `callbacksBuilder.choiceCallback`) and store the selected mfa device in shared state under the values `mfaDeviceType` (either `webauthn`, `push`, or `oath`), `mfaDeviceName`, and `mfaDeviceProfile`.  
 3. If the user doesn’t have any devices, branch to a separate path.
 
-![A screenshot of the Journey editor highlighting the Select MFA Device Script](../images/managing-mfa-in-journeys/select-mfa-device-script.png)
+![A screenshot of the Journey editor highlighting the Select MFA Device Script](/img/managing-mfa-in-journeys/select-mfa-device-script.png)
 *The Selecting MFA Devices Script*
 
 ## Testing
@@ -187,24 +187,24 @@ Drag in a message node connected to the `No Devices` outcome of your Scripted De
 | Name | MFA Action Selection |
 | Message | en: No MFA devices found. Would you like to register a new one? |
 
-![A screenshot of the Journey editor highlighting the Register MFA Prompt](../images/managing-mfa-in-journeys/register-device-prompt.png)
+![A screenshot of the Journey editor highlighting the Register MFA Prompt](/img/managing-mfa-in-journeys/register-device-prompt.png)
 *Register MFA Prompt*
 
 Next, using an example user without any MFA devices registered - my user is named `example`, copy the Preview URL in your Journey editor and open it in an Incognito Window, guest profile, or separate browser and type in the username.
 
-![A screenshot of the rendered Journey in which the username "example" has been inputted](../images/managing-mfa-in-journeys/enter-username.png)
+![A screenshot of the rendered Journey in which the username "example" has been inputted](/img/managing-mfa-in-journeys/enter-username.png)
 *Entering Your Username*
 
 Upon hitting “Next”, you’ll be prompted to register a new MFA device.
 
-![A screenshot of the rendered Journey where the user inputted has no devices. They are being prompted to register a new one](../images/managing-mfa-in-journeys/no-devices-found.png)
+![A screenshot of the rendered Journey where the user inputted has no devices. They are being prompted to register a new one](/img/managing-mfa-in-journeys/no-devices-found.png)
 *No MFA Devices Found*
 
 Now, register an MFA device or multiple devices to that user (if you haven’t made a Journey that does this already, check out the [WebAuthN](https://docs.pingidentity.com/pingoneaic/latest/am-authentication/authn-mfa-webauthn.html), [Push](https://docs.pingidentity.com/pingoneaic/latest/am-authentication/authn-mfa-trees-push.html), [OATH](https://docs.pingidentity.com/pingoneaic/latest/am-authentication/authn-mfa-about-oath.html) documentation). I’ll register a WebAuthN, Push, and OATH device.
 
 Re-entering the Journey and typing in the username will reveal a list of MFA options for your user to select from.
 
-![A screenshot of the rendered Journey in which the user inputted has 3 devices to choose from, one of each category](../images/managing-mfa-in-journeys/select-device.png)
+![A screenshot of the rendered Journey in which the user inputted has 3 devices to choose from, one of each category](/img/managing-mfa-in-journeys/select-device.png)
 *Select an MFA Device* 
 
 Now that we have a way to retrieve and select a user’s MFA devices, let’s interact with those devices in meaningful ways.
@@ -286,7 +286,7 @@ This script is pushing an Info message onto the page that informs the user what 
 
 Save the Journey and select an MFA device for your example user. You’ll see the page node along with the info message.
 
-![A screenshot of the rendered Journey where the device named "webauthn - New Security Key" has appeared](../images/managing-mfa-in-journeys/info-message.png)
+![A screenshot of the rendered Journey where the device named "webauthn - New Security Key" has appeared](/img/managing-mfa-in-journeys/info-message.png)
 *The Page with the Info Message*
 
 Now let’s add some actions for the user to pick from. Drag a Choice Collector Node into the Page node and give it the following options:
@@ -302,12 +302,12 @@ Now let’s add some actions for the user to pick from. Drag a Choice Collector 
 
 Your Journey should look something like this:
 
-![A screenshot of the Journey editor in which the display device and select mfa action have been placed inside of a page node](../images/managing-mfa-in-journeys/select-mfa-action.png)
+![A screenshot of the Journey editor in which the display device and select mfa action have been placed inside of a page node](/img/managing-mfa-in-journeys/select-mfa-action.png)
 *Selecting MFA Action*
 
 Reloading the Journey, you’ll see that you now have some choices alongside your message.
 
-![A screenshot of the rendered Journey in which the different actions from the choice node have appeared alongside the info message](../images/managing-mfa-in-journeys/select-mfa-action-display.png)
+![A screenshot of the rendered Journey in which the different actions from the choice node have appeared alongside the info message](/img/managing-mfa-in-journeys/select-mfa-action-display.png)
 *MFA Actions*
 
 You now have a way to quickly inform the user of what MFA device they have in the current context alongside any of the out of the box nodes (like the Choice Collector). Since we’ve made some choices, let’s put them to use.
@@ -511,29 +511,29 @@ Next, connect a Message node to the `Error` outcome of your new Scripted Decisio
 
 Our connecting lines are about to get a little squiggly. Connect the `True` outcomes of both Message nodes to the “MFA Actions” Page node and the `False` outcomes to the “Select MFA Device” node. Your Journey will look something like this:
 
-![A screenshot of the Journey editor where the success/failure messages are connected back to the described nodes](../images/managing-mfa-in-journeys/connecting-lines.png)
+![A screenshot of the Journey editor where the success/failure messages are connected back to the described nodes](/img/managing-mfa-in-journeys/connecting-lines.png)
 *It’s Getting Squiggly*
 
 > A quick callout here: In the real world, you’d probably take the user through a relatively linear path instead of hopping back and forth between these dropdowns. That being said, this path is much easier for us as admins to learn and test a bunch of devices rapidly. In summary, these are _self-inflicted learning squiggles_ that you may not see much in the wild.
 
 With everything hooked up, reload your Journey, enter in your user, and select an MFA device to be renamed.
 
-![A screenshot of the end Journey in which the Rename action has been selected for the webauthn device](../images/managing-mfa-in-journeys/renaming-action.png)  
+![A screenshot of the end Journey in which the Rename action has been selected for the webauthn device](/img/managing-mfa-in-journeys/renaming-action.png)  
 *Selecting an MFA Device to be Renamed*
 
 You’ll next be prompted with an input where you can put in a new name.
 
-![A screenshot of the end Journey where the user has entered "Desktop Browser" for the new name of their WebAuthN device](../images/managing-mfa-in-journeys/entering-name.png)   
+![A screenshot of the end Journey where the user has entered "Desktop Browser" for the new name of their WebAuthN device](/img/managing-mfa-in-journeys/entering-name.png)   
 *Renaming the Device*
 
 After hitting “Continue”, you’ll be presented with the Success screen.
 
-![A screenshot of the end Journey in which renaming the device has been successful and a message has been presented to the user](../images/managing-mfa-in-journeys/renaming-action-successful.png)    
+![A screenshot of the end Journey in which renaming the device has been successful and a message has been presented to the user](/img/managing-mfa-in-journeys/renaming-action-successful.png)    
 *MFA Action Successful*
 
 And then, if you choose “Select Another Device”, you’ll see that your device name has changed and is updated in your MFA device list.
 
-![A screenshot of the end Journey where in the list view the user now sees the updated name - Desktop Browser - in their list of devices](../images/managing-mfa-in-journeys/updated-name-list.png)  
+![A screenshot of the end Journey where in the list view the user now sees the updated name - Desktop Browser - in their list of devices](/img/managing-mfa-in-journeys/updated-name-list.png)  
 *The Updated Name, Shown in the Device List*
 
 Another neat part of this approach to renaming is that we can use the same script for setting the name of a brand-new device, no changes needed.
@@ -576,7 +576,7 @@ In some cases, you’ll find that a User might cancel, use an unsupported device
 
 Wire the `True` outcome to the MFA Registration Selection node and the `False` outcome to the Success node.
 
-![A screenshot of the Journey editor highlighting the reg unsuccessful node](../images/managing-mfa-in-journeys/reg-unsuccessful.png)
+![A screenshot of the Journey editor highlighting the reg unsuccessful node](/img/managing-mfa-in-journeys/reg-unsuccessful.png)
 *The Reg Unsuccessful Node*
 
 Conversely, we’ll want a way to indicate to the user that their registration has succeeded. In the real world, you’ll likely continue them into their account or login but in this example we’ll provide them the option to register another device before returning to the action list.
@@ -592,14 +592,14 @@ Add another Message node with the following details:
 
 Wire the `True` outcome to the MFA Registration Selection node and the `False` outcome to the Success node.
 
-![A screenshot of the Journey editor highlighting the reg successful node](../images/managing-mfa-in-journeys/reg-successful.png)
+![A screenshot of the Journey editor highlighting the reg successful node](/img/managing-mfa-in-journeys/reg-successful.png)
 *The Reg Successful Node*
 
 From here, we are going to use a series of nodes that are outlined in the Multi-Factor Authentication section of the documentation ([WebAuthN](https://docs.pingidentity.com/pingoneaic/latest/am-authentication/authn-mfa-webauthn.html), [Push](https://docs.pingidentity.com/pingoneaic/latest/am-authentication/authn-mfa-trees-push.html), [OATH](https://docs.pingidentity.com/pingoneaic/latest/am-authentication/authn-mfa-about-oath.html)). Since these Nodes and Journeys are well-documented we won’t be going into how they function in detail - just note that normally you should create a separate Inner Journey for each registration type not only for reuse but to test for existing MFA devices and validate proper registration.
 
 Drag in a WebAuthN Registration node, a Push Registration node, and a OATH Registration node, each connected to their respective Choice Collector outcomes. Leave these nodes as default for now - if you do decide to edit, just make sure to keep recovery codes enabled (it’s not only good for your users, it’s the way we are going to retrieve and update the name of the device later).
 
-![A screenshot of the Journey editor in which the different registration nodes have been connected](../images/managing-mfa-in-journeys/mfa-reg-nodes.png)
+![A screenshot of the Journey editor in which the different registration nodes have been connected](/img/managing-mfa-in-journeys/mfa-reg-nodes.png)
 *The MFA Registration Nodes*
 
 Next, we’ll need a way to inform our script what option the user has selected to register. To do this, drag in and connect a Set State node to each of the `Success` outcomes of your registration nodes. Each of these Set State nodes will have the same attribute, `mfaDeviceType`, with the following attribute mapping:
@@ -610,7 +610,7 @@ Next, we’ll need a way to inform our script what option the user has selected 
 | Push Registration node | `push` |
 | OATH Registration node | `oath` |
 
-![A screenshot of the Journey editor in which the set state nodes have been added](../images/managing-mfa-in-journeys/set-state-nodes.png)
+![A screenshot of the Journey editor in which the set state nodes have been added](/img/managing-mfa-in-journeys/set-state-nodes.png)
 *Setting the State*
 
 There’s one more thing we need to get from shared state: the current name that has been set on the MFA device. Fortunately, that name is mapped in Transient State to the Recovery Code Display Name - let’s store it in a place that we can use later.
@@ -671,56 +671,56 @@ This script is rather simple - it’s taking the recovery code device name, stor
 
 Wire up all of the Set State nodes to the Scripted Decision node you just created. Your Journey should look something like this:
 
-![A screenshot of the Journey editor in which the get current device name node has been connected to the outputs of every set state node](../images/managing-mfa-in-journeys/get-device-name.png)  
+![A screenshot of the Journey editor in which the get current device name node has been connected to the outputs of every set state node](/img/managing-mfa-in-journeys/get-device-name.png)  
 *Getting the Current Device Name*
 
 Now let’s finish this Journey up. Drag in a Scripted Decision Node and select the Update MFA Device Name script we created in the last section, connected to the `Success` outcome of “Get Current Device Name” node.
 
-![A screenshot of the Journey editor in which the update device name node has been connected to the get current device name node](../images/managing-mfa-in-journeys/update-device-name.png)
+![A screenshot of the Journey editor in which the update device name node has been connected to the get current device name node](/img/managing-mfa-in-journeys/update-device-name.png)
 *Updating the New Device’s Name*
 
 Almost done - now to just connect all of the Success and Error outcomes together.
 
 Wire the `Success` outcome of your “Update Device Name” node to the “Reg Successful” node and all other open outcomes (they should all be errors, failures, timeouts, or unsupported outcomes) to the “Reg Unsuccessful” node. Your completed Inner Journey should look something like this:
 
-![A screenshot of the Journey editor of the entire device registration renaming journey](../images/managing-mfa-in-journeys/device-reg-rename.png)
+![A screenshot of the Journey editor of the entire device registration renaming journey](/img/managing-mfa-in-journeys/device-reg-rename.png)
 *The Complete Device Registration Renaming Journey*
 
 ## Testing
 
 Jump back to your parent Journey (ManageMFADevices). Since our only outcome from our Inner Tree is `True`, and currently you can only register a new device if you don’t have any to start with, wire the `True` outcome to the “MFA Actions” Page node.
 
-![A screenshot of the Journey editor in the base level Journey in which mfa registration has been connected to the mfa actions node](../images/managing-mfa-in-journeys/mfa-reg-wired.png)
+![A screenshot of the Journey editor in the base level Journey in which mfa registration has been connected to the mfa actions node](/img/managing-mfa-in-journeys/mfa-reg-wired.png)
 *Wiring MFA Registration*
 
 Now, go to the Preview URL in an Incognito Window, guest account, or separate browser and enter in the username of a user that doesn’t have any MFA devices registered for their account - I’m using `example2` here.
 
-![A screenshot of the end Journey in which the user "example2" has been inputted](../images/managing-mfa-in-journeys/input-empty-user.png)
+![A screenshot of the end Journey in which the user "example2" has been inputted](/img/managing-mfa-in-journeys/input-empty-user.png)
 *The `example2` User*
 
 On the next screen, when you are asked if you want to register a new MFA device, click “Yes”.
 
-![A screenshot of the rendered Journey where the user inputted has no devices. They are being prompted to register a new one](../images/managing-mfa-in-journeys/no-devices-found.png)
+![A screenshot of the rendered Journey where the user inputted has no devices. They are being prompted to register a new one](/img/managing-mfa-in-journeys/no-devices-found.png)
 *Registration Prompt*
 
 Next, select the MFA device you want to register. You’ll then be guided through registering either a WebAuthN/Passkey/Biometric, Push, or OATH device.
 
-![A screenshot of the rendered Journey where the user selects an MFA device to register](../images/managing-mfa-in-journeys/select-mfa-reg.png)
+![A screenshot of the rendered Journey where the user selects an MFA device to register](/img/managing-mfa-in-journeys/select-mfa-reg.png)
 *Registering the Device*
 
 After successfully registering your device, you’ll be prompted with the same Device naming screen you saw when renaming a device. Enter in your name here.
 
-![A screenshot of the rendered Journey where the user sets the name of their new device](../images/managing-mfa-in-journeys/name-new-device.png)
+![A screenshot of the rendered Journey where the user sets the name of their new device](/img/managing-mfa-in-journeys/name-new-device.png)
 *Renaming the MFA Device*
 
 After renaming and hitting “Continue”, you’ll be sent to the Success screen.
 
-![A screenshot of the rendered Journey where the user is taken to a successful mfa registration screen](../images/managing-mfa-in-journeys/mfa-reg-success.png) 
+![A screenshot of the rendered Journey where the user is taken to a successful mfa registration screen](/img/managing-mfa-in-journeys/mfa-reg-success.png) 
 *MFA Registration Succeeded*
 
 If you click “Select Another Action”, you’ll be taken to the device management screen for the device you just created and named.
 
-![A screenshot of the rendered Journey where the user can see their newly inputted device alongside the actions they can take](../images/managing-mfa-in-journeys/new-mfa-device-actions.png)
+![A screenshot of the rendered Journey where the user can see their newly inputted device alongside the actions they can take](/img/managing-mfa-in-journeys/new-mfa-device-actions.png)
 *MFA Actions on New Device*
 
 # Removing MFA Devices {#removing-mfa-devices}
@@ -834,22 +834,22 @@ We aren’t going to the MFA Action Successful node because one of the options t
 
 Your Journey should look something like this:  
 
-![A screenshot of the Journey editor that contains the list, registration, renaming, and removal nodes and messages](../images/managing-mfa-in-journeys/removal-message-node.png)
+![A screenshot of the Journey editor that contains the list, registration, renaming, and removal nodes and messages](/img/managing-mfa-in-journeys/removal-message-node.png)
 *Connecting it All Together*
 
 Head back to the Preview URL and select the User and MFA device you created in the previous section. This time, though, select the “Remove” action.
 
-![A screenshot of the rendered Journey where the user selects the "Remove" action on their new device](../images/managing-mfa-in-journeys/action-remove.png)
+![A screenshot of the rendered Journey where the user selects the "Remove" action on their new device](/img/managing-mfa-in-journeys/action-remove.png)
 *Removing the Device*
 
 After hitting “Next”, you should be taken to the Device Removed Screen.
 
-![A screenshot of the rendered Journey where the user has successfully removed their MFA device and sees the resulting success screen](../images/managing-mfa-in-journeys/remove-successful.png)
+![A screenshot of the rendered Journey where the user has successfully removed their MFA device and sees the resulting success screen](/img/managing-mfa-in-journeys/remove-successful.png)
 *Device Successfully Removed*
 
 If you go back to the “Select Another Device” screen, you’ll see that your device is gone!
 
-![A screenshot of the rendered Journey where the user inputted has no devices. They are being prompted to register a new one](../images/managing-mfa-in-journeys/no-devices-found.png)
+![A screenshot of the rendered Journey where the user inputted has no devices. They are being prompted to register a new one](/img/managing-mfa-in-journeys/no-devices-found.png)
 *No Devices Once More*
 
 # Conclusion

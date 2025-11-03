@@ -37,7 +37,7 @@ Duplicate the “Starter Theme” theme from your Hosted Pages (or create a new 
 
 Underneath the “Journey” section of the editor, turn off the logo. Since we’ll be adding a new logo container to this style, we’ll hide this one.
 
-![A screenshot of diabling the logo in the "Global" hosted page](../images/2-hide-logo.png)
+![A screenshot of diabling the logo in the "Global" hosted page](/img/2-hide-logo.png)
 
 _Hiding the Logo in your Global Hosted Page_
 
@@ -116,13 +116,13 @@ Next, underneath the “Layout” section, all the way at the bottom, enable and
 
 Your hosted page editor should look something like this:
 
-![A screenshot pointing to the "Script Tags" section of the Hosted Page editor where the script has been added and enabled](../images/2-script-tag.png)
+![A screenshot pointing to the "Script Tags" section of the Hosted Page editor where the script has been added and enabled](/img/2-script-tag.png)
 
 _Adding and Enabling the Script Tag_
 
 While this script adds a default logo, the above setup **won’t show up inside the editor** - the editor doesn’t execute any JavaScript added through the Script Tag. To test that your script is working, load a Journey using this Hosted Page to see the logo magically added:
 
-![A screenshot of the default "parent" logo showing up in the Hosted Page](../images/2-script-tag-test.png)
+![A screenshot of the default "parent" logo showing up in the Hosted Page](/img/2-script-tag-test.png)
 
 _There's Our Image!_
 
@@ -132,7 +132,7 @@ You’ll see upon inspecting the page that not only is there the main logo, but 
 
 Go ahead and duplicate the “Registration” email template, name it to “globalRegistration” and switch to the HTML editor. We’re going to use the HTML (“Advanced”) editor to take advantage of Handlebars notation for not only our page text but also for our page styling, as the CSS will come bundled into the HTML in your editor.
 
-![A screenshot of the 'globalRegistration' email switched to the advanced editor](../images/2-global-registration-email.png)
+![A screenshot of the 'globalRegistration' email switched to the advanced editor](/img/2-global-registration-email.png)
 
 _The global registration email in the advanced editor. The names `globalRegistration`, `Global Registration`, and `global_registration` will work as your title._
 
@@ -181,7 +181,7 @@ We’ve added in some quality of life features, like a card and button class, as
 
 Go ahead and send yourself a test email. You’ll see that you receive the default theming, which should look similar to the Global Hosted Page you created (even including the same logo wrapper you saw above).
 
-![A screenshot of the 'globalRegistration' email sent to the user](../images/2-global-registration-email-sent.png)
+![A screenshot of the 'globalRegistration' email sent to the user](/img/2-global-registration-email-sent.png)
 
 _The Sent Global Email_
 
@@ -207,13 +207,13 @@ Select that attribute and add the following properties to it:
 
 Your `themeCustomization` object should look like this:
 
-![A screenshot of the 'Theme Customization' Object Attribute](../images/2-theme-customization.png)
+![A screenshot of the 'Theme Customization' Object Attribute](/img/2-theme-customization.png)
 
 _The Theme Customization Object Configuration_
 
 With this configuration in place, when we head over to an Organization we’ve created we’ll see a new tab entitled “Theme Customization” with the three options we’ve configured.
 
-![A screenshot of the 'Theme Customization' attributes within the "Example" organization](../images/2-theme-customization-org.png)
+![A screenshot of the 'Theme Customization' attributes within the "Example" organization](/img/2-theme-customization-org.png)
 
 _The Theme Customization inside an Organization_
 
@@ -235,7 +235,7 @@ Navigate to “Journeys” inside of your tenant and either create a new Journey
 
 In this example, we’re going to have a basic username and password login. If it’s not there already, drag in a Page Node with a Platform Username and Platform Password node, tied to a Data Store Decision. This should end up looking like a simplified version of the default “Login” Journey.
 
-![The Simplified Login Journey inside the Journey Editor](../images/1-basicLogin.png)
+![The Simplified Login Journey inside the Journey Editor](/img/1-basicLogin.png)
 
 _Basic Login_
 
@@ -375,13 +375,13 @@ function generateUI(name, logoUrl, backgroundColorHex, primaryColorHex) {
 
 Drag and drop this Scripted Decision Node into your Page Node, and then wire `Success` to your Data Store Decision and `Failure` to your Failure Node. You Journey should look something like this:
 
-![A screenshot of the 'Set Theme Styling' Scripted Decision Node within the Page Node of the example Journey](../images/2-set-styling-journey.png)
+![A screenshot of the 'Set Theme Styling' Scripted Decision Node within the Page Node of the example Journey](/img/2-set-styling-journey.png)
 
 _Changing the Styling in a Page Node_
 
 Finally, we are going to add in and wire up the [`Get Org ID by Query Parameter` Scripted Decision Node]({{< ref "1-dynamic-theming-aic#changing-hosted-page-theming" >}}) that we made in the last section to the front of this Journey. Just like before, we’re using this approach as an example of how you could inform the Journey that there is an Organization associated with this session so that we can change the theme styling accordingly. Your completed Journey should look something like this:
 
-![A screenshot of the example Journey including the "Get Org ID by Query Parameter" Script](../images/2-set-styling-journey-complete.png)
+![A screenshot of the example Journey including the "Get Org ID by Query Parameter" Script](/img/2-set-styling-journey-complete.png)
 
 _Setting the Styling from the Org Metadata_
 
@@ -408,13 +408,13 @@ When you go to this URL route, nothing should have changed. You haven’t set an
 
 Now, in your Managed Organization, change the Logo URL to a valid image hosted on the internet (I’m using a wikimedia link to a .png), and some hex colors for the background and the buttons.
 
-![A screenshot of example values being added to the "Example" Organization](../images/2-setting-theme-org.png)
+![A screenshot of example values being added to the "Example" Organization](/img/2-setting-theme-org.png)
 
 _Setting the Styling_
 
 Save the Organization, and then refresh the page with your Journey. The background color and button colors have changed, and your partner logo has appeared next to your main logo!
 
-![A screenshot of the Journey's Hosted Page taking the customizations set on the Organization](../images/2-setting-theme-display.png)
+![A screenshot of the Journey's Hosted Page taking the customizations set on the Organization](/img/2-setting-theme-display.png)
 
 _The Styling Carrying Through_
 
@@ -520,7 +520,7 @@ Wire up the `True` outcome of your Identify Existing User Node to this New Node 
 
 Wire up the Registration Email Suspend Node to the Success Node. Your completed Journey should look like the following:
 
-![A screenshot of the complete set theme styling by hosted page and email journey](../images/2-set-styling-email-journey-complete.png)
+![A screenshot of the complete set theme styling by hosted page and email journey](/img/2-set-styling-email-journey-complete.png)
 
 _The Complete Journey, Styling Hosted Pages and Emails_
 
@@ -536,15 +536,15 @@ Within our `Set Email Styling` script we do the following:
 
 Go back to the base Journey Preview with no Organization ID passed into the query parameter. You’ll get the default branding as defined by your Global Hosted Page and Email Template.
 
-![A screenshot of the default global hosted page](../images/2-global-theme.png)  
-![A screenshot of the default global hosted page displaying a suspend node](../images/2-global-theme-suspend.png) 
-![A screenshot of the default global email template sent](../images/2-global-theme-email.png)
+![A screenshot of the default global hosted page](/img/2-global-theme.png)  
+![A screenshot of the default global hosted page displaying a suspend node](/img/2-global-theme-suspend.png) 
+![A screenshot of the default global email template sent](/img/2-global-theme-email.png)
 
 _The Default Global Branding_
 
 Now, let’s add the `orgId` query parameter like we did when we changed the Hosted Page theme. Not only will the theme styling change in the Journey, but it’ll show up in the email!
 
-![A screenshot of the stylized email template sent](../images/2-custom-theme-email.png)
+![A screenshot of the stylized email template sent](/img/2-custom-theme-email.png)
 
 _The Custom-Styled Email_
 

@@ -63,8 +63,8 @@ After you’ve created this account, you’ll need to do two things:
 2. Register a Service Principal Name with this account using the command `setspn -s <service-principal-name> <username>`. In my case, my command looks like this:  
    `setspn -s HTTP/dgwiz-vm2.example.com fidcsvc`
 
-![The Service Account User Details](../images/secure-apps-kerberos-ad-pinggateway/service-acct-details.png)
-![The Service Account AD Groups](../images/secure-apps-kerberos-ad-pinggateway/service-acct-ad-groups.png)
+![The Service Account User Details](/img/secure-apps-kerberos-ad-pinggateway/service-acct-details.png)
+![The Service Account AD Groups](/img/secure-apps-kerberos-ad-pinggateway/service-acct-ad-groups.png)
 
 _The Service Account Details_
 
@@ -87,7 +87,7 @@ The steps in this section are on your Gateway Host (**VM 2**).
 
 For the sake of the example, it’s also useful to [set up the Sample Application](https://docs.pingidentity.com/pinggateway/2024.11/getting-started/start-sampleapp.html) so that we have an example application to redirect to. Note that this application runs on Java and in my example I’m using the JDK version 17 installed from Adoptium Temurin: [https://adoptium.net/temurin/releases/](https://adoptium.net/temurin/releases/) with the `JAVA_HOME` System Variable pointing to this JDK.
 
-![A terminal window showing the hava version. This example is using openjdk 17.0.14](../images/secure-apps-kerberos-ad-pinggateway/java.png)
+![A terminal window showing the hava version. This example is using openjdk 17.0.14](/img/secure-apps-kerberos-ad-pinggateway/java.png)
 
 _The Java Environment_
 
@@ -116,7 +116,7 @@ Update your Hosts File, found at `%SystemRoot%\system32\drivers\etc\hosts`, to i
 
 Start your gateway by running the `start.bat` file located under the `bin` directory of your IG download. The easiest way is to drag and drop the file into your terminal.
 
-![A resulting command prompt window where the start.bat file has been dragged and dropped](../images/secure-apps-kerberos-ad-pinggateway/start.png)
+![A resulting command prompt window where the start.bat file has been dragged and dropped](/img/secure-apps-kerberos-ad-pinggateway/start.png)
 
 _Starting PingGateway_
 
@@ -224,7 +224,7 @@ To start, we’ll want to update our `admin.json` file to define our ports, iden
 
 If you’d like to see more logging within your terminal and within the **`%appdata%\OpenIG\logs`** path, [add the environment system variable](#using-system-variables) `ROOT_LOG_LEVEL` with the value of `DEBUG`.
 
-![A Screenshot of the System Variables where ROOT_LOG_LEVEL has been set to DEBUG](../images/secure-apps-kerberos-ad-pinggateway/debug.png)
+![A Screenshot of the System Variables where ROOT_LOG_LEVEL has been set to DEBUG](/img/secure-apps-kerberos-ad-pinggateway/debug.png)
 
 _Increasing the Log Level_
 
@@ -236,9 +236,9 @@ _Increasing the Log Level_
 We will follow **steps 4 and 5** in [Serve one certificate for TLS connections to all server names](https://docs.pingidentity.com/pinggateway/2024.9/installation-guide/securing-connections.html#server-side-tls-keyManager). Start your gateway and then head to the ping route you went to earlier (in my case, `https://dgwiz-vm2.example.com:8443/openig/ping`). If you’re running a new version of PingGateway you may need to test your certificate on a route directly (more on that later).
 
 From there you can inspect your certificate to see that it was loaded successfully.  
-![A Screenshot of the browser url bar where the certificate details are being inspected](../images/secure-apps-kerberos-ad-pinggateway/cert-inspect.png)
-![A Screenshot of the browser where the certificate icon is being selected](../images/secure-apps-kerberos-ad-pinggateway/cert-select.png)
-![A Screenshot of the browser inspecting the general information about the certificate](../images/secure-apps-kerberos-ad-pinggateway/cert-general.png)
+![A Screenshot of the browser url bar where the certificate details are being inspected](/img/secure-apps-kerberos-ad-pinggateway/cert-inspect.png)
+![A Screenshot of the browser where the certificate icon is being selected](/img/secure-apps-kerberos-ad-pinggateway/cert-select.png)
+![A Screenshot of the browser inspecting the general information about the certificate](/img/secure-apps-kerberos-ad-pinggateway/cert-general.png)
 
 _Viewing the Certificate_
 
@@ -248,28 +248,28 @@ We first want to create a secure connection between PingGateway and AIC. To do s
 
 First, [Create the Agent Journey](https://docs.pingidentity.com/pinggateway/2024.9/identity-cloud-guide/preface.html#authenticate-agent-idc). You can follow the instructions provided or import a precreated Journey here: [Agent-Journey.json](https://github.com/gwizdala/lib-ping/blob/main/How-Tos/secure-apps-kerberos-ad-pinggateway/Agent-Journey.json).
 
-![A Screenshot of the Import Journey button, which you'll use to import this Journey](../images/secure-apps-kerberos-ad-pinggateway/import.png)
+![A Screenshot of the Import Journey button, which you'll use to import this Journey](/img/secure-apps-kerberos-ad-pinggateway/import.png)
 
 _Importing the Journey_
 
 Next, [Register Your PingGateway Agent in AIC](https://docs.pingidentity.com/pinggateway/2024.9/identity-cloud-guide/preface.html#register-agent-idc) and save the password. You don’t need to "use the secret store for the password" for the examples to work.
 
-![A Screenshot of the "New Gateway" button](../images/secure-apps-kerberos-ad-pinggateway/gateway-new.png)
-![A Screenshot of the gateway selection screen, where "Identity Gateway" is selected](../images/secure-apps-kerberos-ad-pinggateway/gateway-select.png)
-![A Screenshot of entering in the gateway name and password for the connection](../images/secure-apps-kerberos-ad-pinggateway/gateway-config.png) 
-![A Screenshot of the generated gateway connection](../images/secure-apps-kerberos-ad-pinggateway/gateway-created.png)
+![A Screenshot of the "New Gateway" button](/img/secure-apps-kerberos-ad-pinggateway/gateway-new.png)
+![A Screenshot of the gateway selection screen, where "Identity Gateway" is selected](/img/secure-apps-kerberos-ad-pinggateway/gateway-select.png)
+![A Screenshot of entering in the gateway name and password for the connection](/img/secure-apps-kerberos-ad-pinggateway/gateway-config.png) 
+![A Screenshot of the generated gateway connection](/img/secure-apps-kerberos-ad-pinggateway/gateway-created.png)
 
 _Registering the Gateway_
 
 Back in VM 2 you’ll want to save the password so that you can reference it when connecting to your tenant. For the sake of the example, I’ve put mine into a [base64-encoded](#base64-encoding-variables-in-windows) [system variable](#using-system-variables). **Note that the password must be Base-64 encoded when being referenced by a route in the gateway.**
 
-![A Screenshot of the AGENT_SECRET_ID system variable with the base64-encoded password](../images/secure-apps-kerberos-ad-pinggateway/gateway-password.png)
+![A Screenshot of the AGENT_SECRET_ID system variable with the base64-encoded password](/img/secure-apps-kerberos-ad-pinggateway/gateway-password.png)
 
 _Storing the Gateway Password in a System Variable_
 
 Later we will be [defining a route in our Gateway for Cross-Domain Single-Sign-On](#set-up-cross-domain-single-sign-on). So that AIC knows where to redirect from a CDSSO request, we’ll add a redirect URL on our gateway configuration that points to `https://<your-gateway-url>:8443/home/cdsso/redirect`. I’ve added the route `https://dgwiz-vm2.example.com:8443/home/cdsso/redirect` in my example.
 
-![A Screenshot of the CDSSO Redirect URL added to the Gateway config](../images/secure-apps-kerberos-ad-pinggateway/gateway-redirect.png)
+![A Screenshot of the CDSSO Redirect URL added to the Gateway config](/img/secure-apps-kerberos-ad-pinggateway/gateway-redirect.png)
 
 _Setting the Redirect URL_
 
@@ -277,7 +277,7 @@ So that AIC knows that it can safely redirect to the URLs requested by our gatew
 
 Go to **Native Consoles → Access Management → Services → Validation Service** and add the URLs that PingGateway will be redirecting the user to post-authentication. The two routes I’ve added are `https://dgwiz-vm2.example.com:8443/*` and `https://dgwiz-vm2.example.com:8443/*?*` to encompass any routes underneath my Gateway - however you can specify paths here if you’d prefer to lock down what redirects are allowed. 
 
-![A Screenshot of the the validation service where the aforementioned routes have been added](../images/secure-apps-kerberos-ad-pinggateway/validation-service.png)
+![A Screenshot of the the validation service where the aforementioned routes have been added](/img/secure-apps-kerberos-ad-pinggateway/validation-service.png)
 
 _Updating the Validation Service_
 
@@ -287,13 +287,13 @@ Identity Assertion allows us to perform actions in PingGateway from an AIC Journ
 
 Follow the steps in [Create and import a secret encryption key](https://docs.pingidentity.com/auth-node-ref/latest/auth-node-identity-assertion-node.html#auth-node-identity-assertion-key). In AIC, you should see your secret in “Tenant Settings”. If you have a prompt to update your ESVs select the “View Updates” button to complete loading the value in your tenant. You’ll see something like what’s shown below if you’ve succeeded.
 
-![A Screenshot of the ESV page in which one update needs to be applied](../images/secure-apps-kerberos-ad-pinggateway/idassert-esv-platform.png)
+![A Screenshot of the ESV page in which one update needs to be applied](/img/secure-apps-kerberos-ad-pinggateway/idassert-esv-platform.png)
 
 _Loading the ESV Update from the Platform UI_
 
 Additionally, store the `idassert.pem` file in the directory **`%appdata%\OpenIG\secrets\igfs`** on your Gateway Host to match the example route we’ll use later. You may have to create these folders if they don’t exist.
 
-![A Screenshot of the pem file stored under the aforementioned path](../images/secure-apps-kerberos-ad-pinggateway/idassert-pem.png)
+![A Screenshot of the pem file stored under the aforementioned path](/img/secure-apps-kerberos-ad-pinggateway/idassert-pem.png)
 
 _Storing the Pem File_
 
@@ -301,15 +301,15 @@ Follow the steps to [Configure the Identity Assertion Service](https://docs.ping
 
 Go to **Native Consoles → Access Management → Services → Add a Service → Identity Assertion Service**:
 
-![A Screenshot of selecting the Access Management tab from the Native Consoles Dropdown](../images/secure-apps-kerberos-ad-pinggateway/idassert-service-native.png) 
-![A Screenshot of steps taken to enable the Identity Assertion Service, pointing to Services and the New button](../images/secure-apps-kerberos-ad-pinggateway/idassert-service-add.png)  
-![A Screenshot of the enabled Identity Assertion Service](../images/secure-apps-kerberos-ad-pinggateway/idassert-service-enable.png)
+![A Screenshot of selecting the Access Management tab from the Native Consoles Dropdown](/img/secure-apps-kerberos-ad-pinggateway/idassert-service-native.png) 
+![A Screenshot of steps taken to enable the Identity Assertion Service, pointing to Services and the New button](/img/secure-apps-kerberos-ad-pinggateway/idassert-service-add.png)  
+![A Screenshot of the enabled Identity Assertion Service](/img/secure-apps-kerberos-ad-pinggateway/idassert-service-enable.png)
 
 _Adding the Identity Assertion Service_ 
 
 Go to **Secondary Configurations → Add a Secondary Configuration →** *Your Gateway URL, using port 8443 in your URL and the name of your ESV for the Shared Encryption Secret*:  
 
-![A Screenshot of the Secondary Configuration being added for https://dgwiz-vm2.example.com:8443 with the idassert encryption secret](../images/secure-apps-kerberos-ad-pinggateway/idassert-service-config.png)
+![A Screenshot of the Secondary Configuration being added for https://dgwiz-vm2.example.com:8443 with the idassert encryption secret](/img/secure-apps-kerberos-ad-pinggateway/idassert-service-config.png)
 
 _Creating the Secondary Configuration_
 
@@ -318,14 +318,14 @@ Next, follow the steps to [map the secret label to the encryption key](https://d
 *Still in the Native Access Management Console,*  
 Go to **Secret Stores → ESV → Mappings → Add Mapping**:
 
-![A screenshot of the native console where Secret Store and ESV are selected](../images/secure-apps-kerberos-ad-pinggateway/esv-mapping.png) 
-![A screenshot of the new esv mapping button](../images/secure-apps-kerberos-ad-pinggateway/esv-mapping-add.png)
+![A screenshot of the native console where Secret Store and ESV are selected](/img/secure-apps-kerberos-ad-pinggateway/esv-mapping.png) 
+![A screenshot of the new esv mapping button](/img/secure-apps-kerberos-ad-pinggateway/esv-mapping-add.png)
 
 _Getting to the ESV Mapping_
 
 **Select the secret label you created for your Assertion Service** *(my example is `am.services.identityassertion.service.idassert.shared.secret`) **and use the name of your ESV secret encryption key you defined earlier** (mine was **`esv-idassert`**)* **as the alias. Click Add, then Create.**  
 
-![A Screenshot of the ESV mapping tied to the ESV we set by API earlier](../images/secure-apps-kerberos-ad-pinggateway/esv-mapping-config.png)
+![A Screenshot of the ESV mapping tied to the ESV we set by API earlier](/img/secure-apps-kerberos-ad-pinggateway/esv-mapping-config.png)
 
 _Adding the ESV Mapping_
 
@@ -408,13 +408,13 @@ Go to **Journeys → New Journey**, and create a Journey with the following deta
 
 This Journey really only needs one node - the Identity Assertion Node. In it you’ll want to select the Identity Assertion Service you configured during this step and the route that matches the route we just made in our gateway (`/idassert`). Additionally, we will be mapping the claim passed back from PingGateway into the `username` field so that we can authenticate a user. You can add a Failure URL Node if you’d like but it’s not necessary.
 
-![A screenshot of the IdAssert Journey in editor highlighting the Identity Assertion Node](../images/secure-apps-kerberos-ad-pinggateway/idassert-journey.png)
+![A screenshot of the IdAssert Journey in editor highlighting the Identity Assertion Node](/img/secure-apps-kerberos-ad-pinggateway/idassert-journey.png)
 
 _The IdAssert Journey_
 
 Our `/idassert` route as we configured it returns a user with the username `test`. To make this Journey more realistic let’s add an Identify Existing User Node to generate a session and take our user into their end-user dashboard.  You’ll note that I set my “Identity Attribute” in my Identify Existing User node to “userName” since that’s the property returned by our gateway in this example.
 
-![A screenshot of the IdAssert Journey in editor where the Identify Existing User Node has been added](../images/secure-apps-kerberos-ad-pinggateway/idassert-journey-session.png)
+![A screenshot of the IdAssert Journey in editor where the Identify Existing User Node has been added](/img/secure-apps-kerberos-ad-pinggateway/idassert-journey-session.png)
 
 _The IdAssert Journey with User Session_
 
@@ -426,7 +426,7 @@ Since we’ve enabled Development mode we should have access to Gateway Studio, 
 
 Go to your Gateway Studio route, defined as `http://<gateway-url>:8080/openig/studio/` (mine is [`http://dgwiz-vm2.example.com:8080/openig/studio/`](http://dgwiz-vm2.example.com:8080/openig/studio/), newer versions may be `8085/studio` without the `/openig` route). You should load Gateway Studio and see the route you just defined.
 
-![A screenshot of IGStudio in which the IDAssert Route has appeared](../images/secure-apps-kerberos-ad-pinggateway/studio-idassert.png)
+![A screenshot of IGStudio in which the IDAssert Route has appeared](/img/secure-apps-kerberos-ad-pinggateway/studio-idassert.png)
 
 _Gateway Studio Showing the IdAssert Route_
 
@@ -436,7 +436,7 @@ Next, we’ll test if Identity Assertion is working correctly. To do so, copy th
 
 Going to the Journey URL will result in an active session for your `test` user.  
 
-![A screenshot of the Test User logged in based on the Journey provided](../images/secure-apps-kerberos-ad-pinggateway/idassert-journey-success.png)
+![A screenshot of the Test User logged in based on the Journey provided](/img/secure-apps-kerberos-ad-pinggateway/idassert-journey-success.png)
 
 _The Test User's Dashboard_ 
 
@@ -514,14 +514,14 @@ Since we’ve enabled Development mode we should have access to Gateway Studio, 
 
 Go to your Gateway Studio route, defined as `http://<gateway-url>:8080/openig/studio/` (mine is [`http://dgwiz-vm2.example.com:8080/openig/studio/`](http://dgwiz-vm2.example.com:8080/openig/studio/) but it could also be `8085/studio` depending on your version). You should load Gateway Studio and see the routes you just defined.
 
-![A screenshot of IGStudio in which the CDSSO and Static Resources Routes have appeared](../images/secure-apps-kerberos-ad-pinggateway/studio-cdsso.png)
+![A screenshot of IGStudio in which the CDSSO and Static Resources Routes have appeared](/img/secure-apps-kerberos-ad-pinggateway/studio-cdsso.png)
 
 _Gateway Studio Showing the CDSSO Routes_
 
 Next, we’ll test if CDSSO is working correctly. To do so, in an incognito tab in VM 2 we’ll target the new CDSSO route we made at  `https://<gateway-url>:8443/home/cdsso/` (mine is [`https://dgwiz-vm2.example.com:8443/home/cdsso/`](https://dgwiz-vm2.example.com:8443/home/cdsso/)). You should be redirected to your AIC login page. Enter in your details and you’ll be redirected to the Sample Application with a valid session.
 
-![A screenshot of the redirect to AIC's login screen](../images/secure-apps-kerberos-ad-pinggateway/cdsso-login.png)
-![A screenshot of the sample app, redirected from AIC with a valid session](../images/secure-apps-kerberos-ad-pinggateway/cdsso-session.png)
+![A screenshot of the redirect to AIC's login screen](/img/secure-apps-kerberos-ad-pinggateway/cdsso-login.png)
+![A screenshot of the sample app, redirected from AIC with a valid session](/img/secure-apps-kerberos-ad-pinggateway/cdsso-session.png)
 
 _Cross-Domain Single Sign On Performed to the Sample App_
 
@@ -531,7 +531,7 @@ Now, let’s combine the two concepts we just learned to perform Kerberos Authen
 
 Firstly, in VM 2 you’ll want to save the Windows AD Domain service account password so that you can reference it when performing Kerberos Authentication. For the sake of the example, I’ve put mine into a [base64-encoded](#base64-encoding-variables-in-windows) [system variable](#using-system-variables). **Note that the password must be Base-64 encoded when being referenced by a route in the gateway.**
 
-![A screenshot of the service account password stored as a system variable](../images/secure-apps-kerberos-ad-pinggateway/kerb-esv.png)
+![A screenshot of the service account password stored as a system variable](/img/secure-apps-kerberos-ad-pinggateway/kerb-esv.png)
 
 _Storing the Kerberos Service Account Password_
 
@@ -609,13 +609,13 @@ Next, we’re going to create a new route that utilizes the [KerberosIdentityAss
 
 Back inside AIC, duplicate your IdAssert Journey and give it the name `IdAssertKerberos`. Inside that Journey the only change you’ll need to make is to point the route in your Identity Assertion Node to the new route we created (`/kerb`).
 
-![A screenshot of the idassert journey that is directed to the Kerberos route](../images/secure-apps-kerberos-ad-pinggateway/idassert-journey-kerb.png)
+![A screenshot of the idassert journey that is directed to the Kerberos route](/img/secure-apps-kerberos-ad-pinggateway/idassert-journey-kerb.png)
 
 _The Identity Assertion Journey Pointing to the Kerberos Route_
 
 Finally, let’s update our cdsso-idc route to point to this new Journey we created. Remove the `_` from `_authenticationService` (line 44) in your `cdsso-idc.json` file so that the authentication service used is the IdAssertKerberos Journey.
 
-![A screenshot of the "_" removed from line 44 in the cdsso-idc route](../images/secure-apps-kerberos-ad-pinggateway/kerb-cdsso.png)
+![A screenshot of the "_" removed from line 44 in the cdsso-idc route](/img/secure-apps-kerberos-ad-pinggateway/kerb-cdsso.png)
 
 _Pointing to the Kerberos Journey_
 
@@ -663,7 +663,7 @@ I’ve saved this file to my `secrets` folder and then added it to the `IG_OPTS`
 "-Djava.security.krb5.conf=C:\Users\david_gwizdala\Desktop\secrets\krb5.ini"
 ```
 
-![A screenshot of the IG_OPTS system variable](../images/secure-apps-kerberos-ad-pinggateway/kerb-config-esv.png)
+![A screenshot of the IG_OPTS system variable](/img/secure-apps-kerberos-ad-pinggateway/kerb-config-esv.png)
 
 _The System Variable_
 
@@ -677,7 +677,7 @@ To test Kerberos we are going to use the same cdsso route we built before. If yo
 
 In an incognito tab in VM 2 go to `https://<gateway-url>:8443/home/cdsso/` (mine is `https://dgwiz-vm2.example.com:8443/home/cdsso/`). Instead of being directed to AIC’s login page, you should either log in immediately (or if you’re logged in with a user that’s not part of the domain, or have not configured no-prompt browser settings for Kerberos you should be prompted with a Windows login).  
 
-![A screenshot of the Windows login prompt](../images/secure-apps-kerberos-ad-pinggateway/kerb-login.png)
+![A screenshot of the Windows login prompt](/img/secure-apps-kerberos-ad-pinggateway/kerb-login.png)
 
 _Kerberos Authentication_  
 
@@ -702,9 +702,9 @@ These building blocks should give you the ability to secure applications with Pi
 
 We use System Variables to store secure information like Secrets and Service Account passwords. Where you want to store this information is ultimately up to you, however if you’d like to do the same, hit the Windows key, type “System Variables”, click the “Edit the system environment variables” result that shows up and then hit the Environment Variables button. You’ll see a section called “System Variables” where you can add new values.
 
-![A screenshot of the search results when searching "System Variables" in Windows](../images/secure-apps-kerberos-ad-pinggateway/windows-esv-search.png)
-![A screenshot of the System Properties window with the "Environment Variables" button highlighted](../images/secure-apps-kerberos-ad-pinggateway/windows-esv-select.png)
-![A screenshot of the System Variables section with the "New" button highlighted](../images/secure-apps-kerberos-ad-pinggateway/windows-esv-new.png)
+![A screenshot of the search results when searching "System Variables" in Windows](/img/secure-apps-kerberos-ad-pinggateway/windows-esv-search.png)
+![A screenshot of the System Properties window with the "Environment Variables" button highlighted](/img/secure-apps-kerberos-ad-pinggateway/windows-esv-select.png)
+![A screenshot of the System Variables section with the "New" button highlighted](/img/secure-apps-kerberos-ad-pinggateway/windows-esv-new.png)
 
 _Adding System Variables_
 
@@ -720,6 +720,6 @@ Firstly, you can use the following PowerShell command, subbing in `"my-variable"
 
 Alternatively, if you Bing “Base64 encode” it’ll pull up a utility in-browser.
 
-![A screenshot of the built-in decoder rendered in the Bing Search Page](../images/secure-apps-kerberos-ad-pinggateway/bing-decoder.png)
+![A screenshot of the built-in decoder rendered in the Bing Search Page](/img/secure-apps-kerberos-ad-pinggateway/bing-decoder.png)
 
 _Decoding in your Browser in Bing_

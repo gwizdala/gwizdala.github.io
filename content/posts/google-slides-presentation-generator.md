@@ -360,6 +360,15 @@ Your tab list should look like this:
 ![A screenshot of the imported scripts into the Files section of the Apps Script](/img/google-slides-presentation-generator/script-list.png)  
 *The Imported Scripts*
 
+## Add the Advanced Drive Service
+
+Google’s [Advanced Drive Service](https://developers.google.com/apps-script/advanced/drive) checks for Shared Folders before attempting to assign permissions to a user. To enable this service, click the “+” button next to the “Services” tab and select “Drive API” from the modal that opens.
+
+![A screenshot of the highlighted "+" button next to "Services"](/img/google-slides-presentation-generator/service-add.png)
+![A screenshot of the modal with the "Drive API" selected](/img/google-slides-presentation-generator/service-modal.png)  
+*Adding the Advanced Drive Service*
+
+
 ## Add the Trigger
 
 Once your scripts are imported we’ll want to add our trigger so that the generator runs every time a new Form response is submitted. To do so, head to the “Main” file and run the function `attachTrigger`. You’ll be prompted to authorize a series of permissions that let you clone the template to a folder, modify the cloned template, update the generator sheet, and send a success/failure email. **Only run this trigger once.**

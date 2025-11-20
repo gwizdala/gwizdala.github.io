@@ -23,7 +23,7 @@ I've held roles in Product, Engineering, Sales, Project Management, and UI/UX de
 
 # I love _learning something new_ and _teaching people about it_.
 
-While at [Visibly](https://www.govisibly.com/), I wrote all of the public facing [documentation and how-to-guides](https://docs.govisibly.com/). At [Arrive](https://www.arrive.com/) I [did the same thing](https://partners.arrive.com/).
+While at Visibly, I wrote all of the public facing [documentation and how-to-guides](https://docs.govisibly.com/). At Arrive I [did the same thing](https://web.archive.org/web/20250228195244/http://partners.arrive.com/).
 
 My favorite place to be is when I don't know the answer - it means I have a fun new challenge to overcome. It's even better when I can share that knowledge with others: as a team, we can accomplish anything!
 

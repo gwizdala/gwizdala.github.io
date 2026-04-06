@@ -30,7 +30,7 @@ Enable systems such as microservices to communicate with one another via standar
 * Scale across hundreds of services in a maintainable and centralized manner  
 * Enable fine-grained control of scopes by Identity (e.g. Organization, Group, Role, Attribute) and Application (e.g. API)
 
-## Problem Statement {#problem-statement}
+## Problem Statement
 
 In a multi-system architecture (e.g. microservice design), multiple applications may be utilizing the same set of APIs minimally scoped to their own unique set of permissions. The example use case may look like the following:
 
@@ -47,7 +47,7 @@ We don’t want to put multiple audiences in the claim, because we want to speci
 
 So what can we do to connect APIs together in a maintainable, consistent way within PingOne Advanced Identity Cloud that adheres to the OAuth spec?
 
-# The Approach {#the-approach}
+# The Approach
 
 Ping Access Management (PingAM, PingOne Advanced Identity Cloud) includes something called the Policy Engine, which allows an administrator to create permission rules grouped by Subjects, Resources, and Actions. The Policies contained within a Policy Set can be evaluated by Access Management at time of token issuance, allowing the Authorization Server to programmatically validate and modify the returned access token to match the appropriate Client and their Scopes.
 
@@ -55,7 +55,7 @@ In the example below, we will be using the Client `scopeDrivenAPI1Client` as the
 
 Note that every action here can (and should\!) be accessed via API, which greatly expedites setup and management at a large scale.
 
-## Prerequisite: Policy Validation {#prerequisite:-policy-validation}
+## Prerequisite: Policy Validation
 
 To enforce our Provider policies from a request made through the Consumer, we’ll create a secure connection to the Policy Engine and then automate that validation method with two scripts: a **Scope Validation Script** and a **Token Modification Script**. These scripts will move validation of the token from the API Consumer Client into the Policy Engine and then return an updated token with the Provider API as the audience.
 
@@ -65,7 +65,7 @@ The scripts used in this section are found at the following location:
 
 [PingOne Advanced Identity Cloud: API to API Policy Evaluation · GitHub](https://github.com/gwizdala/lib-ping/tree/main/How-Tos/api-to-api-communication-with-aic) 
 
-### Creating the Policy Evaluator {#creating-the-policy-evaluator}
+### Creating the Policy Evaluator
 
 In order to securely connect to the Policy Engine, we’ll want to create a specialized Agent that authenticates with AM permissions. We’ll use an Agent identity to do this since it can pass values as an SSO token with the appropriate scope while locking out the request endpoint from other Identity types like Users, Groups, or Organizations.
 
@@ -83,7 +83,7 @@ We’ll now want to create a way for the Agent to authenticate. Navigate to Jour
 
 _The Agent Login Journey_
 
-### Setting the ESVs {#setting-the-esvs}
+### Setting the ESVs
 
 In order for the provided scripts to run, we’ll be setting some environment secrets and variables. This way you can create different configurations per tenant, environment, and realm.
 
@@ -96,7 +96,7 @@ Navigate to the Tenant Settings using the top right navigation and select “Env
 | `policy-gateway-id` | The ID of the Gateway being used to generate an SSO token capable of evaluating policies |
 | `policy-gateway-secret` | The Secret of the Gateway being used to generate an SSO token capable of evaluating policies |
 
-### Creating the Scripts {#creating-the-scripts}
+### Creating the Scripts
 
 Under Native Consoles \> AM \> Scripts, select “New Script” and create a Legacy JavaScript entitled `scopeDrivenConsumerClient Scope Validation` with Script Type `OAuth2 Validate Scope`.
 
@@ -104,13 +104,13 @@ In the Script Body, paste `scopeDrivenConsumerClientScopeValidation.js`. This sc
 
 Save this script, and then create another script entitled `PolicyEvalMod`, Language Legacy JavaScript with Script Type `OAuth2 Access Token Modification`, and then paste `policyEvalMod.js`. This script queries the Policy Engine based on the audience-scoped tokens and will return an access token with the audience of the Provider API if valid.
 
-## Defining Policies {#defining-policies}
+## Defining Policies
 
 Once we have set up the validation scripts, we can start setting up Policies based on the permission relationships we want between each service. This section outlines how to set up the relationship between `scopeDrivenAPI1Client` as the Consumer API and `scopeDrivenAPI2Client` as the Provider API, but the principles stay the same no matter what configuration you are looking to create. 
 
 > **Important:** Make sure to note the IDs of your APIs as they’re shown in AM (Applications → OAuth2.0 → Clients, and the name that appears at the top of the page) as these will be used to tie an application back to their policies.
 
-### Creating the Resource Type {#creating-the-resource-type}
+### Creating the Resource Type
 
 Policies and Policy Sets will validate Resources based on Resource Types, coupled rulesets of patterns and actions, configured in AM.
 
@@ -128,7 +128,7 @@ Note that you can use whatever pattern you’d like as long as it’s consistent
 
 _Setting Up the Pattern_
 
-### Creating the Policy Set {#creating-the-policy-set}
+### Creating the Policy Set
 
 Now that we have a Resource Type, we can define a Policy Set. We’ll want to create a different Policy Set per API/service so that we can easily review and modify permissions on an API by API basis.
 
@@ -146,7 +146,7 @@ _Setting Up the Policy Set_
 
 Once you hit “Create”, you’ll be taken to the Policy Set where you can start defining policies.
 
-### Creating a Policy {#creating-a-policy}
+### Creating a Policy
 
 Let’s add an example permission where we provide the `read` permission for the requesting subject of our Consumer Client. Note that each policy can have multiple Permissions, Actions, and Subjects \- meaning you can create more complex variations of API permissions (such as a “read/write” grouping of APIs, or a scope allowed only to a particular subset of users or organizations).
 
@@ -175,7 +175,7 @@ When you return to the Summary page, your Policy should look like this:
 
 _The Policy Summary_
 
-### Protecting an API {#protecting-an-api}
+### Protecting an API
 
 We now have an active policy set evaluating permissions to a Provider API based on a Consumer API subject and a set of scopes. We’ll now want to use the policy to validate the requests made by the Consumer API.
 
@@ -193,7 +193,7 @@ In this section, set the following configuration:
 
 These should look familiar to you \- they’re the Scripts we made back in the Prerequisite steps\! By adding these scripts, we are now directing additional scopes not defined on the consumer’s Client to be validated with the Policy Engine.
 
-# Testing the Approach {#testing-the-approach}
+# Testing the Approach
 
 To test this approach, we’ll generate an access token using the Consumer API’s client credentials with the Provider API’s scope and then introspect the token.
 
@@ -344,11 +344,11 @@ After introspecting your generated token, you’ll see that the scope in the res
 }
 ```
 
-# Conclusion {#conclusion}
+# Conclusion
 
 By using the Policy Engine, we can create Policy Sets grouped by API or Service with fine-grained control over scopes by Subject or Subjects. Scopes can be controlled in a centralized location and be updated on the fly without requiring the Consuming Client to have any knowledge of the additional permissions or storing multiple Client IDs and Secrets.
 
-# Next Steps {#next-steps}
+# Next Steps
 
 While this document provides a demonstrative approach to this concept, there are a few considerations to make when looking to productionalize.
 

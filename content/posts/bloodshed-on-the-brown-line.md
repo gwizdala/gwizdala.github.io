@@ -8,7 +8,7 @@ categories: ["Fun & Games"]
 tags: ["Murder Mystery", "Party Games", "Game Guide"]
 types: ["Creativity"]
 cover:
-  image: "/posts/images/bloodshed-on-the-brown-line.png"
+  image: "img/bloodshed-on-the-brown-line.png"
   alt:
   caption:
   relative: false

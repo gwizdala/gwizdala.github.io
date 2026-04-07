@@ -8,7 +8,7 @@ categories: ["Fun & Games"]
 tags: ["Tabletop RPG", "Party Games", "Game Guide"]
 types: ["Creativity"]
 cover:
-  image: "/posts/images/bridezillas.png"
+  image: "img/bridezillas.png"
   alt: The Bridezillas Logo
   caption:
   relative: false

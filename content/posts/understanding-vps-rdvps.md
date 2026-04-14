@@ -356,6 +356,8 @@ The concepts above can be chained together. Perhaps I want to reference data not
 
 You can see an example of a complex Referenced Relationship Field in action on the `effectiveAssignments` property. This property is looking at both the assignments on the user but also the assignments on the roles related to that user, since roles have their own assignments.
 
+> **Why do the documentation examples not show nested arrays?** As RDVPs evolved, they went from referencing a single object relationship, to being able to traverse from one relationship to another in the chain, to being able to reference multiple relationships and relationship chains simultaneously. While a single array of values is a valid approach, it doesn’t account for the newer capabilities added to RDVPs.
+
 ### Referenced Object Fields
 
 The **Referenced Object Fields** define **what data is to be gathered from the referenced relationship(s) to create the RDVP.** This is a comma-separated list of properties that exist on the referenced relationship fields.
@@ -367,6 +369,8 @@ Now, let’s say that you wanted to get **all** of the information on your manag
 It’s likely you don’t need all of that information. Instead, let’s just get the email address of your manager. Your referenced object field would be `mail`.
 
 Now RDVPs get interesting when you start traversing more than one layer in your relationship. What if you wanted the email addresses of **all** of your managers, i.e. your manager’s manager, your manager’s manager’s manager, and so on?
+
+Firstly, you could specify a depth of traversal by modifying your referenced relationship field. If you are always getting your manager’s manager’s email address, your Referenced Relationship field would look like `["manager", "manager"]`.
 
 Since the referenced object field references your relationship’s property, and an RDVP itself is a static property, **you can reference RDVPs as a reference object field in an RDVP**. So if you wanted to get all of your manager’s emails in the hierarchy and your RDVP is called `managerEmails`, your referenced object fields would be `mail, managerEmails`.
 
@@ -474,10 +478,10 @@ Let’s look at a more complicated real-world example: `effectiveAssignments`.
 
 Effective Assignments lists **all assignments tied to a user**. Assignments can be directly assigned to a user (via the `assignments` relationship) but they can also be assigned to a role which then is assigned to a user (via the `roles` relationship). As a result, effective assignments change if:
 
-* The user has linked or unlinked an assignment
-* The user has linked or unlinked a role
-* The **role linked to a user** has linked or unlinked an assignment
-* Any of the linked assignments have changed their properties
+* The user has added or removed an assignment relationship
+* The user has added or removed a role relationship
+* The **role related to a user** has added or removed an assignment relationship
+* Any of the related assignments have changed their properties
 
 Start by taking a look at the Query Configuration for `effectiveAssignments` on the user. You’ll see that it’s referencing both the assignments directly related to the user as well as the assignments tied to roles (`[["roles","assignments"],["assignments"]]`), and that it’s returning all the properties within the assignments (`*`). This definition should inform you that notifications will be occurring on the `user` (where this property is located), `roles`, and `assignments` and that we need to notify based on properties updating from `assignments` specifically.
 
@@ -582,6 +586,8 @@ The department will need to be notified in the following locations:
 2. When the **child** has assigned/unassigned a **parent**.
 
 First, in the parent relationship enable **Notify**. This tells the children to notify their parent to update when their relationship has changed. 
+
+> **Warning: Never set Notify on a non-reverse relationship. This will corrupt your managed JSON.**
 
 ![The edit resource details for the parent relationship in which the department is set to notify on modification](/img/understanding-vps-rdvps/parent-relationship-notify.png)
 *Notify on the Parent Department Relationship*
